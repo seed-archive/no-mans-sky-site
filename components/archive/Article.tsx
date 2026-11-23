@@ -207,12 +207,6 @@ export function Article(props: {
           mt: 0,
           mb: 1,
           py: 1,
-          scrollMarginTop: 80,
-          position: "sticky",
-          // The bar's height: the Toolbar's default and its bottom border.
-          top: { xs: 57, sm: 65 },
-          zIndex: 1,
-          bgcolor: "background.default",
         },
       }}
     >

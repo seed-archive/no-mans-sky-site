@@ -1,6 +1,8 @@
 "use client";
 
+import MuiLink from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
+import Link from "next/link";
 import Typography from "@mui/material/Typography";
 import { useQuery } from "@tanstack/react-query";
 import { notFound } from "next/navigation";
@@ -64,6 +66,11 @@ export function RecordScreen(props: {
       {record.data ? <RecordTrail asset={record.data} /> : null}
       {record.data ? <AssetCard asset={record.data} /> : null}
       {record.data ? <RecordNote asset={record.data} /> : null}
+      {record.data && kind === "planet" ? (
+        <MuiLink component={Link} href={`/tools/planet-globe?planet=${id}`}>
+          <FormattedMessage id="archive.globeLink" />
+        </MuiLink>
+      ) : null}
       {record.data && (kind === "planet" || kind === "building") ? (
         <ItemTabs
           anchor={{ ancestorId: id }}

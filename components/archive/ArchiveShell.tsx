@@ -2,6 +2,7 @@
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import GlobalStyles from "@mui/material/GlobalStyles";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -9,7 +10,7 @@ import NextLink from "next/link";
 import type { PropsWithChildren, ReactNode } from "react";
 import { FormattedMessage } from "react-intl";
 
-import { ArchiveBar } from "@/components/archive/ArchiveBar";
+import { ArchiveBar, BAR_HEIGHT } from "@/components/archive/ArchiveBar";
 import { PAGE_KINDS } from "@/lib/archive/kinds";
 import statisticsMenu from "@/lib/archive/statistics-menu.json";
 import { TOOLS } from "@/lib/archive/tools";
@@ -95,6 +96,9 @@ const COLUMNS: Column[] = [
   },
 ];
 
+// Air between the sticky bar and an anchor scrolled under it, pixels (our own choice).
+const ANCHOR_GAP = 8;
+
 export function ArchiveShell({ children }: PropsWithChildren) {
   return (
     <Box
@@ -104,6 +108,17 @@ export function ArchiveShell({ children }: PropsWithChildren) {
         minHeight: "100vh",
       }}
     >
+      {/* Every anchor scrolls below the sticky bar, whatever element it names. */}
+      <GlobalStyles
+        styles={(theme) => ({
+          html: {
+            scrollPaddingTop: BAR_HEIGHT.xs + ANCHOR_GAP,
+            [theme.breakpoints.up("sm")]: {
+              scrollPaddingTop: BAR_HEIGHT.sm + ANCHOR_GAP,
+            },
+          },
+        })}
+      />
       <ArchiveBar />
       <Container component="main" sx={{ py: 4, flexGrow: 1 }}>
         {children}

@@ -9,6 +9,10 @@
 - [Living ships](/tools/living-ship-finder) and [living frigates](/tools/living-frigate-finder): the shapes of a living ship and of a cosmic whale.
 - [Starships](/tools/starship-finder): every shape of every ship type: exotic (the rare squid included), solar, Fighter, hauler, explorer, and shuttle.
 
+## Planets
+
+- [Planet globe](/tools/planet-globe): turn a planet of the catalog, its land, seas, and mountains, with every find marked where it stands.
+
 ## Your finds
 
 - [How lucky am I?](/tools/how-lucky-am-i): a score from 0 to 100 for a multitool, a staff, or a ship you found.

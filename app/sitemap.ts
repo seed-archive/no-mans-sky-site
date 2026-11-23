@@ -97,6 +97,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "/tools/living-ship-finder",
       "/tools/living-frigate-finder",
       "/tools/starship-finder",
+      "/tools/planet-globe",
       "/tools/refiner-recipes",
       "/tools/cooking-recipes",
       "/tools/crafting-recipes",
