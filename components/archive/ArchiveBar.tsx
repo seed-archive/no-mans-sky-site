@@ -32,8 +32,8 @@ import { QUESTS_PATH } from "@/lib/archive/guides";
 import { TOOLS } from "@/lib/archive/tools";
 
 // The header's links stand in the drawer below this width.
-// The bar's height, pixels: the Toolbar's default and its bottom border. A sticky
-// heading stands under it, and an anchor scrolls below it.
+// The bar's height, pixels: the Toolbar's default and its bottom border. An anchor
+// scrolls below it.
 export const BAR_HEIGHT = { xs: 57, sm: 65 };
 
 const DESKTOP = {

@@ -197,6 +197,9 @@ const RULES: Record<string, Record<string, Plan>> = {
     values: NONE,
     waterworld: { columns: ["Shallow water", "Deep water"] },
   },
+  // Events that go well are keyed by three columns at once (hidden difficulty,
+  // frigates, their stat): no one axis of labels draws them, so the table alone.
+  frigates: { success: NONE },
   "fossil-collector": {
     displays: NONE,
   },

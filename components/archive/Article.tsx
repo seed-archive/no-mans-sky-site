@@ -15,12 +15,7 @@ import type { ReactNode } from "react";
 import { FormattedMessage } from "react-intl";
 import { AnchorHeadings } from "@seed-archive/ui/anchor-heading";
 
-import { BAR_HEIGHT } from "@/components/archive/ArchiveBar";
 import { galaxyHref } from "@/lib/archive/galaxies";
-
-// The sticky section heading's height, pixels: one line of h5 and its padding (our own
-// measure; a heading that wraps on a phone stands taller).
-const STICKY_HEADING = 48;
 
 type Row = { key: string; cells: ReactNode[] };
 
@@ -212,13 +207,7 @@ export function Article(props: {
           mt: 0,
           mb: 1,
           py: 1,
-          position: "sticky",
-          top: BAR_HEIGHT,
-          zIndex: 1,
-          bgcolor: "background.default",
         },
-        // A sub-heading's anchor scrolls below the sticky section heading too.
-        "& h3[id]": { scrollMarginTop: STICKY_HEADING },
       }}
     >
       <Stack spacing={2.5}>
