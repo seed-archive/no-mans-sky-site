@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/archive/LocalLink";
 import MuiLink from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -23,6 +23,7 @@ import {
   SentinelRender,
   SentinelShields,
 } from "@/components/archive/ShipRender";
+import { useText } from "@/components/archive/useText";
 import statisticsMenu from "@/lib/archive/statistics-menu.json";
 import { groupPath, guidePath } from "@/lib/archive/guides";
 import type { StatTable, Topic } from "@/lib/archive/statistics";
@@ -220,6 +221,7 @@ export function TopicList(props: {
     pages: { slug: string; title: string; href: string }[];
   };
 }) {
+  const text = useText();
   const factOf = new Map(props.topics.map((row) => [row.slug, row.fact]));
   const groups = props.section
     ? [{ slug: "", ...props.section }]
@@ -239,7 +241,7 @@ export function TopicList(props: {
         <Stack key={group.slug || group.title} spacing={1.5}>
           {own ? (
             <Typography variant="h3" component="h1">
-              {group.title}
+              {text(group.title)}
             </Typography>
           ) : (
             <MuiLink
@@ -249,14 +251,14 @@ export function TopicList(props: {
               underline="hover"
               color="text.primary"
             >
-              {group.title}
+              {text(group.title)}
             </MuiLink>
           )}
           <Stack component="ul" spacing={2} sx={{ p: 0, m: 0 }}>
             {group.pages.map((page) => (
               <Stack key={page.slug} component="li" sx={{ listStyle: "none" }}>
                 <MuiLink component={Link} href={page.href} variant="h6">
-                  {page.title}
+                  {text(page.title)}
                 </MuiLink>
                 {props.questions[page.slug] && (
                   <Typography variant="body2" sx={{ fontWeight: 700 }}>

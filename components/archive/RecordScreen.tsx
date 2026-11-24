@@ -2,7 +2,7 @@
 
 import MuiLink from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import Link from "next/link";
+import Link from "@/components/archive/LocalLink";
 import Typography from "@mui/material/Typography";
 import { useQuery } from "@tanstack/react-query";
 import { notFound } from "next/navigation";

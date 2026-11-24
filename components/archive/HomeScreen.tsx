@@ -12,9 +12,8 @@ import { Fragment, useEffect, type ReactNode } from "react";
 import { FormattedMessage } from "react-intl";
 import { useSnackbar } from "notistack";
 
-import Link from "next/link";
+import Link from "@/components/archive/LocalLink";
 
-import { DonationBlock } from "@/components/archive/DonationBlock";
 import { LikeButton } from "@/components/archive/LikeButton";
 import { link } from "@/components/archive/RecordNote";
 import { guidePath } from "@/lib/archive/guides";
@@ -64,7 +63,6 @@ export function HomeScreen(props: { confession: string }) {
           {section.id === "galaxies" ? <Confession html={confession} /> : null}
         </Fragment>
       ))}
-      <DonationBlock />
     </Stack>
   );
 }
@@ -136,6 +134,7 @@ function FeedBlock(props: { section: FeedSection; title: string }) {
                   ? { xs: 12, md: 6 }
                   : { xs: 12, sm: 6, md: 4, lg: 3 }
               }
+              sx={{ display: "flex" }}
             >
               <FeedCard row={row} />
             </Grid>
@@ -147,11 +146,16 @@ function FeedBlock(props: { section: FeedSection; title: string }) {
 }
 
 // One home-page card: the picture, then the name with the like button beside
-// it (galaxies have none).
+// it (galaxies have none). The card fills its grid item and the name takes the
+// space left, so every card of a row is as tall as the tallest, a name of two
+// lines included (the owner, 2026-11-24, as the portal's game cards).
 function FeedCard(props: { row: CatalogRow }) {
   const { row } = props;
   return (
-    <Card variant="outlined">
+    <Card
+      variant="outlined"
+      sx={{ display: "flex", flexDirection: "column", width: "100%" }}
+    >
       <CardActionArea component={Link} href={`/${row.kind}/${row.id}`}>
         <CardMedia
           component="img"
@@ -161,7 +165,7 @@ function FeedCard(props: { row: CatalogRow }) {
           sx={{ objectFit: "cover" }}
         />
       </CardActionArea>
-      <CardContent sx={{ py: 1, "&:last-child": { pb: 1 } }}>
+      <CardContent sx={{ flex: 1, py: 1, "&:last-child": { pb: 1 } }}>
         <Stack direction="row" sx={{ alignItems: "center" }}>
           <Typography
             variant="h6"

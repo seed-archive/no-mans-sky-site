@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { LANGUAGES } from "@/lib/i18n/languages";
 import { BASE_PATH } from "@/lib/site";
 
 // Served at /no-mans-sky/robots.txt; the domain's /robots.txt redirects here
@@ -12,7 +13,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: [`${BASE_PATH}/likes`],
+      // A reader's likes, in every language (D20).
+      disallow: LANGUAGES.map((language) => `${BASE_PATH}/${language}/likes`),
     },
     sitemap: `${base}/sitemap.xml`,
   };

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/archive/LocalLink";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import MuiLink from "@mui/material/Link";

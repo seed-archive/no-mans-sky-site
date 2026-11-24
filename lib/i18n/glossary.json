@@ -1,0 +1,69 @@
+{
+  "slot": {
+    "es": { "use": "espacio", "avoid": ["ranura"] },
+    "de": { "use": "Platz", "avoid": ["Slot"] },
+    "ru": { "use": "ячейка", "avoid": ["слот"] }
+  },
+  "spot": {
+    "es": { "use": "lugar", "avoid": ["puntos por planeta"] },
+    "de": { "use": "Fundort", "avoid": ["Plätze pro Planet"] }
+  },
+  "interceptor": {
+    "de": { "use": "Abfangjäger", "avoid": ["Interceptor"] }
+  },
+  "lush galaxy": {
+    "es": {
+      "use": "galaxia exuberante",
+      "avoid": ["galaxia rica", "galaxias ricas"]
+    }
+  },
+  "shop": {
+    "de": { "use": "Shop", "avoid": ["Laden"] }
+  },
+  "median system": {
+    "es": {
+      "use": "en la mediana, un sistema",
+      "avoid": ["sistema mediano", "vóxel mediano"]
+    },
+    "de": { "use": "typisches System (Median)", "avoid": ["System im Median"] }
+  },
+  "Pirate Controlled": {
+    "es": {
+      "use": "Piratas bajo control",
+      "avoid": ["Controlado por piratas"]
+    },
+    "de": { "use": "Piratenkontrolliert", "avoid": ["Raubkopiert"] }
+  },
+  "coger": {
+    "es": { "use": "tomar", "avoid": ["coger", "coge", "cógelo", "cogerlo"] }
+  },
+  "address": {
+    "de": { "use": "du", "avoid": ["Ihre", "Ihren", "Ihrem", "Ihnen"] },
+    "ru": {
+      "use": "вы",
+      "avoid": [
+        "ты",
+        "Ты",
+        "тебя",
+        "тебе",
+        "тобой",
+        "твой",
+        "Твой",
+        "твоя",
+        "твоё",
+        "твое",
+        "твои",
+        "Твои",
+        "твоего",
+        "твоей",
+        "твою",
+        "твоим",
+        "твоих",
+        "твоими"
+      ]
+    }
+  },
+  "seed": {
+    "ru": { "use": "сид", "avoid": ["Зерно мира", "зерно мира"] }
+  }
+}

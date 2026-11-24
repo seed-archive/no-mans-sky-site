@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import { useRouter } from "next/navigation";
+import { useLocalRouter } from "@/components/providers/LanguageProvider";
 import { Controller, useForm, type Control } from "react-hook-form";
 import { FormattedMessage, useIntl } from "react-intl";
 
@@ -38,7 +38,7 @@ export function CatalogFilters(props: {
 
 function CatalogFiltersForm(props: { pathname: string; query: CatalogQuery }) {
   const { pathname, query } = props;
-  const router = useRouter();
+  const router = useLocalRouter();
   const intl = useIntl();
   const fields = filtersFor(query.kinds);
   const { control, getValues, handleSubmit } = useForm<CatalogQuery>({

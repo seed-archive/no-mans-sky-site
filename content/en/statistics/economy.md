@@ -16,7 +16,7 @@ The median stays between {{economyLow}} and {{economyHigh}} tools in a system, w
 
 <!-- widget:economy -->
 
-Classes do not follow the type either. Only pirate and abandoned systems move them, and an uncharted one pays no tool at all. Uncharted means a system with no lifeform, no space station, and no shop or monolith.
+Classes do not follow the type either. Only pirate and abandoned systems move them, and an Uncharted one pays no tool at all. Uncharted means a system with no lifeform, no space station, and no shop or monolith.
 
 <!-- widget:classes -->
 

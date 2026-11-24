@@ -2,11 +2,18 @@
 
 import Autocomplete from "@mui/material/Autocomplete";
 import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import Tooltip from "@mui/material/Tooltip";
+import SignalCellularAlt from "@mui/icons-material/SignalCellularAlt";
+import SignalCellularAlt1Bar from "@mui/icons-material/SignalCellularAlt1Bar";
+import SignalCellularAlt2Bar from "@mui/icons-material/SignalCellularAlt2Bar";
 import Typography from "@mui/material/Typography";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
+import { useLocalRouter } from "@/components/providers/LanguageProvider";
 import { useEffect, useMemo, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import type { GlobeClient } from "@seed-archive/globe/client";
@@ -31,6 +38,16 @@ const DOT_BARE = { radius: 4, fill: "#c9d1d9" };
 const CLOSEST_PIXEL = 16;
 // The package's tile, pixels a side.
 const TILE = 256;
+// The graphics switch: the most samples a pixel side `globeFace` takes, 1 to 3 (the generator's
+// docs/planet/globe.md); fewer draw the planet faster and rougher.
+const GRAPHICS = { high: 3, medium: 2, low: 1 } as const;
+type Samples = (typeof GRAPHICS)[keyof typeof GRAPHICS];
+// Each level with its icon, the most bars the best graphics, highest first.
+const GRAPHIC_LEVELS = [
+  ["High", GRAPHICS.high, SignalCellularAlt],
+  ["Medium", GRAPHICS.medium, SignalCellularAlt2Bar],
+  ["Low", GRAPHICS.low, SignalCellularAlt1Bar],
+] as const;
 
 // How deep the globe splits a face for a planet of `radius` metres: a face spans about a quarter of its
 // circumference, and depth d cuts it into 2^d tiles of `TILE` pixels.
@@ -92,13 +109,15 @@ type PointMarker = GlobeMarker & { href: string | null };
 // the address (`?planet=`), so a planet's page links to its globe.
 function Finder(props: { planets: GlobePlanet[]; planet: string | null }) {
   const { planets } = props;
-  const router = useRouter();
+  const router = useLocalRouter();
   const intl = useIntl();
   const planet =
     planets.find((one) => one.id === props.planet) ?? planets[0] ?? null;
   const client = useGlobeClient();
   const seed = planet?.locator ?? null;
   const asked = usePlanet(client, seed);
+  // Medium first; the reader may raise it for detail or lower it to draw faster (the owner, 2026-11-24).
+  const [samples, setSamples] = useState<Samples>(GRAPHICS.medium);
   const surface = useMemo(
     () =>
       client && asked
@@ -108,9 +127,10 @@ function Finder(props: { planets: GlobePlanet[]; planet: string | null }) {
             seed: asked.seed,
             palette: asked.palette,
             maxDepth: asked.maxDepth,
+            samples,
           }
         : null,
-    [client, asked],
+    [client, asked, samples],
   );
   const markers = useMemo<PointMarker[]>(
     () =>
@@ -146,7 +166,10 @@ function Finder(props: { planets: GlobePlanet[]; planet: string | null }) {
       />
       <Box
         sx={{
+          position: "relative",
           height: { xs: 360, sm: 520 },
+          // Space at once, while three.js and the planet still load.
+          bgcolor: SPACE,
           borderRadius: 1,
           overflow: "hidden",
         }}
@@ -163,7 +186,52 @@ function Finder(props: { planets: GlobePlanet[]; planet: string | null }) {
               }
             }}
           />
-        ) : null}
+        ) : (
+          // The planet's palette and radius are still on their way; the package's own spinner takes over once
+          // it draws.
+          <Box
+            sx={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <CircularProgress sx={{ color: "grey.500" }} />
+          </Box>
+        )}
+        {/* The graphics switch on the map itself, as a map's own control (the owner, 2026-11-24). */}
+        <ToggleButtonGroup
+          orientation="vertical"
+          size="small"
+          exclusive
+          value={samples}
+          aria-label={intl.formatMessage({ id: "archive.globeGraphics" })}
+          onChange={(_event, value: Samples | null) => {
+            if (value) {
+              setSamples(value);
+            }
+          }}
+          sx={{
+            position: "absolute",
+            top: 8,
+            right: 8,
+            bgcolor: "background.paper",
+            boxShadow: 2,
+          }}
+        >
+          {GRAPHIC_LEVELS.map(([level, value, Icon]) => {
+            const label = `${intl.formatMessage({ id: "archive.globeGraphics" })}: ${intl.formatMessage({ id: `archive.globe${level}` })}`;
+            return (
+              <ToggleButton key={level} value={value} aria-label={label}>
+                <Tooltip title={label} placement="left">
+                  <Icon fontSize="small" />
+                </Tooltip>
+              </ToggleButton>
+            );
+          })}
+        </ToggleButtonGroup>
       </Box>
       <Typography variant="body2" color="text.secondary">
         <FormattedMessage id="archive.globeNote" />

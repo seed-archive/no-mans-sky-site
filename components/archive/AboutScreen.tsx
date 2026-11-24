@@ -174,7 +174,7 @@ function Sources() {
     ["Monoliths", spots.monolith],
     ["Robot heads", spots.head],
     ["Sentinel pillars", spots.pillar],
-    ["Harmonic camps", spots.camp],
+    ["Harmonic Camps", spots.camp],
     ["Space stations", spots.station / euclid.planets_per_system],
   ];
   // Fewest first: this table is no step of the funnel (the owner, 2026-11-04).

@@ -1,6 +1,6 @@
 # Where to look
 
-**Where in a galaxy should you look for class S items?** Anywhere you like: there is no golden ring. Tools grow all the way out: a median system at the core offers {{innerTools}} against {{outerTools}} at the rim, and {{innerUncharted}} of core systems are Uncharted, against {{outerUncharted}}. Wealth moves what you find far more than distance does, so pick a system for its [wealth](/guides/economy), not for how far out it lies.
+**Where in a galaxy should you look for class S items?** Anywhere you like: there is no golden ring. Tools grow all the way out: a median system at the core offers {{innerTools}} tools against {{outerTools}} at the rim, and {{innerUncharted}} of core systems are Uncharted, against {{outerUncharted}}. Wealth moves what you find far more than distance does, so pick a system for its [wealth](/guides/economy), not for how far out it lies.
 
 ## Rings of the galaxy
 
