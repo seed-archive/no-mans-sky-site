@@ -8,6 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import { FormattedMessage } from "react-intl";
 
+import { recordPath } from "@/lib/archive/paths";
 import type { CatalogRow } from "@/lib/archive/read";
 
 export function CatalogList(props: { rows: CatalogRow[] }) {
@@ -23,7 +24,7 @@ export function CatalogList(props: { rows: CatalogRow[] }) {
     <List>
       {rows.map((row) => (
         <ListItem key={row.id} disablePadding>
-          <ListItemButton component={Link} href={`/${row.kind}/${row.id}`}>
+          <ListItemButton component={Link} href={recordPath(row.kind, row.id)}>
             <ListItemText primary={row.name} />
           </ListItemButton>
         </ListItem>

@@ -12,7 +12,7 @@ Adjacent means the four supercharged slots a ship holds at class S form one figu
 
 <!-- widget:hulls -->
 
-Each type in the catalog: {{catalogShips}}.
+Each type in the database: {{catalogShips}}.
 
 ## By source
 

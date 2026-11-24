@@ -4,6 +4,7 @@ import path from "node:path";
 import { marked } from "marked";
 
 import { longGuideLinks, questionOf } from "@/lib/archive/guides";
+import { longArchiveLinks } from "@/lib/archive/paths";
 import type { Language } from "@/lib/i18n/languages";
 import { pageLanguage } from "@/lib/i18n/page";
 import { BASE_PATH } from "@/lib/site";
@@ -23,7 +24,9 @@ export async function readContent(name: string) {
 
 async function rendered(name: string, language: Language) {
   const file = path.join(process.cwd(), "content", language, `${name}.md`);
-  return marked.parse(longGuideLinks(await readFile(file, "utf8")));
+  return marked.parse(
+    longArchiveLinks(longGuideLinks(await readFile(file, "utf8"))),
+  );
 }
 
 const HEADING = /<h([2-4])>(.*?)<\/h\1>/g;

@@ -8,6 +8,7 @@ import { FormattedMessage } from "react-intl";
 
 import type { AssetCard } from "@/lib/archive/read";
 import { guidePath } from "@/lib/archive/guides";
+import { toolPath } from "@/lib/archive/paths";
 
 // A link for a rich message of react-intl: <tag>words</tag>.
 export function link(href: string) {
@@ -21,8 +22,8 @@ export function link(href: string) {
 }
 
 const TOOLS = {
-  lucky: link("/tools/how-lucky-am-i"),
-  finder: link("/tools/interceptor-finder"),
+  lucky: link(toolPath("how-lucky-am-i")),
+  finder: link(toolPath("interceptor-finder")),
 };
 
 // Every guide a note can lead to, by the tag its messages use.

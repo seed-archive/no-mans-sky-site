@@ -16,4 +16,4 @@ Von 256 Galaxien sind {{normal}} Normal, {{lush}} Fruchtbar, {{harsh}} Rau und {
 
 <!-- widget:ring -->
 
-Die Wahl der Galaxie ist der erste Schnitt, und der Katalog listet die [Galaxien](/galaxy) mit ihrem Typ auf. Innerhalb der Galaxie lautet die Frage dann, [wo du suchen solltest](/guides/where-to-look).
+Die Wahl der Galaxie ist der erste Schnitt, und die Datenbank listet die [Galaxien](/galaxy) mit ihrem Typ auf. Innerhalb der Galaxie lautet die Frage dann, [wo du suchen solltest](/guides/where-to-look).

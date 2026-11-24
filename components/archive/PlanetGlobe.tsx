@@ -20,6 +20,7 @@ import type { GlobeClient } from "@seed-archive/globe/client";
 import type { GlobeMarker } from "@seed-archive/globe/globe";
 
 import { Article } from "@/components/archive/Article";
+import { toolPath } from "@/lib/archive/paths";
 import type { GlobePlanet } from "@/lib/archive/read/globe";
 import { BASE_PATH } from "@/lib/site";
 
@@ -153,7 +154,7 @@ function Finder(props: { planets: GlobePlanet[]; planet: string | null }) {
         isOptionEqualToValue={(option, value) => option.id === value.id}
         disableClearable
         onChange={(_event, value) =>
-          router.replace(`/tools/planet-globe?planet=${value.id}`, {
+          router.replace(`${toolPath("planet-globe")}?planet=${value.id}`, {
             scroll: false,
           })
         }

@@ -21,6 +21,6 @@
 
 ## Planets
 
-- [Planet globe](/tools/planet-globe): turn a planet of the catalog, its land, seas, and mountains, with every find marked where it stands.
+- [Planet globe](/tools/planet-globe): turn a planet of the database, its land, seas, and mountains, with every find marked where it stands.
 
 What the numbers behind these tools mean is in the [guides](/guides).

@@ -10,18 +10,6 @@ export const KINDS = [
 
 export type Kind = (typeof KINDS)[number];
 
-// The words a search uses, for page titles. Every ship on the site is a
-// wreck, and every building a space station.
-export const KIND_TITLES: Record<Kind, { one: string; many: string }> = {
-  galaxy: { one: "Galaxy", many: "Galaxies" },
-  system: { one: "Star system", many: "Star systems" },
-  planet: { one: "Planet", many: "Planets" },
-  building: { one: "Space station", many: "Space stations" },
-  ship: { one: "Crashed ship", many: "Crashed ships" },
-  tool: { one: "Multitool", many: "Multitools" },
-  creature: { one: "Creature", many: "Creatures" },
-};
-
 // The title and description of each catalog list, in the words players search.
 export const CATALOG_PAGES: Record<
   Kind,

@@ -12,7 +12,7 @@ Adyacentes significa que los cuatro espacios supercargados que tiene una nave en
 
 <!-- widget:hulls -->
 
-Cada tipo en el catálogo: {{catalogShips}}.
+Cada tipo en la base de datos: {{catalogShips}}.
 
 ## Por fuente
 

@@ -1,6 +1,6 @@
 # Schiffsklassen
 
-**Wie findest du ein abgestürztes Schiff der Klasse S?** Such in einem Piratensystem: {{pirateS}} seiner Wracks sind Klasse S, gegenüber {{highS}} bei hohem Reichtum und keinem bei niedrigem. Oder halte nach einem exotischen Schiff Ausschau: Es ist in {{exoticS}} der Fälle Klasse S. Transporter sind es in {{haulerS}} der Fälle, und Entdecker fast nie: {{explorerOneIn}}. Ein Wurf legt sowohl den Typ als auch die Klasse eines Schiffs fest, also neigt jeder Typ zu den Klassen, die seinen Teil des Wurfs teilen. Die [abgestürzten Schiffe](/ship) des Katalogs kommen mit den Portalglyphen jedes Wracks.
+**Wie findest du ein abgestürztes Schiff der Klasse S?** Such in einem Piratensystem: {{pirateS}} seiner Wracks sind Klasse S, gegenüber {{highS}} bei hohem Reichtum und keinem bei niedrigem. Oder halte nach einem exotischen Schiff Ausschau: Es ist in {{exoticS}} der Fälle Klasse S. Transporter sind es in {{haulerS}} der Fälle, und Entdecker fast nie: {{explorerOneIn}}. Ein Wurf legt sowohl den Typ als auch die Klasse eines Schiffs fest, also neigt jeder Typ zu den Klassen, die seinen Teil des Wurfs teilen. Die [abgestürzten Schiffe](/ship) der Datenbank kommen mit den Portalglyphen jedes Wracks.
 
 ## Was die Klasse festlegt
 

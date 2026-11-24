@@ -1,13 +1,12 @@
 import { Article } from "@/components/archive/Article";
 import { Trail } from "@/components/archive/Trail";
 import { readContent } from "@/lib/archive/content";
+import { TOOLS_PATH } from "@/lib/archive/paths";
+import { messageOf } from "@/lib/i18n/messages";
 import { localMetadata, requireTranslation } from "@/lib/i18n/page";
 
-const PATH = "/tools";
-const TRAIL = [{ name: "Home", href: "/" }, { name: "Tools" }];
-
 export function generateMetadata() {
-  return localMetadata(PATH, {
+  return localMetadata(TOOLS_PATH, {
     title:
       "No Man's Sky tools: ship builders, luck score, and recipes — Seed Archive",
     description:
@@ -16,10 +15,14 @@ export function generateMetadata() {
 }
 
 export default async function ToolsPage() {
-  await requireTranslation(PATH);
+  const language = await requireTranslation(TOOLS_PATH);
+  const trail = [
+    { name: messageOf(language, "archive.home"), href: "/" },
+    { name: messageOf(language, "archive.tools") },
+  ];
   return (
     <>
-      <Trail steps={TRAIL} />
+      <Trail steps={trail} />
       <Article html={await readContent("tools")} widgets={{}} />
     </>
   );

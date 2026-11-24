@@ -2,7 +2,7 @@
 
 **Where do you find a class S multitool?** In medium, high, and pirate wealth systems. A low wealth system holds no class S tool, {{lowS}}, and an Uncharted one pays no tool at all. Medium wealth gives {{mediumS}}, high {{highS}}, and pirate {{pirateS}}. Pirate systems are also the most class C of all, {{pirateC}}, against {{highC}} at high wealth.
 
-[Wealth](/guides/economy) sets the odds, and the source does not: shops, monoliths, camps, and pillars pay the same four classes. Royal tools are the exception, as [multitool types](/guides/multitool-types) shows. The catalog lists [multitools with adjacent supercharged slots](/tool), each with the portal glyphs to pick it up.
+[Wealth](/guides/economy) sets the odds, and the source does not: shops, monoliths, camps, and pillars pay the same four classes. Royal tools are the exception, as [multitool types](/guides/multitool-types) shows. The database lists [multitools with adjacent supercharged slots](/tool), each with the portal glyphs to pick it up.
 
 ## By wealth
 

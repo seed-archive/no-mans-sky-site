@@ -2,7 +2,7 @@
 
 **Wo findest du ein Multiwerkzeug der Klasse S?** In Systemen mit mittlerem und hohem Reichtum und in Piratensystemen. Ein System mit niedrigem Reichtum hat kein Werkzeug der Klasse S, {{lowS}}, und ein unerforschtes zahlt überhaupt kein Werkzeug. Mittlerer Reichtum gibt {{mediumS}}, hoher {{highS}} und ein Piratensystem {{pirateS}}. Piratensysteme haben auch am meisten Klasse C von allen, {{pirateC}}, gegenüber {{highC}} bei hohem Reichtum.
 
-Der [Reichtum](/guides/economy) legt die Chancen fest, die Quelle nicht: Shops, Monolithen, Lager und Säulen zahlen dieselben vier Klassen. Königliche Werkzeuge sind die Ausnahme, wie [Multiwerkzeug-Typen](/guides/multitool-types) zeigt. Der Katalog listet [Multiwerkzeuge mit benachbarten turbogeladenen Plätzen](/tool) auf, jedes mit den Portalglyphen, um es abzuholen.
+Der [Reichtum](/guides/economy) legt die Chancen fest, die Quelle nicht: Shops, Monolithen, Lager und Säulen zahlen dieselben vier Klassen. Königliche Werkzeuge sind die Ausnahme, wie [Multiwerkzeug-Typen](/guides/multitool-types) zeigt. Die Datenbank listet [Multiwerkzeuge mit benachbarten turbogeladenen Plätzen](/tool) auf, jedes mit den Portalglyphen, um es abzuholen.
 
 ## Nach Reichtum
 

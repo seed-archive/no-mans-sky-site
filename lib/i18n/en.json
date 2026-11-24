@@ -112,7 +112,7 @@
     "tourInMenu": "You will find it in this menu.",
     "tourSwitchTitle": "Chart or table",
     "tourSwitch": "Each block of numbers has two views. This switch moves between the chart and the table.",
-    "tourEncyclopediaTitle": "Catalog",
+    "tourEncyclopediaTitle": "Database",
     "tourEncyclopedia": "Every multitool, ship, creature, system, and planet we list, with what it holds.",
     "tourStatisticsTitle": "Guides",
     "tourStatistics": "One question per page, from the galaxy down to the creature: where to look and what to expect.",
@@ -157,7 +157,7 @@
     "noteSystem": "What a <systems>star system</systems> holds, and which <economy>economy</economy> pays best, are in the guides.",
     "notePlanet": "Which <types>type of planet</types> holds the most spots, and where to find <dissonance>dissonance</dissonance>, are in the guides.",
     "homeTitle": "How to get the best item in No Man's Sky",
-    "homeLead": "<b>Where is the best multitool, ship, or creature?</b> In the catalog below: every <tools>multitool</tools> and every <ships>crashed ship</ships> whose four supercharged slots at class S are adjacent, and every <creatures>creature</creatures> you can adopt whose three grades are S, each with the portal glyphs and coordinates to get there. The <guides>guides</guides> tell where each kind of item comes from, from the galaxy down to the planet; the newest, the <forsaken>Forsaken Trader</forsaken>, shows where to find Haunting Mementos. The <toolsPage>tools</toolsPage> build what the game builds: every <capital>capital freighter</capital> shape, every <interceptor>Sentinel Interceptor</interceptor>, and <lucky>How lucky am I?</lucky> scores an item you found yourself. <about>How it works</about> tells why only a few systems make the list.",
+    "homeLead": "<b>Where is the best multitool, ship, or creature?</b> In the database below: every <tools>multitool</tools> and every <ships>crashed ship</ships> whose four supercharged slots at class S are adjacent, and every <creatures>creature</creatures> you can adopt whose three grades are S, each with the portal glyphs and coordinates to get there. The <guides>guides</guides> tell where each kind of item comes from, from the galaxy down to the planet; the newest, the <forsaken>Forsaken Trader</forsaken>, shows where to find Haunting Mementos. The <toolsPage>tools</toolsPage> build what the game builds: every <capital>capital freighter</capital> shape, every <interceptor>Sentinel Interceptor</interceptor>, and <lucky>How lucky am I?</lucky> scores an item you found yourself. <about>How it works</about> tells why only a few systems make the list.",
     "finderSearch": "Find a system",
     "searchRequestSoon": "Your request is recorded. Searching for a system is not built yet.",
     "finderColour": "Colour",
@@ -200,6 +200,7 @@
     "finderNoS": "This is a low <a>wealth</a> system, so you will not find a class S wreck here.",
     "statistics": "Guides",
     "guidesMenu": "Groups of the guides",
+    "databaseMenu": "Lists of the database",
     "quests": "Quests",
     "allQuests": "All quests",
     "linkCopied": "Link copied",
@@ -211,7 +212,7 @@
     "artemisPath": "The Artemis Path",
     "atlasPath": "The Atlas Path",
     "starbirth": "Starbirth",
-    "browse": "Catalog",
+    "browse": "Database",
     "yourLikes": "Your likes"
   },
   "kind": {
@@ -471,6 +472,27 @@
     "system": "Star systems",
     "planet": "Planets",
     "galaxy": "Galaxies"
+  },
+  "kindLine": {
+    "galaxy": "Every galaxy with its type and the star systems listed in it.",
+    "system": "The star systems of the listed finds: their star, economy, and space station.",
+    "planet": "The planets of those systems: biome, Sentinels, resources, and what each holds.",
+    "ship": "Crashed ships with four adjacent supercharged slots, with the portal glyphs and coordinates of each wreck.",
+    "tool": "Multitools and staffs with four adjacent supercharged slots at class S.",
+    "creature": "Creatures you can adopt whose three grades are S."
+  },
+  "toolLine": {
+    "interceptor-finder": "Put a Sentinel Interceptor together from every part the game can give it.",
+    "capital-freighter-finder": "Every shape a capital freighter can take.",
+    "freighter-finder": "Every shape a regular freighter can take.",
+    "living-ship-finder": "Every shape a living ship can take.",
+    "living-frigate-finder": "Every shape a living frigate, the cosmic whale, can take.",
+    "starship-finder": "Every shape of every ship type: exotic, solar, Fighter, hauler, explorer, and shuttle.",
+    "how-lucky-am-i": "A score from 0 to 100 for a multitool, a staff, or a ship you found.",
+    "refiner-recipes": "What the Portable, Medium, and Large Refiner make.",
+    "cooking-recipes": "Every dish, and the bonus it gives in the Nutrient Ingestor.",
+    "crafting-recipes": "Everything you craft by hand.",
+    "planet-globe": "Turn a planet of the Database, with every find marked where it stands."
   },
   "affinity": {
     "tropical": "Tropical",

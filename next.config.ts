@@ -4,8 +4,10 @@ import path from "node:path";
 
 import type { NextConfig } from "next";
 
+import { KINDS } from "./lib/archive/kinds";
+import { DATABASE_PATH, toolPath } from "./lib/archive/paths";
 import { TOOLS } from "./lib/archive/tools";
-import { DEFAULT_LANGUAGE } from "./lib/i18n/languages";
+import { DEFAULT_LANGUAGE, LANGUAGES } from "./lib/i18n/languages";
 import { BASE_PATH, LEGACY_HOST } from "./lib/site";
 
 // The guides menu the generator writes: each group and its guides.
@@ -25,10 +27,27 @@ const PORTAL_PAGES = ["privacy", "terms", "release-notes"];
 // The section's icons, the archive's sprout, served from app/ under the prefix.
 const ROOT_ICONS = ["favicon.ico", "icon.svg", "apple-icon.png"];
 
-// The tools, each at /tools/<slug> since 2026-11-16 and at /<slug> before.
-const TOOL_SLUGS = TOOLS.map((tool) => tool.href.replace(/^\/tools\//, ""));
+// The kinds of the Database and the languages, as alternatives of a pattern.
+const KIND_PATTERN = KINDS.join("|");
+const LANGUAGE_PATTERN = LANGUAGES.join("|");
 
-// The old paths of the guides, each to its page now, inside this section.
+// The paths that name a language and moved on 2026-11-24 (the owner): the
+// catalog went under /database, and each tool under its group. The language
+// stays.
+function languageMoves(): Move[] {
+  return [
+    {
+      source: `/:lang(${LANGUAGE_PATTERN})/:kind(${KIND_PATTERN})/:rest*`,
+      destination: `/:lang${DATABASE_PATH}/:kind/:rest*`,
+    },
+    ...TOOLS.map((tool) => ({
+      source: `/:lang(${LANGUAGE_PATTERN})/tools/${tool.slug}`,
+      destination: `/:lang${toolPath(tool.slug)}`,
+    })),
+  ];
+}
+
+// The old paths without a language, each to its page now, inside this section.
 // Statistics became Guides on 2026-11-03, and each guide moved under its group
 // on 2026-11-05: /guides/<slug> to /guides/<group>/<slug>. Where a group and a
 // guide share a word (galaxies, systems, freighters) the short path is now the
@@ -68,11 +87,20 @@ function guideMoves(): Move[] {
     // a header holds four questions, and farming answers "what pays best").
     { source: "/quests/farming", destination: long("farming") },
     // The tools moved under /tools on 2026-11-16 (the owner: a tool's address
-    // and trail name its section, as a guide's and a quest's do).
-    ...TOOL_SLUGS.map((slug) => ({
-      source: `/${slug}`,
-      destination: `/tools/${slug}`,
-    })),
+    // and trail name its section, as a guide's and a quest's do), and under
+    // their group on 2026-11-24.
+    ...TOOLS.flatMap((tool) =>
+      [`/${tool.slug}`, `/tools/${tool.slug}`].map((source) => ({
+        source,
+        destination: toolPath(tool.slug),
+      })),
+    ),
+    // The catalog became the Database on 2026-11-24: /<kind>[/<id>] to
+    // /database/<kind>[/<id>].
+    {
+      source: `/:kind(${KIND_PATTERN})/:rest*`,
+      destination: `${DATABASE_PATH}/:kind/:rest*`,
+    },
     ...guides.map((slug) => ({
       source: `/statistics/${slug}`,
       destination: long(slug),
@@ -185,10 +213,16 @@ function redirectList() {
       basePath: false as const,
       permanent: true,
     },
-    // An old guide's path without the prefix, straight to its page.
+    // An old path without the prefix, straight to its page.
     ...moves.map(({ source, destination }) => ({
       source,
       destination: `${home}${destination}`,
+      basePath: false as const,
+      permanent: true,
+    })),
+    ...languageMoves().map(({ source, destination }) => ({
+      source,
+      destination: `${BASE_PATH}${destination}`,
       basePath: false as const,
       permanent: true,
     })),
@@ -211,10 +245,17 @@ function redirectList() {
       destination: "/:path*",
       permanent: true,
     },
-    // The old guide paths inside this section.
+    // The old paths inside this section: without a language straight to the
+    // English page (the proxy would add the language in a second step), with
+    // one to the same language.
     ...moves.map(({ source, destination }) => ({
       source,
       destination: `/${DEFAULT_LANGUAGE}${destination}`,
+      permanent: true,
+    })),
+    ...languageMoves().map(({ source, destination }) => ({
+      source,
+      destination,
       permanent: true,
     })),
   ];

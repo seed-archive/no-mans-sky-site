@@ -112,7 +112,7 @@
     "tourInMenu": "Lo encontrarás en este menú.",
     "tourSwitchTitle": "Gráfico o tabla",
     "tourSwitch": "Cada bloque de números tiene dos vistas. Este interruptor cambia entre el gráfico y la tabla.",
-    "tourEncyclopediaTitle": "Catálogo",
+    "tourEncyclopediaTitle": "Base de datos",
     "tourEncyclopedia": "Cada multiherramienta, nave, criatura, sistema y planeta que listamos, con lo que contiene.",
     "tourStatisticsTitle": "Guías",
     "tourStatistics": "Una pregunta por página, desde la galaxia hasta la criatura: dónde buscar y qué esperar.",
@@ -157,7 +157,7 @@
     "noteSystem": "Qué contiene un <systems>sistema estelar</systems>, y qué <economy>economía</economy> paga mejor, está en las guías.",
     "notePlanet": "Qué <types>tipo de planeta</types> contiene más lugares, y dónde encontrar <dissonance>disonancia</dissonance>, está en las guías.",
     "homeTitle": "Cómo conseguir el mejor objeto en No Man's Sky",
-    "homeLead": "<b>¿Dónde está la mejor multiherramienta, nave o criatura?</b> En el catálogo de abajo: cada <tools>multiherramienta</tools> y cada <ships>nave accidentada</ships> cuyos cuatro espacios supercargados en la clase S son adyacentes, y cada <creatures>criatura</creatures> que puedes adoptar cuyos tres grados son S, cada una con los glifos de portal y las coordenadas para llegar. Las <guides>guías</guides> cuentan de dónde sale cada tipo de objeto, desde la galaxia hasta el planeta; la más reciente, la del <forsaken>comerciante abandonado</forsaken>, muestra dónde encontrar recuerdos inquietantes. Las <toolsPage>herramientas</toolsPage> construyen lo que construye el juego: cada forma de <capital>carguero capital</capital>, cada <interceptor>interceptor centinela</interceptor>, y <lucky>¿Qué suerte he tenido?</lucky> puntúa un objeto que hayas encontrado tú mismo. <about>Cómo funciona</about> explica por qué solo unos pocos sistemas entran en la lista.",
+    "homeLead": "<b>¿Dónde está la mejor multiherramienta, nave o criatura?</b> En la base de datos de abajo: cada <tools>multiherramienta</tools> y cada <ships>nave accidentada</ships> cuyos cuatro espacios supercargados en la clase S son adyacentes, y cada <creatures>criatura</creatures> que puedes adoptar cuyos tres grados son S, cada una con los glifos de portal y las coordenadas para llegar. Las <guides>guías</guides> cuentan de dónde sale cada tipo de objeto, desde la galaxia hasta el planeta; la más reciente, la del <forsaken>comerciante abandonado</forsaken>, muestra dónde encontrar recuerdos inquietantes. Las <toolsPage>herramientas</toolsPage> construyen lo que construye el juego: cada forma de <capital>carguero capital</capital>, cada <interceptor>interceptor centinela</interceptor>, y <lucky>¿Qué suerte he tenido?</lucky> puntúa un objeto que hayas encontrado tú mismo. <about>Cómo funciona</about> explica por qué solo unos pocos sistemas entran en la lista.",
     "finderSearch": "Buscar un sistema",
     "searchRequestSoon": "Tu solicitud ha quedado registrada. La búsqueda de un sistema aún no está hecha.",
     "finderColour": "Color",
@@ -200,6 +200,7 @@
     "finderNoS": "Este es un sistema de <a>riqueza</a> baja, así que aquí no encontrarás un pecio de clase S.",
     "statistics": "Guías",
     "guidesMenu": "Grupos de las guías",
+    "databaseMenu": "Listas de la base de datos",
     "quests": "Misiones",
     "allQuests": "Todas las misiones",
     "linkCopied": "Enlace copiado",
@@ -211,7 +212,7 @@
     "artemisPath": "El camino de Artemis",
     "atlasPath": "El camino del Atlas",
     "starbirth": "Nacimiento de estrella",
-    "browse": "Catálogo",
+    "browse": "Base de datos",
     "yourLikes": "Tus favoritos"
   },
   "kind": {
@@ -471,6 +472,27 @@
     "system": "Sistemas estelares",
     "planet": "Planetas",
     "galaxy": "Galaxias"
+  },
+  "kindLine": {
+    "galaxy": "Cada galaxia con su tipo y los sistemas estelares de la lista que contiene.",
+    "system": "Los sistemas estelares de los hallazgos de la lista: su estrella, su economía y su estación espacial.",
+    "planet": "Los planetas de esos sistemas: bioma, centinelas, recursos y lo que contiene cada uno.",
+    "ship": "Naves accidentadas con cuatro espacios supercargados juntos, con los glifos de portal y las coordenadas de cada pecio.",
+    "tool": "Multiherramientas y bastones con cuatro espacios supercargados juntos en la clase S.",
+    "creature": "Criaturas que puedes adoptar cuyos tres grados son S."
+  },
+  "toolLine": {
+    "interceptor-finder": "Monta un interceptor centinela con cada pieza que el juego puede darle.",
+    "capital-freighter-finder": "Cada forma que puede tomar un carguero capital.",
+    "freighter-finder": "Cada forma que puede tomar un carguero normal.",
+    "living-ship-finder": "Cada forma que puede tomar una nave viviente.",
+    "living-frigate-finder": "Cada forma que puede tomar una fragata orgánica, la ballena cósmica.",
+    "starship-finder": "Cada forma de cada tipo de nave: exótica, solar, caza, carguero, exploradora y lanzadera.",
+    "how-lucky-am-i": "Una puntuación de 0 a 100 para una multiherramienta, un bastón o una nave que encontraste.",
+    "refiner-recipes": "Lo que fabrican la refinería portátil, la mediana y la grande.",
+    "cooking-recipes": "Cada plato y la bonificación que da en el ingestor de nutrientes.",
+    "crafting-recipes": "Todo lo que fabricas a mano.",
+    "planet-globe": "Gira un planeta de la base de datos, con cada hallazgo marcado donde está."
   },
   "affinity": {
     "tropical": "Tropical",

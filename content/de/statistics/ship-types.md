@@ -12,7 +12,7 @@ Benachbart heißt, dass die vier turbogeladenen Plätze, die ein Schiff bei Klas
 
 <!-- widget:hulls -->
 
-Jeder Typ im Katalog: {{catalogShips}}.
+Jeder Typ in der Datenbank: {{catalogShips}}.
 
 ## Nach Quelle
 
