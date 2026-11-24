@@ -30,15 +30,23 @@ const ROOT_ICONS = ["favicon.ico", "icon.svg", "apple-icon.png"];
 // The kinds of the Database and the languages, as alternatives of a pattern.
 const KIND_PATTERN = KINDS.join("|");
 const LANGUAGE_PATTERN = LANGUAGES.join("|");
+// The game's name once more after the prefix, as outside links write it.
+const STRAY = "no-man(?:'|%27)s-sky|no-mans-sky";
 
 // The paths that name a language and moved on 2026-11-24 (the owner): the
 // catalog went under /database, and each tool under its group. The language
 // stays.
 function languageMoves(): Move[] {
   return [
+    // A list and a record apart: an empty `:rest*` would leave a trailing slash,
+    // and Next.js would take a second hop to drop it.
     {
-      source: `/:lang(${LANGUAGE_PATTERN})/:kind(${KIND_PATTERN})/:rest*`,
-      destination: `/:lang${DATABASE_PATH}/:kind/:rest*`,
+      source: `/:lang(${LANGUAGE_PATTERN})/:kind(${KIND_PATTERN})`,
+      destination: `/:lang${DATABASE_PATH}/:kind`,
+    },
+    {
+      source: `/:lang(${LANGUAGE_PATTERN})/:kind(${KIND_PATTERN})/:rest+`,
+      destination: `/:lang${DATABASE_PATH}/:kind/:rest+`,
     },
     ...TOOLS.map((tool) => ({
       source: `/:lang(${LANGUAGE_PATTERN})/tools/${tool.slug}`,
@@ -98,8 +106,12 @@ function guideMoves(): Move[] {
     // The catalog became the Database on 2026-11-24: /<kind>[/<id>] to
     // /database/<kind>[/<id>].
     {
-      source: `/:kind(${KIND_PATTERN})/:rest*`,
-      destination: `${DATABASE_PATH}/:kind/:rest*`,
+      source: `/:kind(${KIND_PATTERN})`,
+      destination: `${DATABASE_PATH}/:kind`,
+    },
+    {
+      source: `/:kind(${KIND_PATTERN})/:rest+`,
+      destination: `${DATABASE_PATH}/:kind/:rest+`,
     },
     ...guides.map((slug) => ({
       source: `/statistics/${slug}`,
@@ -240,11 +252,18 @@ function redirectList() {
     // The game's name once more after the prefix, as an outside link wrote it
     // (`/no-mans-sky/no-man's-sky/guides/…`, seen in the visits of 2026-11-18):
     // the stray segment goes, the rest stays.
-    {
-      source: "/:stray(no-man(?:'|%27)s-sky|no-mans-sky)/:path*",
-      destination: "/:path*",
+    // The page's language comes with it in the same hop: kept when the path
+    // names one, English when not (the proxy would add it in a second hop).
+    ...[
+      [`/:stray(${STRAY})`, `/${DEFAULT_LANGUAGE}`],
+      [`/:stray(${STRAY})/:lang(${LANGUAGE_PATTERN})`, "/:lang"],
+      [`/:stray(${STRAY})/:lang(${LANGUAGE_PATTERN})/:path+`, "/:lang/:path+"],
+      [`/:stray(${STRAY})/:path+`, `/${DEFAULT_LANGUAGE}/:path+`],
+    ].map(([source, destination]) => ({
+      source,
+      destination,
       permanent: true,
-    },
+    })),
     // The old paths inside this section: without a language straight to the
     // English page (the proxy would add the language in a second step), with
     // one to the same language.
