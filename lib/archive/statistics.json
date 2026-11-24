@@ -87,7 +87,7 @@
     "a-trace-of-metal": {
       "fact": "a-trace-of-metal.the-blueprints-of-the-hardframe-757659",
       "numbers": {
-        "gives": "Sentinel Flare (Off), Nanite Filament, Portal Phylactery, Beads of Glass, Undamaged Drone Shell, Hardframe Right Arm, Exocraft Summoning Station, Minotaur Geobay, Salvaged Data, Hardframe Legs, Hardframe Left Arm, Paralysis Mortar, Hacked Brain, Hardframe Body, Minotaur AI Pilot and Pristine Brain",
+        "gives": "a-trace-of-metal.sentinel-flare-off-nanite-filament-8c7912",
         "parts": { "k": "plain", "v": 5 }
       },
       "tables": {
@@ -313,7 +313,7 @@
     "agricultural-research": {
       "fact": "agricultural-research.the-seeds-of-the-base-122ad2",
       "numbers": {
-        "gives": "Gutrot Flower, Large Hydroponic Tray, Hydroponic Tray, Frostwort, Faecium, Solar Vine, Frost Crystal, Fungal Cluster, Gamma Weed, Fungal Mould, Gravitino Host, Venom Urchin, Albumen Pearl Orb, Gamma Root, Echinocactus, Star Bramble, Mordite Root and Star Bulb",
+        "gives": "agricultural-research.gutrot-flower-large-hydroponic-tray-64facf",
         "parts": { "k": "plain", "v": 10 }
       },
       "tables": {
@@ -1551,7 +1551,7 @@
     "base-computer-archives": {
       "fact": "base-computer-archives.base-parts-up-to-the-f8e04a",
       "numbers": {
-        "gives": "Storage Container, Solar Panel, Battery, Teleport Receiver, Neural Stimulator, Efficient Thrusters, Shield Lattice, White Light, Red Light, Green Light, Yellow Light, Pink Light, Blue Light, Appearance Modifier, Roamer Geobay and Landing Pad",
+        "gives": "base-computer-archives.storage-container-solar-panel-battery-52d5be",
         "parts": { "k": "plain", "v": 21 }
       },
       "tables": {
@@ -3824,7 +3824,7 @@
       "numbers": {
         "at95": { "k": "smallShare", "v": 0 },
         "at99": { "k": "smallShare", "v": 0 },
-        "best": "ζ-Blessing",
+        "best": "best-interceptors.blessing-f726c1",
         "everyStat": {
           "t": "{0} · {1} · {2} · {3}",
           "v": [
@@ -4256,7 +4256,7 @@
         "v": [{ "k": "count", "v": 200000 }]
       },
       "numbers": {
-        "top": "Horrifying, Gooey Delight",
+        "top": "best-selling-dishes.horrifying-gooey-delight-6faf96",
         "topValue": { "k": "count", "v": 200000 }
       },
       "tables": {
@@ -4590,7 +4590,7 @@
             [
               "charts.dream-aerial-adb8ea",
               "charts.aerial-dc1bfb",
-              "charts.a-space-whale-ac371b",
+              "charts.a-cosmic-whale-733b13",
               "charts.crafted-from-a-solar-mirror-6fce69"
             ]
           ],
@@ -7039,7 +7039,7 @@
     "dreams-of-the-deep": {
       "fact": "dreams-of-the-deep.the-nautilon-chamber-where-you-7b8f83",
       "numbers": {
-        "gives": "Nautilon Chamber, Marine Shelter, Hydrothermal Fuel Cell, Solar Mirror, High-Power Sonar, Large Glass Panel, Moon Pool Floor, Glass Tunnel, L-Shaped Glass Tunnel, T-Shaped Glass Tunnel, X-Shaped Glass Tunnel, Vertical Glass Tunnel, Watertight Door, Square Deepwater Chamber, Deepwater Chamber and Lost Bathysphere",
+        "gives": "dreams-of-the-deep.nautilon-chamber-marine-shelter-hydrothermal-01ff2c",
         "parts": { "k": "plain", "v": 5 }
       },
       "tables": {
@@ -7848,7 +7848,7 @@
     "exocraft-technician": {
       "fact": "exocraft-technician.the-land-exocraft-s-equipment-932cd4",
       "numbers": {
-        "gives": "Roamer Geobay, Exocraft Radar, Mounted Cannon, Exocraft Boosters, Exocraft Mining Laser, Nomad Geobay, Radar Amplifier, Colossus Geobay, Advanced Exocraft Laser and Radar Power Resonator",
+        "gives": "exocraft-technician.roamer-geobay-exocraft-radar-mounted-b926fe",
         "parts": { "k": "plain", "v": 13 }
       },
       "tables": {
@@ -8095,29 +8095,29 @@
         "energyXAtTypicalS": "33.2%",
         "energyXOverBestS": "10.9%",
         "energyXUnderWorstS": "59.1%",
-        "hazIllegalLimits": "+1% to +11% to each of Heat Resistance, Cold Resistance, Radiation Resistance, and Toxic Resistance",
+        "hazIllegalLimits": "exosuit-modules.1-to-11-to-each-03a7d5",
         "hazIllegalNear": "9.7%",
-        "hazIllegalStats": "four",
-        "hazRustedLimits": "+1% to +3% to each of Heat Resistance, Cold Resistance, Radiation Resistance, and Toxic Resistance",
+        "hazIllegalStats": "exosuit-modules.four-69f5a5",
+        "hazRustedLimits": "exosuit-modules.1-to-3-to-each-6b7b58",
         "hazRustedNear": "0.1%",
-        "hazRustedStats": "four",
+        "hazRustedStats": "exosuit-modules.four-69f5a5",
         "jetAAtTypicalS": "8.4%",
         "jetAOverBestS": "0%",
         "jetAUnderWorstS": "84.6%",
         "jetXAtTypicalS": "20.5%",
         "jetXOverBestS": "4%",
         "jetXUnderWorstS": "76.3%",
-        "robosuitSalvagedLimits": "Shield Strength +10% to +35%, Core Health +33%, Life Support Tanks +5% to +110%, Solar Panel Power +1% to +75%, Fuel Efficiency +6% to +31%, and Sprint Distance +10% to +60%",
+        "robosuitSalvagedLimits": "exosuit-modules.shield-strength-10-to-35-723670",
         "robosuitSalvagedNear": "8.7%",
-        "robosuitSalvagedStats": "two 63.7%, three 20.2%, four 16.1%",
-        "sentsuitForbiddenLimits": "Shield Strength +10% to +35%, Core Health +33%, Life Support Tanks +5% to +110%, Solar Panel Power +1% to +75%, Fuel Efficiency +6% to +31%, and Sprint Distance +10% to +60%",
+        "robosuitSalvagedStats": "exosuit-modules.two-63-7-three-20-a79daa",
+        "sentsuitForbiddenLimits": "exosuit-modules.shield-strength-10-to-35-723670",
         "sentsuitForbiddenNear": "8.7%",
-        "sentsuitForbiddenStats": "two 63.7%, three 20.2%, four 16.1%",
+        "sentsuitForbiddenStats": "exosuit-modules.two-63-7-three-20-a79daa",
         "shieldAAtTypicalS": "0%",
         "shieldAOverBestS": "0%",
         "shieldAUnderWorstS": "100%",
         "shieldXAtTypicalS": "17.1%",
-        "shieldXOverBestS": "under 0.1%",
+        "shieldXOverBestS": "exosuit-modules.under-0-1-a55a9f",
         "shieldXUnderWorstS": "80.4%"
       },
       "tables": {
@@ -8860,7 +8860,7 @@
     "expanding-the-base": {
       "fact": "expanding-the-base.the-terminals-that-bring-the-aed162",
       "numbers": {
-        "gives": "Construction Terminal, Glass, Science Terminal, Storage Container, Weapons Terminal, Agricultural Terminal, Galactic Trade Terminal and Exocraft Terminal",
+        "gives": "expanding-the-base.construction-terminal-glass-science-terminal-891543",
         "parts": { "k": "plain", "v": 10 }
       },
       "tables": {
@@ -9745,10 +9745,10 @@
         ]
       },
       "numbers": {
-        "best": "Gravitino Host",
+        "best": "farming.gravitino-host-5eace8",
         "bestDay": { "k": "count", "v": 470676 },
         "gravitinoCrop": { "k": "count", "v": 403436880 },
-        "gravitinoGrowth": "2 h",
+        "gravitinoGrowth": "farming.2-h-0f6f45",
         "gravitinoPlants": { "k": "count", "v": 10286 },
         "harvestSeconds": { "k": "plain", "v": 0.7 },
         "interceptorHigh": { "k": "count", "v": 34500000 },
@@ -9758,7 +9758,7 @@
         "nipTerminalHigh": { "k": "plain", "v": 2.39 },
         "nipTerminalLow": { "k": "plain", "v": 2.26 },
         "nipnipCrop": { "k": "count", "v": 924067584 },
-        "nipnipGrowth": "4 h",
+        "nipnipGrowth": "farming.4-h-07d7c3",
         "nipnipPlants": { "k": "count", "v": 20571 },
         "plants": { "k": "plain", "v": 12 },
         "plantsAnHour": { "k": "count", "v": 5143 },
@@ -9780,7 +9780,7 @@
             "farming.most-to-plant-d2711e"
           ],
           "kinds": ["text", "text", "text", "plain", "text", "count", "count"],
-          "note": "farming.each-plant-s-harvest-sold-1f6e4c",
+          "note": "farming.each-plant-s-harvest-sold-186fb0",
           "rows": [
             [
               "farming.mordite-root-3bae5f",
@@ -9979,7 +9979,7 @@
       "numbers": {
         "commonestShare": { "k": "share", "v": 0.120589232 },
         "cornerGap": { "k": "about", "v": 21 },
-        "rarest": "flat line",
+        "rarest": "figures.flat-line-ad1ba4",
         "rarestShare": { "k": "share", "v": 0.003653443741 },
         "rifleLine": { "k": "share", "v": 0.06236717387 },
         "staffLine": { "k": "share", "v": 0.001905170284 },
@@ -12253,9 +12253,9 @@
       },
       "numbers": {
         "minutes": { "k": "plain", "v": 10 },
-        "top": "Ice Cream",
+        "top": "food-for-hazards.ice-cream-42335e",
         "topBonus": "+65%",
-        "topStat": "Cold Resistance"
+        "topStat": "food-for-hazards.cold-resistance-3b85f8"
       },
       "tables": {
         "best": {
@@ -13022,11 +13022,11 @@
       "numbers": {
         "animal": { "k": "count", "v": 500 },
         "animalRare": { "k": "count", "v": 1500 },
-        "best": "Caramel Curiosity",
+        "best": "food-for-scanning.caramel-curiosity-2870bb",
         "bestBonus": "+6,583%",
-        "bestStat": "Mineral Analysis Rewards",
+        "bestStat": "food-for-scanning.mineral-analysis-rewards-948cc1",
         "ceiling": "+6,600%",
-        "fauna": "Nectar Islands",
+        "fauna": "food-for-scanning.nectar-islands-6a1e96",
         "faunaBonus": "+6,532%",
         "minutes": { "k": "plain", "v": 10 }
       },
@@ -14816,7 +14816,7 @@
         "frTradeAAtTypicalS": "0%",
         "frTradeAOverBestS": "0%",
         "frTradeAUnderWorstS": "100%",
-        "hyperdriveS": "200 ly to 250 ly"
+        "hyperdriveS": "freighter-technology.200-ly-to-250-ly-cfd979"
       },
       "tables": {
         "built": {
@@ -15826,7 +15826,7 @@
             ],
             [
               "frigates.organic-d20426",
-              "frigates.called-from-a-space-whale-5775ca"
+              "frigates.called-from-a-cosmic-whale-45d544"
             ],
             [
               "frigates.stealth-reconnaissance-55f060",
@@ -17944,7 +17944,7 @@
     "in-stellar-multitudes": {
       "fact": "in-stellar-multitudes.the-atlantid-drive-for-your-d155c4",
       "numbers": {
-        "gives": "Memories of Atlantid, Atlantid Drive, Resonance Matrix, Reality Anchor and Anomalous Scaffold",
+        "gives": "in-stellar-multitudes.memories-of-atlantid-atlantid-drive-5f850b",
         "parts": { "k": "plain", "v": 3 }
       },
       "tables": {
@@ -18303,7 +18303,7 @@
       "title": "lost-in-space.lost-in-space-5b3ce0"
     },
     "minotaur-modules": {
-      "fact": "minotaur-modules.the-minotaur-flamethrower-has-no-689e5c",
+      "fact": "minotaur-modules.none-of-the-minotaur-s-094945",
       "numbers": {
         "mcengAAtTypicalS": "0%",
         "mcengAOverBestS": "0%",
@@ -19052,9 +19052,9 @@
         "scanXAtTypicalS": "13.2%",
         "scanXOverBestS": "9.3%",
         "scanXUnderWorstS": "77.6%",
-        "sentgunForbiddenLimits": "Damage +1% to +2%, Reload Time -1% to -15%, and Fire Rate +1% to +21%",
+        "sentgunForbiddenLimits": "multitool-modules.damage-1-to-2-reload-0b1804",
         "sentgunForbiddenNear": "9.1%",
-        "sentgunForbiddenStats": "two 63.7%, three 36.3%",
+        "sentgunForbiddenStats": "multitool-modules.two-63-7-three-36-9514d7",
         "shotgunAAtTypicalS": "4.2%",
         "shotgunAOverBestS": "0%",
         "shotgunAUnderWorstS": "90%",
@@ -20809,7 +20809,7 @@
       "numbers": {
         "plainShare": { "k": "share", "v": 0.6772392928 },
         "rareCount": { "k": "about", "v": 117058 },
-        "rareName": "Royal",
+        "rareName": "multitool-types.royal-68b3b0",
         "rareOneIn": { "k": "oneIn", "v": 17167.71369 },
         "systems": { "k": "about", "v": 229680 },
         "tools": { "k": "about", "v": 2009618964 }
@@ -23254,9 +23254,9 @@
         ]
       },
       "numbers": {
-        "questionBuildings": "Manufacturing Facility, Operations Centre and Monolith",
+        "questionBuildings": "puzzles.manufacturing-facility-operations-centre-and-44d44e",
         "questions": { "k": "plain", "v": 152 },
-        "sequenceBuildings": "Observatory and Transmission Tower",
+        "sequenceBuildings": "puzzles.observatory-and-transmission-tower-efc15b",
         "sequences": { "k": "plain", "v": 50 }
       },
       "tables": {
@@ -24218,7 +24218,7 @@
         ]
       },
       "numbers": {
-        "top": "Gold",
+        "top": "refiner-loops.gold-94b6b3",
         "topGain": { "k": "plain", "v": 30.38 },
         "topStart": { "k": "plain", "v": 600 }
       },
@@ -37799,7 +37799,7 @@
         "v": [{ "k": "count", "v": 50000 }]
       },
       "numbers": {
-        "top": "Thermic Condensate",
+        "top": "refining-for-money.thermic-condensate-9567df",
         "topValue": { "k": "count", "v": 50000 }
       },
       "tables": {
@@ -40153,7 +40153,7 @@
     "scientific-research": {
       "fact": "scientific-research.the-scientist-s-blueprints-the-9e7ffb",
       "numbers": {
-        "gives": "Acid, Lubricant, Microprocessor, Large Refiner, Save Beacon, Living Glass, Autonomous Mining Unit, Atmosphere Harvester, Unstable Gel, Poly Fibre and Circuit Board",
+        "gives": "scientific-research.acid-lubricant-microprocessor-large-refiner-3e8c20",
         "parts": { "k": "plain", "v": 9 }
       },
       "tables": {
@@ -41657,7 +41657,7 @@
         ]
       },
       "numbers": {
-        "best": "Interceptor",
+        "best": "ship-square.interceptor-c4b734",
         "bestOneIn": { "k": "oneIn", "v": 1016.248669 },
         "oneIn": { "k": "oneIn", "v": 1497.18071 },
         "places": { "k": "about", "v": 18 },
@@ -42045,9 +42045,9 @@
       "numbers": {
         "giantShare": { "k": "share", "v": 0.003648794214 },
         "high": { "k": "about", "v": 19465 },
-        "highName": "large",
+        "highName": "sources-by-size.large-d02db4",
         "low": { "k": "about", "v": 499 },
-        "lowName": "moon",
+        "lowName": "sources-by-size.moon-84ae40",
         "planets": { "k": "about", "v": 1092042 },
         "ratio": { "k": "about", "v": 39 }
       },
@@ -42372,12 +42372,12 @@
       },
       "numbers": {
         "planets": { "k": "about", "v": 1092042 },
-        "poorest": "Red",
+        "poorest": "sources-by-type.red-7f187c",
         "poorestSpots": { "k": "about", "v": 0 },
         "redUncharted": { "k": "share", "v": 0.6131270228 },
-        "richest": "Gas Giant",
+        "richest": "sources-by-type.gas-giant-6b5627",
         "richestSpots": { "k": "about", "v": 162374 },
-        "runner": "Lava",
+        "runner": "sources-by-type.lava-030f7b",
         "runnerSpots": { "k": "about", "v": 11497 }
       },
       "tables": {
@@ -42970,7 +42970,7 @@
         ]
       },
       "numbers": {
-        "best": "Atlantid, plain",
+        "best": "square.atlantid-plain-4e5470",
         "bestOneIn": { "k": "oneIn", "v": 977.2581463 },
         "classHigh": { "k": "share", "v": 0.07837207248 },
         "classLow": { "k": "share", "v": 0.0682186336 },
@@ -42984,7 +42984,7 @@
         "systems": { "k": "about", "v": 229680 },
         "typeHigh": { "k": "share", "v": 0.07800851883 },
         "typeLow": { "k": "share", "v": 0.0630488003 },
-        "worst": "Alien",
+        "worst": "square.alien-ec52ac",
         "worstOneIn": { "k": "oneIn", "v": 2009.216156 }
       },
       "tables": {
@@ -43191,7 +43191,7 @@
     "starbirth": {
       "fact": "starbirth.a-living-ship-and-on-9af4c6",
       "numbers": {
-        "gives": "Fragile Neural Stem, Consciousness Bridge, Active Void Egg, Mature Neural Stem, Hexite, Fragile Heart, Pulsating Core, Stirring Void Egg, Mature Heart Node, Solar Ray, Fragile Shell, Awakened Void Egg, Impossible Membrane, Hardened Shell, Animus Beam, Growing Singularity, Cracking Void Egg, Seeds of Glass, Singularity Core and Soul Chamber (0%)",
+        "gives": "starbirth.fragile-neural-stem-consciousness-bridge-90d625",
         "parts": { "k": "plain", "v": 5 }
       },
       "tables": {
@@ -48469,7 +48469,7 @@
     "the-artemis-path": {
       "fact": "the-artemis-path.artemis-translator-the-personal-forcefield-2663b0",
       "numbers": {
-        "gives": "Signal Booster, Artemis' Translator, Personal Forcefield, Door, Salvaged Data, Cylindrical Room, Roamer Geobay, Base Computer, Cuboid Room, Mind Ark, Soul Engine, Science Terminal, Vy'keen Tablet, Divergence Cube and Remembrance",
+        "gives": "the-artemis-path.signal-booster-artemis-translator-personal-b6f18f",
         "parts": { "k": "plain", "v": 29 }
       },
       "tables": {
@@ -48943,7 +48943,7 @@
     "the-atlas-path": {
       "fact": "the-atlas-path.a-choice-at-the-last-06fe39",
       "numbers": {
-        "gives": "Star Seed and Mark of the Denier",
+        "gives": "the-atlas-path.star-seed-and-mark-of-00b733",
         "parts": { "k": "plain", "v": 11 }
       },
       "tables": {
@@ -49146,7 +49146,7 @@
     "they-who-returned": {
       "fact": "they-who-returned.the-blueprints-of-the-voltaic-023239",
       "numbers": {
-        "gives": "Scan Harmoniser, Polyphonic Core, Fibreglass Grip, Atlantideum Chamber, Concentric Transducer and Atlantideum",
+        "gives": "they-who-returned.scan-harmoniser-polyphonic-core-fibreglass-ab0bb0",
         "parts": { "k": "plain", "v": 5 }
       },
       "tables": {
@@ -49356,7 +49356,7 @@
     "weapons-research": {
       "fact": "weapons-research.the-positron-ejector-the-infra-0b0e15",
       "numbers": {
-        "gives": "Starshield Battery, Unstable Plasma, Cyclotron Ballista, Advanced Mining Laser, Positron Ejector and Infra-Knife Accelerator",
+        "gives": "weapons-research.starshield-battery-unstable-plasma-cyclotron-7ba8f9",
         "parts": { "k": "plain", "v": 7 }
       },
       "tables": {
