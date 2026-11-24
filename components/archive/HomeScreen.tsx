@@ -14,7 +14,6 @@ import { useSnackbar } from "notistack";
 
 import Link from "next/link";
 
-import { DonationBlock } from "@/components/archive/DonationBlock";
 import { LikeButton } from "@/components/archive/LikeButton";
 import { link } from "@/components/archive/RecordNote";
 import { guidePath } from "@/lib/archive/guides";
@@ -64,7 +63,6 @@ export function HomeScreen(props: { confession: string }) {
           {section.id === "galaxies" ? <Confession html={confession} /> : null}
         </Fragment>
       ))}
-      <DonationBlock />
     </Stack>
   );
 }
