@@ -1,6 +1,6 @@
 # Clases de las naves
 
-**¿Cómo encuentras una nave accidentada de clase S?** Busca en un sistema pirata: {{pirateS}} de sus pecios son de clase S, frente a {{highS}} con riqueza alta y ninguno con riqueza baja. O busca una exótica: son de clase S {{exoticS}} de las veces. Los transportistas lo son {{haulerS}} de las veces, y los exploradores casi nunca: {{explorerOneIn}}. Una sola tirada fija a la vez el tipo y la clase de una nave, así que cada tipo se inclina hacia las clases que comparten su parte de la tirada. Las [naves accidentadas](/ship) del catálogo vienen con los glifos de portal de cada pecio.
+**¿Cómo encuentras una nave accidentada de clase S?** Busca en un sistema pirata: {{pirateS}} de sus pecios son de clase S, frente a {{highS}} con riqueza alta y ninguno con riqueza baja. O busca una exótica: son de clase S {{exoticS}} de las veces. Los transportistas lo son {{haulerS}} de las veces, y los exploradores casi nunca: {{explorerOneIn}}. Una sola tirada fija a la vez el tipo y la clase de una nave, así que cada tipo se inclina hacia las clases que comparten su parte de la tirada. Las [naves accidentadas](/ship) de la base de datos vienen con los glifos de portal de cada pecio.
 
 ## Qué fija la clase
 

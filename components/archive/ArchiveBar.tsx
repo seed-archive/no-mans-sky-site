@@ -20,7 +20,6 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import ListSubheader from "@mui/material/ListSubheader";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
@@ -35,6 +34,12 @@ import { PAGE_KINDS } from "@/lib/archive/kinds";
 import statisticsMenu from "@/lib/archive/statistics-menu.json";
 import { groupPath, guidePath } from "@/lib/archive/guides";
 import { QUESTS_PATH } from "@/lib/archive/guides";
+import {
+  databasePath,
+  kindPath,
+  toolGroupPath,
+  toolPath,
+} from "@/lib/archive/paths";
 import { TOOL_GROUPS } from "@/lib/archive/tools";
 
 // The header's links stand in the drawer below this width.
@@ -148,15 +153,35 @@ export function ArchiveBar() {
         <Drawer anchor="right" open={drawer} onClose={() => setDrawer(false)}>
           <Box component="nav" sx={{ width: 260 }}>
             <List>
-              <ListItemButton onClick={() => toggleSection("browse")}>
-                <ListItemText
-                  primary={<FormattedMessage id="archive.browse" />}
-                />
-                {section === "browse" ? <ExpandLess /> : <ExpandMore />}
-              </ListItemButton>
+              {/* The name opens the Database's page, the arrow its lists. */}
+              <ListItem
+                disablePadding
+                secondaryAction={
+                  <IconButton
+                    edge="end"
+                    aria-label={intl.formatMessage({
+                      id: "archive.databaseMenu",
+                    })}
+                    aria-expanded={section === "browse"}
+                    onClick={() => toggleSection("browse")}
+                  >
+                    {section === "browse" ? <ExpandLess /> : <ExpandMore />}
+                  </IconButton>
+                }
+              >
+                <ListItemButton
+                  component={Link}
+                  href={databasePath()}
+                  onClick={() => setDrawer(false)}
+                >
+                  <ListItemText
+                    primary={<FormattedMessage id="archive.browse" />}
+                  />
+                </ListItemButton>
+              </ListItem>
               <Collapse in={section === "browse"} unmountOnExit>
                 {PAGE_KINDS.map((kind) =>
-                  drawerLink(`/${kind}`, `kinds.${kind}`, 4),
+                  drawerLink(kindPath(kind), `kinds.${kind}`, 4),
                 )}
               </Collapse>
               {/* The name opens the guides page, the arrow its groups, as a
@@ -243,29 +268,39 @@ export function ArchiveBar() {
               </ListItemButton>
               <Collapse in={section === "tools"} unmountOnExit>
                 {TOOL_GROUPS.flatMap((group) => [
-                  <ListSubheader key={group.id} sx={{ pl: 4, lineHeight: 2.5 }}>
-                    <FormattedMessage id={group.id} />
-                  </ListSubheader>,
+                  drawerLink(toolGroupPath(group.slug), group.id, 4),
                   ...group.tools.map((tool) =>
-                    drawerLink(tool.href, tool.id, 6),
+                    drawerLink(toolPath(tool.slug), tool.id, 6),
                   ),
                 ])}
               </Collapse>
             </List>
           </Box>
         </Drawer>
-        <Button
-          color="inherit"
-          onClick={(event) => setMenu(event.currentTarget)}
-          id="browse-button"
-          data-tour="browse"
-          aria-haspopup="true"
-          aria-controls={menu ? "browse-menu" : undefined}
-          aria-expanded={menu ? "true" : undefined}
-          sx={DESKTOP}
-        >
-          <FormattedMessage id="archive.browse" />
-        </Button>
+        {/* The word is a link to the Database's page, the arrow beside it
+            opens the menu of its lists. */}
+        <Box data-tour="browse" sx={{ ...DESKTOP, alignItems: "center" }}>
+          <Button
+            component={Link}
+            href={databasePath()}
+            color="inherit"
+            sx={{ minWidth: 0, pr: 0.5 }}
+          >
+            <FormattedMessage id="archive.browse" />
+          </Button>
+          <IconButton
+            color="inherit"
+            size="small"
+            onClick={(event) => setMenu(event.currentTarget.parentElement)}
+            id="browse-button"
+            aria-label={intl.formatMessage({ id: "archive.databaseMenu" })}
+            aria-haspopup="true"
+            aria-controls={menu ? "browse-menu" : undefined}
+            aria-expanded={menu ? "true" : undefined}
+          >
+            {menu ? <ExpandLess /> : <ExpandMore />}
+          </IconButton>
+        </Box>
         <Menu
           id="browse-menu"
           anchorEl={menu}
@@ -277,7 +312,7 @@ export function ArchiveBar() {
             <MenuItem
               key={kind}
               component={Link}
-              href={`/${kind}`}
+              href={kindPath(kind)}
               onClick={() => setMenu(null)}
             >
               <FormattedMessage id={`kinds.${kind}`} />
@@ -366,14 +401,20 @@ export function ArchiveBar() {
           slotProps={{ list: { "aria-labelledby": "tools-button" } }}
         >
           {TOOL_GROUPS.flatMap((group) => [
-            <ListSubheader key={group.id} sx={{ lineHeight: 2.5 }}>
+            <MenuItem
+              key={group.slug}
+              component={Link}
+              href={toolGroupPath(group.slug)}
+              onClick={() => setToolsMenu(null)}
+              sx={{ fontWeight: 700 }}
+            >
               <FormattedMessage id={group.id} />
-            </ListSubheader>,
+            </MenuItem>,
             ...group.tools.map((tool) => (
               <MenuItem
-                key={tool.href}
+                key={tool.slug}
                 component={Link}
-                href={tool.href}
+                href={toolPath(tool.slug)}
                 onClick={() => setToolsMenu(null)}
                 sx={{ pl: 4 }}
               >

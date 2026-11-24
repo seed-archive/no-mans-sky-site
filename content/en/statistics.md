@@ -4,4 +4,4 @@
 
 The numbers come from one walk through [Euclid](/galaxy/b7e59a53-13de-521b-af6b-dcbf6280eb9d) and one galaxy of each other type, from the stars down to what stands on the ground. They change as the count grows.
 
-What the guides lead to is in the catalog: [multitools with adjacent supercharged slots](/tool), [crashed ships](/ship), and [all-S creatures](/creature), with the [star systems](/system) and [planets](/planet) that hold them. Found one already? [How lucky am I?](/tools/how-lucky-am-i) scores it.
+What the guides lead to is in the database: [multitools with adjacent supercharged slots](/tool), [crashed ships](/ship), and [all-S creatures](/creature), with the [star systems](/system) and [planets](/planet) that hold them. Found one already? [How lucky am I?](/tools/how-lucky-am-i) scores it.

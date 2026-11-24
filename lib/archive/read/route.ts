@@ -1,5 +1,6 @@
 import { galaxyIndex, portalGlyphs } from "@/lib/archive/address";
 import type { Kind } from "@/lib/archive/kinds";
+import { recordPath } from "@/lib/archive/paths";
 import { kindSchema } from "@/lib/archive/schema";
 import { type Field, rows, asRecord, text } from "@/lib/archive/read/common";
 
@@ -82,7 +83,7 @@ export function whereIs(
     type: "text",
     label,
     text: step?.name ?? null,
-    ...(step ? { href: `/${step.kind}/${step.id}` } : {}),
+    ...(step ? { href: recordPath(step.kind, step.id) } : {}),
   });
   const fields: Field[] = [
     place("archive.galaxy", above(chain, "galaxy")),

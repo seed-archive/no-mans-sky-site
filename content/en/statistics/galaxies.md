@@ -16,4 +16,4 @@ Of 256 galaxies, {{normal}} are Normal, {{lush}} Lush, {{harsh}} Harsh, and {{em
 
 <!-- widget:ring -->
 
-Picking a galaxy is the first cut, and the catalog lists the [galaxies](/galaxy) with their type. Inside it, the question becomes [where to look](/guides/where-to-look) in it.
+Picking a galaxy is the first cut, and the database lists the [galaxies](/galaxy) with their type. Inside it, the question becomes [where to look](/guides/where-to-look) in it.

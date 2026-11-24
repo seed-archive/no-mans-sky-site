@@ -15,6 +15,7 @@ import { PictureGallery } from "@/components/archive/PictureGallery";
 import { VerifiedMark } from "@/components/archive/VerifiedMark";
 import { explainHref } from "@/lib/archive/explain";
 import type { Kind } from "@/lib/archive/kinds";
+import { kindPath } from "@/lib/archive/paths";
 import type {
   AssetCard as AssetCardData,
   Field,
@@ -107,7 +108,7 @@ export function AssetCard(props: { asset: AssetCardData }) {
                     {/* The kind leads to its list in the catalog. */}
                     <MuiLink
                       component={Link}
-                      href={`/${asset.kind}`}
+                      href={kindPath(asset.kind)}
                       color="inherit"
                     >
                       <FormattedMessage id={`kind.${kindWord}`} />

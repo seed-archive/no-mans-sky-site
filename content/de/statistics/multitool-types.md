@@ -8,7 +8,7 @@ Jedes Werkzeug wird einmal gezählt, so wie du es findest, in [Euclid](/galaxy/b
 
 <!-- widget:types -->
 
-Jeder Typ im Katalog: {{catalogTools}}.
+Jeder Typ in der Datenbank: {{catalogTools}}.
 
 Atlantideum-Farben und Wächter-Formen kommen zu gleichen Anteilen vor. Die Farbe zählt nur, wenn du ein Werkzeug aufwertest, wie [Wie man ein Multiwerkzeug aufwertet](/guides/multitool-upgrades) zeigt.
 

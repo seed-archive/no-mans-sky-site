@@ -1,5 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 
+import type { Kind } from "@/lib/archive/kinds";
+import { recordPath } from "@/lib/archive/paths";
 import type { Database } from "@/lib/db/supabase.types";
 
 // A point the globe marks: a building with its latitude and longitude, and the
@@ -69,7 +71,7 @@ export async function readGlobePlanets(
       lat: building.latitude,
       lon: building.longitude,
       title: item ? `${item.name} (${asset.name})` : asset.name,
-      href: item ? `/${item.kind}/${item.id}` : null,
+      href: item ? recordPath(item.kind as Kind, item.id) : null,
     };
     pointsOf.set(asset.parent_id, [
       ...(pointsOf.get(asset.parent_id) ?? []),

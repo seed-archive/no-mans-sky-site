@@ -18,6 +18,12 @@ import { LikeButton } from "@/components/archive/LikeButton";
 import { link } from "@/components/archive/RecordNote";
 import { guidePath } from "@/lib/archive/guides";
 import {
+  kindPath,
+  recordPath,
+  TOOLS_PATH,
+  toolPath,
+} from "@/lib/archive/paths";
+import {
   readFeed,
   type CatalogRow,
   type FeedSection,
@@ -33,15 +39,15 @@ const SECTIONS: { id: FeedSection; title: string }[] = [
 // The site's question and where each answer lives.
 const LEAD = {
   b: (chunks: ReactNode[]) => <strong>{chunks}</strong>,
-  tools: link("/tool"),
-  ships: link("/ship"),
-  creatures: link("/creature"),
+  tools: link(kindPath("tool")),
+  ships: link(kindPath("ship")),
+  creatures: link(kindPath("creature")),
   guides: link("/guides"),
   forsaken: link(guidePath("forsaken-trader")),
-  toolsPage: link("/tools"),
-  lucky: link("/tools/how-lucky-am-i"),
-  interceptor: link("/tools/interceptor-finder"),
-  capital: link("/tools/capital-freighter-finder"),
+  toolsPage: link(TOOLS_PATH),
+  lucky: link(toolPath("how-lucky-am-i")),
+  interceptor: link(toolPath("interceptor-finder")),
+  capital: link(toolPath("capital-freighter-finder")),
   about: link("/about"),
 };
 
@@ -156,7 +162,7 @@ function FeedCard(props: { row: CatalogRow }) {
       variant="outlined"
       sx={{ display: "flex", flexDirection: "column", width: "100%" }}
     >
-      <CardActionArea component={Link} href={`/${row.kind}/${row.id}`}>
+      <CardActionArea component={Link} href={recordPath(row.kind, row.id)}>
         <CardMedia
           component="img"
           height="220"
@@ -170,7 +176,7 @@ function FeedCard(props: { row: CatalogRow }) {
           <Typography
             variant="h6"
             component={Link}
-            href={`/${row.kind}/${row.id}`}
+            href={recordPath(row.kind, row.id)}
             sx={{ flexGrow: 1, color: "inherit", textDecoration: "none" }}
           >
             {row.name}

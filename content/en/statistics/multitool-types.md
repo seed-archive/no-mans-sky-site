@@ -8,7 +8,7 @@ Each tool is counted once, as you find it, in [Euclid](/galaxy/b7e59a53-13de-521
 
 <!-- widget:types -->
 
-Each type in the catalog: {{catalogTools}}.
+Each type in the database: {{catalogTools}}.
 
 Atlantid colours and Sentinel forms come up in equal shares. The colour matters only when you upgrade a tool, as [how to upgrade a multitool](/guides/multitool-upgrades) shows.
 

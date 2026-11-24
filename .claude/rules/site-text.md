@@ -54,6 +54,8 @@ The rules of links are the portal's `docs/seo.md`. Here besides:
 
 - A galaxy's name links to its page; in a sentence, only the first Euclid of a page links.
 - A link to a guide is the short `/guides/<slug>`; the site makes it long.
+- A link to a database list or record is the short `/<kind>/<id>`; a link to a tool the short `/tools/<slug>`; the
+  site makes them long (`/database/<kind>/<id>`, `/tools/<group>/<slug>`).
 
 ## Words
 
