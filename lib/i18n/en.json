@@ -1,10 +1,5 @@
 {
   "archive": {
-    "donationTitle": "Support the archive",
-    "donationText": "This site is free. If it saved you a few hundred light years, buy me a beer. The Sentinels will not be alerted.",
-    "donationCopy": "Copy address",
-    "donationCopied": "Address copied",
-    "donationNetwork": "USDT only. Pick the tab of the network your wallet sends on: a transfer on another network is lost.",
     "title": "Seed Archive",
     "game": "No Man's Sky",
     "signOut": "Sign out",
