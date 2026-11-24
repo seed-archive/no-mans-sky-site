@@ -6,7 +6,7 @@
 
 - [Wächter-Abfangjäger](/tools/interceptor-finder): Bau einen Wächter-Abfangjäger aus jedem Teil zusammen, das das Spiel ihm geben kann.
 - [Großfrachter](/tools/capital-freighter-finder) und [gewöhnliche Frachter](/tools/freighter-finder): jede Form, die ein Frachter annehmen kann.
-- [Lebende Schiffe](/tools/living-ship-finder) und [organische Fregatten](/tools/living-frigate-finder): die Formen eines lebenden Schiffs und eines kosmischen Wals.
+- [Lebende Schiffe](/tools/living-ship-finder) und [organische Fregatten](/tools/organic-frigate-finder): die Formen eines lebenden Schiffs und eines kosmischen Wals.
 - [Raumschiffe](/tools/starship-finder): jede Form jedes Schiffstyps: exotisch (der seltene Tintenfisch eingeschlossen), Solar, Jäger, Transporter, Entdecker und Shuttle.
 
 ## Deine Funde

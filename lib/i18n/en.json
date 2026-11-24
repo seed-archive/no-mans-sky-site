@@ -487,7 +487,7 @@
     "capital-freighter-finder": "Every shape a capital freighter can take.",
     "freighter-finder": "Every shape a regular freighter can take.",
     "living-ship-finder": "Every shape a living ship can take.",
-    "living-frigate-finder": "Every shape an organic frigate, the cosmic whale, can take.",
+    "organic-frigate-finder": "Every shape an organic frigate, the cosmic whale, can take.",
     "starship-finder": "Every shape of every ship type: exotic, solar, Fighter, hauler, explorer, and shuttle.",
     "how-lucky-am-i": "A score from 0 to 100 for a multitool, a staff, or a ship you found.",
     "refiner-recipes": "What the Portable, Medium, and Large Refiner make.",
@@ -735,9 +735,9 @@
       "title": "No Man's Sky Sentinel Interceptors: every Interceptor, part by part — Seed Archive",
       "description": "Put together a No Man's Sky Sentinel Interceptor from every part the game can give it: the cockpit, the wings, the hull, the skirting, and the colour."
     },
-    "living-frigate-finder": {
-      "title": "No Man's Sky living frigates: every shape of an organic frigate — Seed Archive",
-      "description": "Living frigates in No Man's Sky: put a cosmic whale together from its front accessory, tail, wings, and side parts, and see every shape the game makes."
+    "organic-frigate-finder": {
+      "title": "No Man's Sky organic frigates: every shape of a living frigate — Seed Archive",
+      "description": "Organic frigates in No Man's Sky: put a cosmic whale together from its front accessory, tail, wings, and side parts, and see every shape the game makes."
     },
     "living-ship-finder": {
       "title": "No Man's Sky living ships: every shape of a living ship — Seed Archive",

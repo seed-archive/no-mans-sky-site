@@ -5,7 +5,7 @@ import { toolPath } from "@/lib/archive/paths";
 import { toolTrail } from "@/lib/archive/trails";
 import { messageMetadata, requireTranslation } from "@/lib/i18n/page";
 
-const SLUG = "living-frigate-finder";
+const SLUG = "organic-frigate-finder";
 const PATH = toolPath(SLUG);
 
 export function generateMetadata() {
@@ -17,7 +17,7 @@ export default async function LivingFrigateFinderPage() {
   return (
     <>
       <Trail steps={toolTrail(language, SLUG)} />
-      <LivingFrigateFinder html={await readContent("living-frigate-finder")} />
+      <LivingFrigateFinder html={await readContent(SLUG)} />
     </>
   );
 }

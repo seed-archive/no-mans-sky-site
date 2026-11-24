@@ -16,7 +16,7 @@ export const TOOL_GROUPS = [
       },
       { slug: "freighter-finder", id: "archive.freighterFinder" },
       { slug: "living-ship-finder", id: "archive.livingShipFinder" },
-      { slug: "living-frigate-finder", id: "archive.livingFrigateFinder" },
+      { slug: "organic-frigate-finder", id: "archive.livingFrigateFinder" },
       { slug: "starship-finder", id: "archive.starshipFinder" },
     ],
   },

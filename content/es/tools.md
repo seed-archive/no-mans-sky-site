@@ -6,7 +6,7 @@
 
 - [Interceptores centinela](/tools/interceptor-finder): monta un interceptor centinela con cada pieza que el juego puede darle.
 - [Cargueros capitales](/tools/capital-freighter-finder) y [cargueros normales](/tools/freighter-finder): cada forma que puede tomar un carguero.
-- [Naves vivientes](/tools/living-ship-finder) y [fragatas orgánicas](/tools/living-frigate-finder): las formas de una nave viviente y de una ballena cósmica.
+- [Naves vivientes](/tools/living-ship-finder) y [fragatas orgánicas](/tools/organic-frigate-finder): las formas de una nave viviente y de una ballena cósmica.
 - [Naves](/tools/starship-finder): cada forma de cada tipo de nave: exótica (el raro calamar incluido), solar, combatiente, transportista, explorador y transbordador.
 
 ## Tus hallazgos
