@@ -16,7 +16,7 @@ Any inhabited or abandoned [space station](/guides/space-stations) will do. An a
 
 ## Stats after an upgrade
 
-Each step of an upgrade rolls the ship's stats again for the new class and replaces the old ones. The roll belongs to the ship, so a ship raised to S ends on the same stats from C or from B. A ship found at a class rolls twice and keeps the better of the two, as [ship stats](/guides/ship-stats) shows; an upgraded ship holds only one of those rolls, so its stats are usually lower than those of a ship found at that class. A multitool's upgrade also rolls again from the item itself, as [how to upgrade a multitool](/guides/multitool-upgrades) shows.
+Each step of an upgrade rolls the ship's stats again for the new class and replaces the old ones. The roll belongs to the ship, so a ship upgraded to S ends on the same stats from C or from B. A ship found at a class rolls twice and keeps the better of the two, as [ship stats](/guides/ship-stats) shows; an upgraded ship holds only one of those rolls, so its stats are usually lower than those of a ship found at that class. A multitool's upgrade also rolls again from the item itself, as [how to upgrade a multitool](/guides/multitool-upgrades) shows.
 
 So if the stats are what you want, find the ship at class S. If the slots are what you want, any class will do. Modules add on top of either, and [station technology merchants](/guides/technology-merchants) says where class S ones are sold.
 

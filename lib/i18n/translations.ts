@@ -8,15 +8,18 @@ import { DEFAULT_LANGUAGE, type Language, LANGUAGES } from "./languages";
 // and listed in hreflang and the sitemap in that language (D20). English holds
 // every page.
 // Part 1 of the guides (2026-11-24): the Galaxies and Systems groups whole.
+// The rest of the guides, a part at a time (2026-11-24), each group whole:
+// part 2 planets and crafting, 3 stations, 4 multitools and exosuit, 5 ships,
+// 6 freighters and exocraft, 7 creatures: every guide.
 // The Database whole (the owner, 2026-11-24: its interface is translated; the
 // pages are noindex outside English, `indexing.ts`).
-const PART_1 = ["/guides/galaxies", "/guides/systems", DATABASE_PATH];
+const WHOLE = ["/guides", DATABASE_PATH];
 
 const TRANSLATED: Record<Language, readonly string[]> = {
   en: [],
-  ru: PART_1,
-  es: PART_1,
-  de: PART_1,
+  ru: WHOLE,
+  es: WHOLE,
+  de: WHOLE,
 };
 
 // Pages translated by themselves, without the pages under them: each tool

@@ -1,6 +1,6 @@
 # Sources by planet type
 
-**Which type of planet, or biome, holds the most?** Among rocky planets, {{runner}} worlds: a median of {{runnerSpots}} spots. {{poorest}} worlds come last with {{poorestSpots}}, because {{redUncharted}} of them sit in Uncharted systems. Gas giants read {{richestSpots}}, but we have not stood on one to check.
+**Which type of planet, or biome, holds the most?** Among rocky planets, {{runner}} worlds hold the most, a median of {{runnerSpots}} spots. {{poorest}} worlds come last with {{poorestSpots}}, because {{redUncharted}} of them sit in Uncharted systems. Gas giants read {{richestSpots}}, but we have not stood on one to check.
 
 Dead and Weird worlds hold no shop and no pillar at all. Lush worlds hold fewer shops than barren ones, since their seas take part of the grid. The type also decides which fish bite in those seas, as [fishing](/guides/fishing) lists.
 

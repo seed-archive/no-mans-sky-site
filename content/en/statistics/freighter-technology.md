@@ -4,7 +4,7 @@
 
 - **A derelict freighter.** The [Scrap Dealer](/guides/scrap-dealer), behind the Galactic Trade Terminal of a station, sells the place of one, {{derelictFirst}} units the first time and {{derelictSecond}} the second. At its engineering control panel, pick Fabricate Items, then Fabricate Technology Upgrade. It gives one freighter module of any class, C to S, or now and then a starship reactor instead. A freighter module from it is class C {{derelictC}} of the time, B {{derelictB}}, A {{derelictA}}, and S {{derelictS}}. Its walk from the hangar to that panel is the quest [Lost in Space](/quests/lost-in-space).
 - **A destroyed pirate dreadnought.** It gives one module, always at class S, as [freighter modules](/guides/freighter-modules) shows. The rare class A item it gives instead is a starship reactor, not a freighter module.
-- **The Hive of Glass.** The boss of the Swarm expedition gave a class S module too; it fought only in that expedition, which has ended.
+- **The Hive of Glass.** The boss of the Swarm expedition could give a class S module too; it could be fought only in that expedition, which has ended.
 
 Every module on this page has the numbers of its system: the same place gives the same module again.
 

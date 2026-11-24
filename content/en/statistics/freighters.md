@@ -10,7 +10,7 @@ Everything else follows the class, and a freighter keeps its class for good: no 
 
 <!-- widget:limits -->
 
-So a small regular class C freighter and a giant capital class C both stop at {{generalC}} slots and {{techC}} for technology, and only a class S of either kind reaches {{generalS}} and {{techS}}. The hyperdrive and fleet bonus come from the class too, and every freighter holds 6 ships in its hangar. If you want the most a freighter can do, you want class S; if you want the giant, you want a capital one.
+So a small regular class C freighter and a giant capital class C both stop at {{generalC}} slots and {{techC}} for technology, and only a class S of either kind reaches {{generalS}} and {{techS}}. The hyperdrive and fleet stats come from the class too, and every freighter holds 6 ships in its hangar. If you want the most a freighter can do, you want class S; if you want the giant, you want a capital one.
 
 ## The battle on arrival
 

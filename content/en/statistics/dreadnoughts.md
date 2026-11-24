@@ -1,6 +1,6 @@
 # Dreadnoughts
 
-**How do you get a class S dreadnought?** Own a freighter first, then fight in a pirate system. Break the dreadnought's engines and it surrenders, and you can seize it. It comes at class S {{pirateS}} of the time.
+**How do you get a class S dreadnought?** Own a freighter first, then fight in a pirate system. Break all four engines and its cannons or hull, and it surrenders, and you can seize it. It comes at class S {{pirateS}} of the time.
 
 <!-- widget:dreadnoughtRender -->
 

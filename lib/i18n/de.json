@@ -538,6 +538,57 @@
     "system": "Jedes Sternensystem hier enthält die Planeten der aufgeführten Funde. Was ein <systems>Sternensystem</systems> enthält und welche <economy>Wirtschaft</economy> am besten zahlt, steht in den Ratgebern.",
     "galaxy": "Was der Typ einer Galaxie verändert und welche du durchsuchen solltest, steht unter <galaxies>Galaxien</galaxies>."
   },
+  "guidesPage": {
+    "title": "Ratgeber zu No Man's Sky: wo du die besten Gegenstände findest — Seed Archive",
+    "description": "Ratgeber zu No Man's Sky, von der Galaxie bis zur Kreatur: wo du Multiwerkzeuge, Schiffe, Frachter, Upgrade-Module und Kreaturen der Klasse S findest und wie selten jedes davon ist."
+  },
+  "catalogExamples": {
+    "first": "{name} ist {type}",
+    "next": "{name} {type}",
+    "tool": {
+      "pistol": "eine Pistole",
+      "rifle": "ein Gewehr",
+      "atlantid": "ein Atlantideum",
+      "sentinel": "ein Wächter-Multiwerkzeug",
+      "experimental": "ein experimentelles",
+      "alien": "ein Alien-Multiwerkzeug",
+      "royal": "ein königliches"
+    },
+    "ship": {
+      "shuttle": "ein Shuttle",
+      "fighter": "ein Jäger",
+      "hauler": "ein Transporter",
+      "explorer": "ein Entdecker",
+      "solar": "ein Solarschiff",
+      "interceptor": "ein Abfangjäger",
+      "exotic": "ein exotisches"
+    }
+  },
+  "itemTables": {
+    "to": "{low} bis {high}",
+    "type": "Typ",
+    "ship": "Schiff",
+    "damage": "Schaden",
+    "mining": "Bergbau",
+    "scanner": "Scanner",
+    "shield": "Schild",
+    "hyperdrive": "Hyperantrieb",
+    "maneuverability": "Manövrierfähigkeit",
+    "lowest": "Niedrigster",
+    "highest": "Höchster",
+    "mean": "Mittelwert",
+    "median": "Median",
+    "upgradedToS": "Auf S aufgewertet",
+    "foundAtS": "Auf S gefunden",
+    "allowedNote": "Was das Spiel bei Klasse S erlaubt, in Prozent.",
+    "toolNote": "Werkzeuge, die in Klasse S in Euclid gefunden wurden, ohne installiertes Modul.",
+    "noPistolDamage": "Pistolen haben keinen Grundschaden.",
+    "noRifleMining": "Gewehre haben keinen Grundwert für Bergbau.",
+    "shipNote": "Schiffe, die in Klasse S gefunden und beansprucht wurden, ohne Module, während du dieses Schiff fliegst, in Euclid.",
+    "noExplorerDamage": "Entdecker haben keinen Grundschaden.",
+    "noFighterHyperdrive": "Jäger haben keinen Grundwert für den Hyperantrieb.",
+    "raisedNote": "Grundschaden bei Klasse S. Eine Pistole hat keinen."
+  },
   "luck": {
     "tabMultitool": "Multiwerkzeug",
     "tabStaff": "Stab",

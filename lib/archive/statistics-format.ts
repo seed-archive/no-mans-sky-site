@@ -153,10 +153,19 @@ export function printNumber(
     case "about":
       return about(value, style);
     case "plain":
-      return String(value);
+      return plain(value, style);
     case "plus":
-      return `+${value}`;
+      return `+${plain(value, style)}`;
   }
+}
+
+// A number as it stands, every digit kept and no separator, in the language's
+// form: 0.7 is "0,7" in Russian, Spanish and German.
+function plain(value: number, style: NumberStyle) {
+  return new Intl.NumberFormat(style.locale, {
+    useGrouping: false,
+    maximumFractionDigits: 20,
+  }).format(value);
 }
 
 export function printValue(

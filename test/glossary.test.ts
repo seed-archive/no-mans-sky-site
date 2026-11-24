@@ -24,6 +24,12 @@ function textsOf(language: string): [string, string][] {
   };
   add(path.join(ROOT, "lib/i18n", `${language}.json`));
   add(path.join(ROOT, "lib/i18n/statistics", `${language}.json`));
+  const groups = path.join(ROOT, "lib/i18n/statistics", language);
+  if (existsSync(groups)) {
+    for (const file of readdirSync(groups)) {
+      add(path.join(groups, file));
+    }
+  }
   const folder = path.join(ROOT, "content", language);
   if (existsSync(folder)) {
     for (const file of readdirSync(folder, { recursive: true })) {

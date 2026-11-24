@@ -1,6 +1,6 @@
 # Starship modules
 
-**What can a starship upgrade module raise?** Each system of a starship has its own family of upgrade modules, and the class sets how many stats one install raises and how far: an S-Class Pulse Engine upgrade raises three of its stats, a C-Class one one or two. The starship merchant of a station sells them, as [station technology merchants](/guides/technology-merchants) shows.
+**What can a starship upgrade module raise?** Each system of a starship has its own family of upgrade modules, and the class sets how many stats one install raises and how far: an S-Class Pulse Engine upgrade raises three of its stats, a C-Class one raises one or two. The starship merchant of a station sells them, as [station technology merchants](/guides/technology-merchants) shows.
 
 Each stat reads as the module's card prints it. Illegal modules are sold at an [Outlaw Station](/guides/outlaw-station) and now and then by the [Scrap Dealer](/guides/scrap-dealer), and Rusted ones are sea salvage.
 

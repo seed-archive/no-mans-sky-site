@@ -36,7 +36,7 @@ The scanner is where an Illegal module can pay: {{scanXOverBestS}} of installs g
 
 <!-- widget:boltTop -->
 
-The Boltcaster's classes overlap more than any other weapon's: {{boltAAtTypicalS}} of A-Class installs and {{boltXAtTypicalS}} of Illegal ones add as much damage per second as a middling S-Class one. Only an Illegal install goes past the best S-Class one, {{boltXOverBestS}} of the time, and that is where the ceiling on [supercharged slots](/guides/supercharged-slots) comes from. S-Class gets you most of the way with no rolling; the last step is Illegal modules, bought until three good ones land.
+The Boltcaster's classes overlap a good deal: {{boltAAtTypicalS}} of A-Class installs and {{boltXAtTypicalS}} of Illegal ones add as much damage per second as a middling S-Class one. Only an Illegal install goes past the best S-Class one, {{boltXOverBestS}} of the time, and that is where the ceiling on [supercharged slots](/guides/supercharged-slots) comes from. S-Class gets you most of the way with no rolling; the last step is Illegal modules, bought until three good ones land.
 
 ### Scatter Blaster
 
@@ -96,7 +96,7 @@ The Geology Cannon follows the Plasma Launcher: not every install raises Damage,
 
 <!-- widget:cannonTop -->
 
-The Neutron Cannon is the one weapon where Illegal modules cannot win: none beats the best S-Class install, and {{cannonXUnderWorstS}} fall below the worst. No A-Class install reaches the worst S-Class one either. Buy S-Class and stop.
+Illegal modules cannot win on the Neutron Cannon, as on the Mining Beam: none beats the best S-Class install, and {{cannonXUnderWorstS}} fall below the worst. No A-Class install reaches the worst S-Class one either. Buy S-Class and stop.
 
 ### Forbidden module
 
