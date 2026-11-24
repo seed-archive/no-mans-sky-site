@@ -3,7 +3,7 @@
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import MuiLink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import Link from "@/components/archive/LocalLink";
 import { FormattedMessage } from "react-intl";
 
 import type { AssetCard } from "@/lib/archive/read";

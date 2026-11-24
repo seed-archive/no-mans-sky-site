@@ -4,6 +4,8 @@ import { createClient } from "@supabase/supabase-js";
 
 import { supabasePublishableKey, supabaseUrl } from "@/lib/db/env";
 import type { Database } from "@/lib/db/supabase.types";
+import type { Language } from "@/lib/i18n/languages";
+import { pageLanguage } from "@/lib/i18n/page";
 import { BASE_PATH } from "@/lib/site";
 
 // One item of each type from the catalog, the highest class first, so a guide
@@ -47,7 +49,7 @@ function escaped(text: string) {
 }
 
 // "X is a pistol, Y a rifle, …, and Z a Royal", each name a link.
-function sentence(rows: Row[], words: [string, string][]) {
+function sentence(rows: Row[], words: [string, string][], language: Language) {
   const parts = words.flatMap(([word, phrase]) => {
     const best = rows
       .filter((row) => row.word === word)
@@ -57,7 +59,7 @@ function sentence(rows: Row[], words: [string, string][]) {
       )[0];
     return best
       ? [
-          `<a href="${BASE_PATH}/${best.kind}/${best.id}">${escaped(best.name)}</a> ${phrase}`,
+          `<a href="${BASE_PATH}/${language}/${best.kind}/${best.id}">${escaped(best.name)}</a> ${phrase}`,
         ]
       : [];
   });
@@ -72,7 +74,7 @@ function sentence(rows: Row[], words: [string, string][]) {
   return `${[head, ...rest.slice(0, -1)].join(", ")}, and ${rest[rest.length - 1]}`;
 }
 
-async function read() {
+async function read(language: Language) {
   const url = supabaseUrl();
   const key = supabasePublishableKey();
   if (!url || !key) {
@@ -114,8 +116,8 @@ async function read() {
     };
   });
   return {
-    catalogTools: sentence(toolRows, TOOL_WORDS),
-    catalogShips: sentence(shipRows, SHIP_WORDS),
+    catalogTools: sentence(toolRows, TOOL_WORDS, language),
+    catalogShips: sentence(shipRows, SHIP_WORDS, language),
   };
 }
 
@@ -125,7 +127,7 @@ export async function fillCatalogExamples(html: string) {
   if (!html.includes("{{catalog")) {
     return html;
   }
-  const found = await read();
+  const found = await read(await pageLanguage());
   if (!found) {
     return html;
   }

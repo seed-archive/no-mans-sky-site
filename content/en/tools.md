@@ -9,10 +9,6 @@
 - [Living ships](/tools/living-ship-finder) and [living frigates](/tools/living-frigate-finder): the shapes of a living ship and of a cosmic whale.
 - [Starships](/tools/starship-finder): every shape of every ship type: exotic (the rare squid included), solar, Fighter, hauler, explorer, and shuttle.
 
-## Planets
-
-- [Planet globe](/tools/planet-globe): turn a planet of the catalog, its land, seas, and mountains, with every find marked where it stands.
-
 ## Your finds
 
 - [How lucky am I?](/tools/how-lucky-am-i): a score from 0 to 100 for a multitool, a staff, or a ship you found.
@@ -22,5 +18,9 @@
 - [Refiner recipes](/tools/refiner-recipes): what the Portable, Medium, and Large Refiner make.
 - [Nutrient Processor recipes](/tools/cooking-recipes): every dish, and the bonus it gives in the Nutrient Ingestor.
 - [Crafting recipes](/tools/crafting-recipes): everything you craft by hand.
+
+## Planets
+
+- [Planet globe](/tools/planet-globe): turn a planet of the catalog, its land, seas, and mountains, with every find marked where it stands.
 
 What the numbers behind these tools mean is in the [guides](/guides).

@@ -437,7 +437,7 @@ function ItemForm(props: { ship: boolean; rows: ItemRow[]; hidden: boolean }) {
                 <Tooltip
                   title={intl.formatMessage(
                     { id: "luck.fewerSlots" },
-                    { count: slotsOf(klass) },
+                    { klass: ITEMS.classes[klass], count: slotsOf(klass) },
                   )}
                 >
                   <Box
@@ -445,7 +445,7 @@ function ItemForm(props: { ship: boolean; rows: ItemRow[]; hidden: boolean }) {
                     tabIndex={0}
                     aria-label={intl.formatMessage(
                       { id: "luck.fewerSlots" },
-                      { count: slotsOf(klass) },
+                      { klass: ITEMS.classes[klass], count: slotsOf(klass) },
                     )}
                     sx={{
                       width: 18,

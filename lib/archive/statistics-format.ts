@@ -60,47 +60,98 @@ export const DASH = "—";
 
 export { count, share };
 
-function median(value: number) {
+// How numbers print in a page's language: the locale for the digits, and the
+// words around a number (`numbers` of lib/i18n/<locale>.json), each with its
+// number as `{n}`.
+export type NumberWords = {
+  about: string;
+  oneIn: string;
+  under: string;
+  over: string;
+};
+export type NumberStyle = { locale: string; words: NumberWords };
+
+export const ENGLISH_NUMBERS: NumberStyle = {
+  locale: "en",
+  words: {
+    about: "about {n}",
+    oneIn: "one in {n}",
+    under: "under {n}",
+    over: "over {n}",
+  },
+};
+
+const said = (template: string, n: string) => template.replace("{n}", n);
+
+function percent(value: number, style: NumberStyle) {
+  return share(value, style.locale, (shown) => said(style.words.over, shown));
+}
+
+function decimal(value: number, style: NumberStyle) {
+  return value.toLocaleString(style.locale, {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
+}
+
+function median(value: number, style: NumberStyle) {
   return value >= 10 || value === Math.trunc(value)
-    ? count(value)
-    : value.toFixed(1);
+    ? count(value, style.locale)
+    : decimal(value, style);
 }
 
-function oneIn(value: number) {
+// Below a thousand the two figures print without a separator, as before.
+function oneIn(value: number, style: NumberStyle) {
   const figures = twoFigures(value);
-  return `one in ${figures >= 1000 ? count(figures) : figures}`;
+  return said(
+    style.words.oneIn,
+    figures >= 1000 ? count(figures, style.locale) : String(figures),
+  );
 }
 
-function smallShare(value: number) {
-  return value >= 0.0001 ? share(value) : "under 0.01%";
+// The smallest share a table prints as a number, 0.01%: below it the share
+// reads "under 0.01%" (our own choice).
+const SMALLEST_SHARE = 0.0001;
+
+function smallShare(value: number, style: NumberStyle) {
+  return value >= SMALLEST_SHARE
+    ? percent(value, style)
+    : said(style.words.under, percent(SMALLEST_SHARE, style));
 }
 
 // A count in running text, to two figures: the exact number moves with every
 // recount.
-function about(value: number) {
+function about(value: number, style: NumberStyle) {
   if (value < 100) {
-    return count(value);
+    return count(value, style.locale);
   }
   const scale = 10 ** (String(Math.round(value)).length - 2);
-  return `about ${count(roundEven(value / scale) * scale)}`;
+  return said(
+    style.words.about,
+    count(roundEven(value / scale) * scale, style.locale),
+  );
 }
 
-export function printNumber(kind: Kind, value: number) {
+export function printNumber(
+  kind: Kind,
+  value: number,
+  style: NumberStyle = ENGLISH_NUMBERS,
+) {
   switch (kind) {
     case "share":
-      return share(value);
+      return percent(value, style);
     case "count":
-      return count(value);
+      return count(value, style.locale);
     case "median":
-      return median(value);
+      return median(value, style);
     case "oneIn":
-      return oneIn(value);
+      return oneIn(value, style);
     case "smallShare":
-      return smallShare(value);
+      return smallShare(value, style);
     case "tenths":
-      return value.toFixed(1);
+      return decimal(value, style);
     case "about":
-      return about(value);
+      return about(value, style);
     case "plain":
       return String(value);
     case "plus":
@@ -108,24 +159,31 @@ export function printNumber(kind: Kind, value: number) {
   }
 }
 
-export function printValue(value: Value): string {
+export function printValue(
+  value: Value,
+  style: NumberStyle = ENGLISH_NUMBERS,
+): string {
   if (typeof value === "string") {
     return value;
   }
   if ("t" in value) {
     return value.t.replace(/\{(\d+)\}/g, (_, at: string) =>
-      printValue(value.v[Number(at)]),
+      printValue(value.v[Number(at)], style),
     );
   }
-  return printNumber(value.k, value.v);
+  return printNumber(value.k, value.v, style);
 }
 
-export function printCell(cell: Cell, kind: ColumnKind) {
+export function printCell(
+  cell: Cell,
+  kind: ColumnKind,
+  style: NumberStyle = ENGLISH_NUMBERS,
+) {
   if (cell === null) {
     return DASH;
   }
   if (typeof cell === "number") {
-    return printNumber(kind as Kind, cell);
+    return printNumber(kind as Kind, cell, style);
   }
-  return printValue(cell);
+  return printValue(cell, style);
 }

@@ -1,8 +1,7 @@
 "use client";
 
 import Pagination from "@mui/material/Pagination";
-import { useRouter } from "next/navigation";
-
+import { useLocalRouter } from "@/components/providers/LanguageProvider";
 import {
   pageCount,
   toSearchParams,
@@ -16,7 +15,7 @@ export function CatalogPagination(props: {
   hasNext: boolean;
 }) {
   const { pathname, query, total } = props;
-  const router = useRouter();
+  const router = useLocalRouter();
 
   function open(page: number) {
     router.push(`${pathname}${toSearchParams(query, page)}`, { scroll: false });

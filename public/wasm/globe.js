@@ -1,30 +1,33 @@
 /**
  * `size`² palette bytes of `face`, rows going down, the top-left pixel centred at `u0`, `v0`, `step` face units a
- * pixel.
+ * pixel. `samples` is the most samples a pixel side, 1 to 3, the page's quality switch; 0, or the argument left out,
+ * is the full count.
  * @param {string} seed
  * @param {number} face
  * @param {number} u0
  * @param {number} v0
  * @param {number} step
  * @param {number} size
+ * @param {number} samples
  * @returns {Uint8Array}
  */
-export function globeFace(seed, face, u0, v0, step, size) {
+export function globeFace(seed, face, u0, v0, step, size, samples) {
   const val2 = +face;
   const val3 = +u0;
   const val4 = +v0;
   const val5 = +step;
   const val6 = +size;
+  const val7 = +samples;
   const ptr0 = passStringToWasm0(
     seed,
     wasm.__wbindgen_malloc,
     wasm.__wbindgen_realloc,
   );
   const len0 = WASM_VECTOR_LEN;
-  const ret = wasm.globeFace(ptr0, len0, val2, val3, val4, val5, val6);
-  var v7 = getArrayU8FromWasm0(ret[0], ret[1]).slice();
+  const ret = wasm.globeFace(ptr0, len0, val2, val3, val4, val5, val6, val7);
+  var v8 = getArrayU8FromWasm0(ret[0], ret[1]).slice();
   wasm.__wbindgen_free(ret[0], ret[1] * 1, 1);
-  return v7;
+  return v8;
 }
 
 /**

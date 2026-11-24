@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Link from "@/components/archive/LocalLink";
+import {
+  useLanguage,
+  useLocalRouter,
+} from "@/components/providers/LanguageProvider";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -17,6 +20,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import ListSubheader from "@mui/material/ListSubheader";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
@@ -25,11 +29,13 @@ import Typography from "@mui/material/Typography";
 import { useAuth } from "@seed-archive/ui/auth";
 import { FormattedMessage, useIntl } from "react-intl";
 
+import { HeaderLanguages } from "@/components/archive/HeaderLanguages";
+import { useText } from "@/components/archive/useText";
 import { PAGE_KINDS } from "@/lib/archive/kinds";
 import statisticsMenu from "@/lib/archive/statistics-menu.json";
 import { groupPath, guidePath } from "@/lib/archive/guides";
 import { QUESTS_PATH } from "@/lib/archive/guides";
-import { TOOLS } from "@/lib/archive/tools";
+import { TOOL_GROUPS } from "@/lib/archive/tools";
 
 // The header's links stand in the drawer below this width.
 // The bar's height, pixels: the Toolbar's default and its bottom border. An anchor
@@ -44,7 +50,9 @@ const DESKTOP = {
 export function ArchiveBar() {
   const { signOut, user } = useAuth();
   const intl = useIntl();
-  const router = useRouter();
+  const router = useLocalRouter();
+  const language = useLanguage();
+  const text = useText();
   const [menu, setMenu] = useState<HTMLElement | null>(null);
   const [statsMenu, setStatsMenu] = useState<HTMLElement | null>(null);
   const [toolsMenu, setToolsMenu] = useState<HTMLElement | null>(null);
@@ -74,13 +82,14 @@ export function ArchiveBar() {
   const [guideGroup, setGuideGroup] = useState<string | null>(null);
   const toggleGroup = (next: string) =>
     setGuideGroup((open) => (open === next ? null : next));
-  const drawerLink = (href: string, id: string, nested = false) => (
+  // `indent`: the left padding of a link nested in a section.
+  const drawerLink = (href: string, id: string, indent?: number) => (
     <ListItemButton
       key={href}
       component={Link}
       href={href}
       onClick={() => setDrawer(false)}
-      sx={nested ? { pl: 4 } : undefined}
+      sx={indent ? { pl: indent } : undefined}
     >
       <ListItemText primary={<FormattedMessage id={id} />} />
     </ListItemButton>
@@ -108,7 +117,7 @@ export function ArchiveBar() {
           <Typography
             variant="h6"
             component="a"
-            href="/"
+            href={`/${language}`}
             sx={{ color: "inherit", textDecoration: "none", flexShrink: 0 }}
           >
             <FormattedMessage id="archive.title" />
@@ -126,6 +135,7 @@ export function ArchiveBar() {
             <FormattedMessage id="archive.game" />
           </Typography>
         </Box>
+        <HeaderLanguages />
         <IconButton
           color="inherit"
           aria-label={intl.formatMessage({ id: "archive.navigation" })}
@@ -146,7 +156,7 @@ export function ArchiveBar() {
               </ListItemButton>
               <Collapse in={section === "browse"} unmountOnExit>
                 {PAGE_KINDS.map((kind) =>
-                  drawerLink(`/${kind}`, `kinds.${kind}`, true),
+                  drawerLink(`/${kind}`, `kinds.${kind}`, 4),
                 )}
               </Collapse>
               {/* The name opens the guides page, the arrow its groups, as a
@@ -184,7 +194,7 @@ export function ArchiveBar() {
                     secondaryAction={
                       <IconButton
                         edge="end"
-                        aria-label={group.title}
+                        aria-label={text(group.title)}
                         aria-expanded={guideGroup === group.slug}
                         onClick={() => toggleGroup(group.slug)}
                       >
@@ -202,7 +212,7 @@ export function ArchiveBar() {
                       onClick={() => setDrawer(false)}
                       sx={{ pl: 4 }}
                     >
-                      <ListItemText primary={group.title} />
+                      <ListItemText primary={text(group.title)} />
                     </ListItemButton>
                   </ListItem>,
                   <Collapse
@@ -218,7 +228,7 @@ export function ArchiveBar() {
                         onClick={() => setDrawer(false)}
                         sx={{ pl: 6 }}
                       >
-                        <ListItemText primary={page.title} />
+                        <ListItemText primary={text(page.title)} />
                       </ListItemButton>
                     ))}
                   </Collapse>,
@@ -232,7 +242,14 @@ export function ArchiveBar() {
                 {section === "tools" ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={section === "tools"} unmountOnExit>
-                {TOOLS.map((tool) => drawerLink(tool.href, tool.id, true))}
+                {TOOL_GROUPS.flatMap((group) => [
+                  <ListSubheader key={group.id} sx={{ pl: 4, lineHeight: 2.5 }}>
+                    <FormattedMessage id={group.id} />
+                  </ListSubheader>,
+                  ...group.tools.map((tool) =>
+                    drawerLink(tool.href, tool.id, 6),
+                  ),
+                ])}
               </Collapse>
             </List>
           </Box>
@@ -306,7 +323,7 @@ export function ArchiveBar() {
               onClick={() => setStatsMenu(null)}
               sx={{ fontWeight: 700 }}
             >
-              {group.title}
+              {text(group.title)}
             </MenuItem>,
             ...group.pages.map((page) => (
               <MenuItem
@@ -316,7 +333,7 @@ export function ArchiveBar() {
                 onClick={() => setStatsMenu(null)}
                 sx={{ pl: 4 }}
               >
-                {page.title}
+                {text(page.title)}
               </MenuItem>
             )),
           ])}
@@ -348,16 +365,22 @@ export function ArchiveBar() {
           onClose={() => setToolsMenu(null)}
           slotProps={{ list: { "aria-labelledby": "tools-button" } }}
         >
-          {TOOLS.map((tool) => (
-            <MenuItem
-              key={tool.href}
-              component={Link}
-              href={tool.href}
-              onClick={() => setToolsMenu(null)}
-            >
-              <FormattedMessage id={tool.id} />
-            </MenuItem>
-          ))}
+          {TOOL_GROUPS.flatMap((group) => [
+            <ListSubheader key={group.id} sx={{ lineHeight: 2.5 }}>
+              <FormattedMessage id={group.id} />
+            </ListSubheader>,
+            ...group.tools.map((tool) => (
+              <MenuItem
+                key={tool.href}
+                component={Link}
+                href={tool.href}
+                onClick={() => setToolsMenu(null)}
+                sx={{ pl: 4 }}
+              >
+                <FormattedMessage id={tool.id} />
+              </MenuItem>
+            )),
+          ])}
         </Menu>
         {user ? (
           <>

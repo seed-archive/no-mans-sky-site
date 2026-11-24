@@ -6,18 +6,21 @@ import GlobalStyles from "@mui/material/GlobalStyles";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import NextLink from "next/link";
+import NextLink from "@/components/archive/LocalLink";
 import type { PropsWithChildren, ReactNode } from "react";
 import { FormattedMessage } from "react-intl";
 
 import { ArchiveBar, BAR_HEIGHT } from "@/components/archive/ArchiveBar";
+import { useText } from "@/components/archive/useText";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 import { PAGE_KINDS } from "@/lib/archive/kinds";
 import statisticsMenu from "@/lib/archive/statistics-menu.json";
 import { TOOLS } from "@/lib/archive/tools";
 import { groupPath, QUESTS_PATH, questPath } from "@/lib/archive/guides";
 
 // `portal` marks a page of the domain's root (the shared legal pages): a plain link,
-// since next/link would add this section's prefix.
+// since next/link would add this section's prefix, in the page's language, as
+// the portal's pages carry it too (D20).
 type Column = {
   title: ReactNode;
   links: { href: string; label: ReactNode; portal?: boolean }[];
@@ -52,6 +55,12 @@ const COLUMNS: Column[] = [
       {
         href: "/release-notes",
         label: <FormattedMessage id="archive.releaseNotes" />,
+        portal: true,
+      },
+      // Donations live on one page of the portal (the owner, 2026-11-24).
+      {
+        href: "/support",
+        label: <FormattedMessage id="archive.support" />,
         portal: true,
       },
       {
@@ -100,6 +109,8 @@ const COLUMNS: Column[] = [
 const ANCHOR_GAP = 8;
 
 export function ArchiveShell({ children }: PropsWithChildren) {
+  const language = useLanguage();
+  const text = useText();
   return (
     <Box
       sx={{
@@ -149,12 +160,14 @@ export function ArchiveShell({ children }: PropsWithChildren) {
                 <Link
                   key={link.href}
                   component={link.portal ? "a" : NextLink}
-                  href={link.href}
+                  href={link.portal ? `/${language}${link.href}` : link.href}
                   color="text.secondary"
                   variant="body2"
                   underline="hover"
                 >
-                  {link.label}
+                  {typeof link.label === "string"
+                    ? text(link.label)
+                    : link.label}
                 </Link>
               ))}
             </Stack>
