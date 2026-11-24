@@ -2,7 +2,7 @@
 
 **¿Dónde encuentras una multiherramienta de clase S?** En los sistemas de riqueza media, alta y pirata. Un sistema de riqueza baja no tiene ninguna herramienta de clase S, {{lowS}}, y uno inexplorado no da ninguna herramienta. La riqueza media da {{mediumS}}, la alta {{highS}} y la pirata {{pirateS}}. Los sistemas piratas son también los que más clase C tienen, {{pirateC}}, frente a {{highC}} con riqueza alta.
 
-La [riqueza](/guides/economy) fija las probabilidades, y la fuente no: las tiendas, los monolitos, los campos armónicos y los pilares dan las mismas cuatro clases. Las herramientas Real son la excepción, como muestra [tipos de multiherramientas](/guides/multitool-types). El catálogo lista [multiherramientas con espacios supercargados adyacentes](/tool), cada una con los glifos de portal para ir a buscarla.
+La [riqueza](/guides/economy) fija las probabilidades, y la fuente no: las tiendas, los monolitos, los campos armónicos y los pilares dan las mismas cuatro clases. Las herramientas Real son la excepción, como muestra [tipos de multiherramientas](/guides/multitool-types). La base de datos lista [multiherramientas con espacios supercargados adyacentes](/tool), cada una con los glifos de portal para ir a buscarla.
 
 ## Por riqueza
 

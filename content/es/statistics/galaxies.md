@@ -16,4 +16,4 @@ De 256 galaxias, {{normal}} son normales, {{lush}} exuberantes, {{harsh}} hostil
 
 <!-- widget:ring -->
 
-Elegir una galaxia es el primer filtro, y el catálogo lista las [galaxias](/galaxy) con su tipo. Dentro de ella, la pregunta pasa a ser [dónde buscar](/guides/where-to-look) en ella.
+Elegir una galaxia es el primer filtro, y la base de datos lista las [galaxias](/galaxy) con su tipo. Dentro de ella, la pregunta pasa a ser [dónde buscar](/guides/where-to-look) en ella.

@@ -8,7 +8,7 @@ Cada herramienta se cuenta una vez, tal como la encuentras, en [Euclides](/galax
 
 <!-- widget:types -->
 
-Cada tipo en el catálogo: {{catalogTools}}.
+Cada tipo en la base de datos: {{catalogTools}}.
 
 Los colores de Atlantid y las formas de Centinela salen en proporciones iguales. El color solo importa cuando mejoras una herramienta, como muestra [cómo mejorar una multiherramienta](/guides/multitool-upgrades).
 
