@@ -4,7 +4,7 @@
 
 ## Build it step by step
 
-1. **Start a build.** The second you start it fixes the corvette's supercharged slots and base stats. Reloading a save made after that does not change them; to try other slots, start a new build.
+1. **Start a build.** The moment you start it, the game fixes the corvette's supercharged slots and base stats. Reloading a save made after that does not change them; to try other slots, start a new build.
 2. **Finalise a small corvette** from the seven parts a build needs, below.
 3. **Upgrade it to class S** at the starship terminal, {{nanites}} nanites from C, as for any ship. Each class opens the next supercharged slot, up to {{supercharged}}.
 4. **Buy every technology slot**: a class S corvette reaches {{tech_slots}}.
@@ -46,7 +46,7 @@ A corvette fires the ordinary starship weapons. A weapon part brings an upgrade 
 
 The weapon you fire shoots from the barrels of every weapon part on the corvette, up to {{barrels}}. Most weapons fire from one barrel after another, so more barrels add no damage. The Phase Beam fires a beam from every barrel at once, each at full damage, so a corvette built for damage is built on the Phase Beam: Phase Beam Arrays for the modules, and other weapon parts for more barrels. The Infra-Knife has the most barrels, twice a Phase Beam Array's, so two Infra-Knives beside {{limit}} Phase Beam Arrays fill the {{barrels}}. The Torpedo Launcher has none. The build screen's damage counts two beams, so it shows less than such a corvette deals.
 
-Your own Phase Beam upgrade modules count beside the modules of the parts. Each weapon part adds one beam for each of its barrels: the Infra-Knife {{knife_barrels}}; the Photon Cannon Array, the Phase Beam Array, and the Cyclotron Defence Cannon {{pair_barrels}} each; the Deadeye Cannon, the Venom Spitter, and the Dematerialisation Ray {{single_barrel}} each.
+Your own Phase Beam upgrade modules count beside the modules of the parts. Each weapon part adds one beam for each of its barrels: the Infra-Knife {{knife_barrels}}; the Photon Cannon Array, the Phase Beam Array, and the Cyclotron Defence Cannon {{pair_barrels}} each; the Deadeye Cannon and the Dematerialisation Ray {{single_barrel}} each.
 
 ## Size and maneuverability
 

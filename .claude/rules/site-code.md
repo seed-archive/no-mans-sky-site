@@ -51,8 +51,9 @@ Every page's address names its language, `/no-mans-sky/<en|ru|es|de>/…` (the p
 - Long text is `content/<language>/…`; labels are `lib/i18n/<language>.json`, loaded on the server for the page's
   language only.
 - The guides' tables and sentences are keys in `statistics.json`; their text is `lib/i18n/statistics/<language>.json`
-  (English written by the generator), read through `lib/i18n/statistics.ts` on the server; the menu's through
-  messages and `useText`.
+  (English written by the generator; part 1 in the other languages), with a file a menu group in
+  `lib/i18n/statistics/<language>/<group>.json` for the later parts (`lib/i18n/catalogue-groups.ts`), read through
+  `lib/i18n/statistics.ts` on the server; the menu's through messages and `useText`.
 - A word beside a number in a guide's Markdown is `{{name, plural, one {# …} other {# …}}}`, formatted alone by
   `intl-messageformat` in `fillStatistics`.
 - A translated page keeps the English page's heading ids, heading by heading (`readContent`).

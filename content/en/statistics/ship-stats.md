@@ -1,6 +1,6 @@
 # Ship stats
 
-**How strong can a claimed ship be?** It depends on the ship type: a Fighter reaches {{damageFighterHigh}} damage, a Hauler {{shieldHaulerHigh}} shield, and an Exotic {{agileExoticHigh}} maneuverability, while an Interceptor reads {{hyperdriveInterceptorHigh}} hyperdrive. Every ship comes with base stats for these four, in percent. Each is rolled apart, inside a range set by its [ship type](/guides/ship-types) and [ship class](/guides/ship-classes). The tables below show what reaches your hangar, as the number on a bare card: no module installed, and the starter cannon left out. [How lucky am I?](/tools/how-lucky-am-i) places a ship you claimed among them.
+**How strong can a claimed ship be?** It depends on the ship type: a Fighter reaches {{damageFighterHigh}} damage, a Hauler {{shieldHaulerHigh}} shield, and an Exotic {{agileExoticHigh}} maneuverability, while an Interceptor reads {{hyperdriveInterceptorHigh}} hyperdrive. Every ship type has base stats, in percent, for these four, except Explorers without damage and Fighters without hyperdrive. Each is rolled apart, inside a range set by its [ship type](/guides/ship-types) and [ship class](/guides/ship-classes). The tables below show what reaches your hangar, as the number on a bare card: no module installed, and the starter cannon left out. [How lucky am I?](/tools/how-lucky-am-i) places a ship you claimed among them.
 
 ## How a stat is rolled
 
@@ -28,7 +28,7 @@ The wreck's roll for damage is the one that set its class, as on [ship classes](
 
 Haulers hold the most: from {{shieldHaulerLow}} to {{shieldHaulerHigh}}. Exotics come next at {{shieldExoticMedian}}, and every other type sits near 200.
 
-The wreck's roll for shield barely moves: a share near 0.20 or 0.32, and near 0.52 on an Interceptor. Only the second roll lifts it, so no ship reads near the bottom of its range, and more than half of Interceptors sit exactly on that floor.
+The wreck's roll for shield barely moves: a share near 0.20 or 0.32, and near 0.52 on an Interceptor. The first roll sets a floor, and only the second roll lifts a ship off it: no ship reads near the bottom of its range, and more than half of Interceptors sit exactly on the floor.
 
 <!-- widget:shield -->
 
@@ -46,6 +46,6 @@ Exotics turn best, with a median of {{agileExoticMedian}} and a top of {{agileEx
 
 ## Found and upgraded
 
-These tables hold ships found at class S. A ship found lower and upgraded at a station is not in them: what its stats do on the way up is not measured yet.
+These tables hold ships found at class S. A ship found lower and upgraded at a station is not in them.
 
 What an upgrade does give you is under [how to upgrade a ship](/guides/ship-upgrades).

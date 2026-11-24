@@ -1,6 +1,6 @@
 # Autophage Synthesis Terminal
 
-**What does the Autophage Synthesis Terminal sell?** Autophage outfits for Void Motes: {{wares}} items, all on sale at once, most of them Exosuit Appearance Overrides, with a Repair Kit, the Rebuilt Exosuit Module, a salvaged exosuit upgrade, and a chart to an Autophage settlement.
+**What does the Autophage Synthesis Terminal sell?** Autophage outfits for Void Motes: {{wares}} items, all on sale at once, most of them Exosuit Appearance Overrides, with a Repair Kit, the Rebuilt Exosuit Module (a salvaged exosuit upgrade), and a chart to an Autophage settlement.
 
 ## Where to find one
 
@@ -12,4 +12,4 @@ Every item it can show, with the description the game gives it and its price in 
 
 <!-- widget:stock -->
 
-Most of the stock is looks. The salvaged exosuit upgrade is the one whose stats are a draw, and what one install of it can roll is on [exosuit modules](/guides/exosuit-modules).
+Most of the stock is looks. The Rebuilt Exosuit Module is the one whose stats are a draw, and what one install of it can roll is on [exosuit modules](/guides/exosuit-modules).

@@ -6,7 +6,7 @@ Each stat reads as the module's card prints it. The land exocraft share a set of
 
 ## Every Minotaur module
 
-The modules you build or receive, apart from upgrade modules. The Hardframe body, arms, and legs are a blueprint of the Space Anomaly, and the quest [A Trace of Metal](/quests/a-trace-of-metal) gives them too. The Liquidator set, whose right arm carries a flamethrower, is a reward of the Liquidators expedition: its milestones give the body, both arms, and the legs, and the Quicksilver merchant of the Space Anomaly sells them too. The Minotaur wears one set at a time.
+The modules you build or receive, apart from upgrade modules. The Hardframe body, arms, and legs are a blueprint of the Space Anomaly, and the quest [A Trace of Metal](/quests/a-trace-of-metal) gives them too. The Liquidator set, whose right arm carries a flamethrower, is a reward of the Liquidators expedition: its milestones give the body, both arms, and the legs, and the Quicksilver merchant of the Space Anomaly sells them too.
 
 <!-- widget:built -->
 
@@ -50,7 +50,7 @@ The Minotaur Laser's classes do not overlap: no A-Class install reaches the wors
 
 <!-- widget:mfireTop -->
 
-An S-Class Flamethrower module always adds the same Damage, the most the family allows, and always raises all three stats. No A-Class install reaches that Damage, and most A-Class installs raise two stats, not three. This family has no C-Class module, so the climb is short: B, A, then S.
+An S-Class Flamethrower module always adds the same Damage, the most the family allows, and always raises all three stats. No A-Class install reaches that Damage, and most A-Class installs raise two stats, not three. This family has no C-Class module, like the other three, so the climb is short: B, A, then S.
 
 ### Minotaur Cannon
 

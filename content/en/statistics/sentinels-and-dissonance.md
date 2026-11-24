@@ -4,7 +4,7 @@
 
 ## By planet type
 
-Waterworlds lead by far, {{water}}, and the coloured worlds of purple stars follow. But a dissonant Waterworld is no use to you: it holds no Interceptor and no Harmonic Camp, and neither does a Dead or Weird world. Every other type sits near 5%, and gas giants show none. Activity barely changes with the type: {{low}} of planets run low, {{high}} high, and {{aggressive}} aggressive.
+Waterworlds lead by far, {{water}}, and the coloured worlds follow. But a dissonant Waterworld is no use to you: it holds no Interceptor and no Harmonic Camp, and neither does a Dead or Weird world. Every other type sits near the overall {{dissonant}}, and gas giants show none. Activity barely changes with the type: {{low}} of planets run low, {{high}} high, and {{aggressive}} aggressive.
 
 <!-- widget:biomes -->
 

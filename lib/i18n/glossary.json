@@ -65,5 +65,21 @@
   },
   "seed": {
     "ru": { "use": "сид", "avoid": ["Зерно мира", "зерно мира"] }
+  },
+  "staff terminal": {
+    "de": {
+      "use": "Synthese-Terminal",
+      "avoid": ["Stab-Terminal", "Stab-Terminals", "Stabterminal"]
+    }
+  },
+  "nutrient ingestor": {
+    "es": {
+      "use": "consumidor de nutrientes",
+      "avoid": ["asimilador de nutrientes", "Asimilador de nutrientes"]
+    },
+    "ru": {
+      "use": "поглотитель нутриентов",
+      "avoid": ["переработчик нутриентов для экзокостюма"]
+    }
   }
 }

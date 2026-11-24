@@ -10,7 +10,7 @@ A letter is a band, and the creature's number sits somewhere inside it ([creatur
 
 ## How rare the ceiling is
 
-The ceiling takes a roll at exactly the top of the band, about one species in {{oneTop}}. One under it is common by comparison, and every step down adds about as many again:
+The ceiling takes a roll at exactly the top of the band, about {{oneTop}} species. One under it is common by comparison, and every step down adds about as many again:
 
 <!-- widget:creaturesOften -->
 

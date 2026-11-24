@@ -154,7 +154,7 @@ export function tablesOf(slug: string, language: Language = "en") {
   const tables = Object.entries(pagesIn(language)[slug].tables).map(
     ([name, table]) => [name, printed(table, NUMBERS[language])] as const,
   );
-  return { ...Object.fromEntries(tables), ...itemTables(slug) };
+  return { ...Object.fromEntries(tables), ...itemTables(slug, language) };
 }
 
 // The numbers of a table, for a chart.
@@ -171,9 +171,32 @@ function printedNumbers(slug: string, language: Language) {
   const numbers = (page?.numbers ?? data.numbers) as Record<string, Value>;
   const out: Record<string, string> = {};
   for (const [name, value] of Object.entries(numbers)) {
-    out[name] = printValue(value, NUMBERS[language]);
+    out[name] =
+      typeof value === "string"
+        ? writtenShare(value, language)
+        : printValue(value, NUMBERS[language]);
   }
-  return page ? { ...out, ...itemNumbers(slug) } : out;
+  return page ? { ...out, ...itemNumbers(slug, language) } : out;
+}
+
+// A share the generator wrote as text, "6.3%" or "-15%".
+const WRITTEN_SHARE = /^([+-]?)(\d+(?:\.\d+)?)%$/;
+
+// A value of a page's numbers written as text. Words are a key of the
+// catalogue, already resolved in the page's language; a share alone prints in
+// the language's own form.
+function writtenShare(text: string, language: Language) {
+  const share = text.match(WRITTEN_SHARE);
+  if (language === "en" || !share) {
+    return text;
+  }
+  const digits = share[2].split(".")[1]?.length ?? 0;
+  const printed = new Intl.NumberFormat(NUMBERS[language].locale, {
+    style: "percent",
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
+  }).format(Number(share[2]) / 100);
+  return `${share[1]}${printed}`;
 }
 
 // The bare numbers of a page, for the word beside a number in its language.

@@ -8,6 +8,7 @@ import messagesEn from "../lib/i18n/en.json";
 import messagesRu from "../lib/i18n/ru.json";
 import messagesEs from "../lib/i18n/es.json";
 import messagesDe from "../lib/i18n/de.json";
+import { groupTexts } from "../lib/i18n/catalogue-groups";
 import { LANGUAGES, type Language } from "../lib/i18n/languages";
 import catalogueEn from "../lib/i18n/statistics/en.json";
 import catalogueRu from "../lib/i18n/statistics/ru.json";
@@ -27,9 +28,9 @@ type Nested = { [key: string]: string | Nested };
 
 const CATALOGUES: Record<Language, Record<string, string>> = {
   en: catalogueEn,
-  ru: { ...gameRu, ...catalogueRu },
-  es: { ...gameEs, ...catalogueEs },
-  de: { ...gameDe, ...catalogueDe },
+  ru: { ...gameRu, ...catalogueRu, ...groupTexts("ru") },
+  es: { ...gameEs, ...catalogueEs, ...groupTexts("es") },
+  de: { ...gameDe, ...catalogueDe, ...groupTexts("de") },
 };
 const MESSAGES: Record<Language, Nested> = {
   en: messagesEn,
