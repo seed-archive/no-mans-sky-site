@@ -205,9 +205,9 @@
   "sources-by-type.swamp-7970af": "Sumpf",
   "sources-by-type.waterworld-1b4e54": "Wasserwelt",
   "sources-by-type.weird-fca936": "Seltsam",
-  "sources-by-size.value:large": "groß",
-  "sources-by-size.value:moon": "Mond",
-  "sources-by-type.value:Lava": "Lava",
-  "sources-by-type.value:Red": "Rot",
-  "sources-by-type.value:Gas Giant": "Gasriese"
+  "sources-by-size.large-d02db4": "groß",
+  "sources-by-size.moon-84ae40": "Mond",
+  "sources-by-type.lava-030f7b": "Lava",
+  "sources-by-type.red-7f187c": "Rot",
+  "sources-by-type.gas-giant-6b5627": "Gasriese"
 }
