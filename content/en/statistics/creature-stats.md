@@ -36,7 +36,7 @@ At the top an S reaches {{topCombat}} Combat Effectiveness, {{topAgility}} Agili
 
 ## What each grade does
 
-Health is what a creature can lose, and Agility is its speed. Combat Effectiveness scales the damage of its moves, and affinity multiplies that again. How Agility acts in a battle is not measured yet.
+Health is what a creature can lose, and Agility is its speed. Combat Effectiveness scales the damage of its moves, and affinity multiplies that again.
 
 ## Trait Potential
 

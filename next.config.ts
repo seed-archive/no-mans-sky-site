@@ -222,8 +222,11 @@ function redirectList() {
 
 const nextConfig: NextConfig = {
   basePath: BASE_PATH,
-  // Pages read content/ at run time, so Vercel has to ship it.
-  outputFileTracingIncludes: { "/**": ["./content/**"] },
+  // Pages read content/ and the translators' group files at run time, so Vercel
+  // has to ship them.
+  outputFileTracingIncludes: {
+    "/**": ["./content/**", "./lib/i18n/statistics/*/*.json"],
+  },
   async redirects() {
     return redirectList();
   },

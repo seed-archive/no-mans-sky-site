@@ -24,7 +24,7 @@ A cabinet keeps its class and its supercharged slots, but the type inside depend
 
 ## By wealth
 
-The type holds steady at every wealth.
+The type mix hardly changes with wealth.
 
 <!-- widget:wealth -->
 

@@ -8,7 +8,7 @@
 
 ## How to make them
 
-Each of these dishes, and the Anomalous Doughnut, made from what you gather: every step through the Nutrient Processor and the refiners, the cheapest way. Short shows the last step alone.
+Each of these dishes, and the Anomalous Doughnut, is shown made from what you gather: every step through the Nutrient Processor and the refiners, the cheapest way. Short shows the last step alone.
 
 <!-- widget:made -->
 

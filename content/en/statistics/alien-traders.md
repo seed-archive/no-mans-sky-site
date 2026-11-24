@@ -18,4 +18,4 @@ Any Gek, Vy'keen, or Korvax you can talk to who is not a merchant, a specialist,
 
 <!-- widget:stock3 -->
 
-A pilot of the same race draws from much the same list, and adds Starship Launch Fuel and the frigate modules, as [Starship Pilot](/guides/starship-pilots) shows.
+A pilot of the same race draws from much the same list, and adds Starship Launch Fuel, Tritium, and the frigate modules, as [Starship Pilot](/guides/starship-pilots) shows.

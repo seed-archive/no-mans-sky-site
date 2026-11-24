@@ -1,5 +1,6 @@
 import menu from "@/lib/archive/statistics-menu.json";
 
+import { groupTexts } from "./catalogue-groups";
 import de from "./statistics/de.json";
 import en from "./statistics/en.json";
 import es from "./statistics/es.json";
@@ -21,12 +22,13 @@ export const ENGLISH: Catalogue = en;
 // this module, so the catalogues never reach a browser.
 // A language's catalogue: the game's own names (`game/<lang>.json`, written by
 // the generator's `loc_emit.py catalogue` from the game's tables by key) with
-// the translators' texts (`<lang>.json`) laid over them.
+// the translators' texts (`<lang>.json`, and a file a menu group in `<lang>/`)
+// laid over them.
 const CATALOGUES: Record<Language, Catalogue> = {
   en,
-  ru: { ...gameRu, ...ru },
-  es: { ...gameEs, ...es },
-  de: { ...gameDe, ...de },
+  ru: { ...gameRu, ...ru, ...groupTexts("ru") },
+  es: { ...gameEs, ...es, ...groupTexts("es") },
+  de: { ...gameDe, ...de, ...groupTexts("de") },
 };
 
 export function catalogueOf(language: Language): Catalogue {

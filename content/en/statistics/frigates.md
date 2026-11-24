@@ -4,7 +4,7 @@
 
 ## The types
 
-Five types fly in the fleets of any system, one as likely as the next: Combat, Exploration, Industrial, Trade, and Support. The pirates bring a sixth, the Raider. The rest come from a space whale or as expedition rewards.
+Five types fly in the fleets of any system, one as likely as the next: Combat, Exploration, Industrial, Trade, and Support. The pirates bring a sixth, the Raider. The rest come from a cosmic whale or as expedition rewards.
 
 <!-- widget:kinds -->
 
@@ -38,7 +38,7 @@ A Combat frigate appears at class S {{combatS}} of the time, a Raider {{raiderS}
 
 A frigate works on the stat of its own type, and its own trait is the only one that gives the big boost. So two new frigates of one type start close, and the other traits make the difference. Look for, in this order:
 
-- no bad trait: it stays until a level takes it away, and that level brings nothing new;
+- no bad trait: a bad trait stays until a level takes it away, and that level brings nothing new;
 - good traits on its own stat, the larger the better;
 - the letter last: a class C can arrive with three or four traits, a good one cancelled by a bad one.
 
@@ -62,7 +62,7 @@ The three reward frigates always come with the same five traits.
 
 Send frigates of the expedition's kind. Most of its events, {{ownLow}} to {{ownHigh}}, are of that kind, and on those the whole fleet's stat counts. On the other events it counts at {{offKind}}, and on a Balanced expedition at {{balanced}} on every event. Each frigate adds its stat up to {{statHigh}}, each matching boost, a frigate module a [Starship Pilot](/guides/starship-pilots) sells, adds {{boost}}, and the fleet modules of your freighter multiply the sum, up to {{fleetHigh}}.
 
-Every event rolls 0 to {{rollTop}} and adds the fleet's stat; it goes well if it reaches the event's difficulty. The first event starts near {{startDifficulty}}, each later one is {{stepDifficulty}} harder, every frigate you send adds one, and each expedition adds a hidden difficulty of {{tiers}} to all its events. When the fleet's stat reaches the difficulty, the event always goes well; each point short takes one chance in {{faces}} away. So the late events of a long expedition fail whatever you send, and a strong fleet pays most on the long ones.
+Every event rolls 0 to {{rollTop}} and adds the fleet's stat; it goes well if it reaches the event's difficulty. The first event starts near {{startDifficulty}}, each later one is {{stepDifficulty}} harder, every frigate you send adds one, and each expedition adds one hidden difficulty, one of {{tiers}}, to all its events. When the fleet's stat reaches the difficulty, the event always goes well; each point short takes one chance in {{faces}} away. So the late events of a long expedition fail for a weak fleet, and a strong fleet pays most on the long ones.
 
 <!-- widget:success -->
 
@@ -78,7 +78,7 @@ Only a failed event damages a frigate, and only once you have finished more than
 
 <!-- widget:damage -->
 
-The weakest frigate in the event's kind is the likeliest to be hit. A frigate with a trait that says Never damaged, and an organic frigate, is never hit.
+The weakest frigate in the event's kind is the likeliest to be hit. A frigate with a trait that says Never damaged and an organic frigate are never hit.
 
 The first hit damages the frigate, and you choose to let it go on or send it home; sent home, it still counts the expedition. A second hit while it is damaged destroys it: it is gone from your fleet for good. So send a damaged frigate home. If no frigate is left, the expedition ends at once. You always keep the rewards it won.
 

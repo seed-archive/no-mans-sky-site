@@ -1,10 +1,10 @@
 # Creature grades
 
-**Where do you find an all-S creature?** On any planet. All three grades at S come to {{bestOneIn}} creatures on every type, size, and galaxy, and the only thing a planet changes is how many creatures it lists. {{planetsWith}} of planets hold one such creature. Two on one planet is the real find: {{twoOneIn}} planets. The [creatures to adopt](/creature) come with their grades and the planet and portal glyphs of each.
+**Where do you find an all-S creature?** On any planet. All three grades at S come to {{bestOneIn}} creatures on every type, size, and galaxy, and the only thing a planet changes about those odds is how many creatures it lists. {{planetsWith}} of planets hold one such creature. Two on one planet is the real find: {{twoOneIn}} planets. The [creatures to adopt](/creature) come with their grades and the planet and portal glyphs of each.
 
 ## The odds
 
-Each grade is rolled apart, with S at 15%. Nothing about the planet enters that roll, so these odds hold everywhere. The grades are fixed for life; what a creature can still change are its [battle moves](/guides/battle-moves).
+Each grade is rolled apart, with S at 15%. Nothing about the planet enters that roll, so these odds hold everywhere. The letters are fixed for life; gene edits raise the numbers behind them ([creature stats](/guides/creature-stats)) and can change its [battle moves](/guides/battle-moves).
 
 <!-- widget:odds -->
 

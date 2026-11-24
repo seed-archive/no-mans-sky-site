@@ -516,6 +516,53 @@
     "system": "Each star system here holds the planets of the listed finds. What a <systems>star system</systems> holds, and which <economy>economy</economy> pays best, are in the guides.",
     "galaxy": "What the type of a galaxy changes, and which one to search, is under <galaxies>galaxies</galaxies>."
   },
+  "catalogExamples": {
+    "first": "{name} is {type}",
+    "next": "{name} {type}",
+    "tool": {
+      "pistol": "a pistol",
+      "rifle": "a rifle",
+      "atlantid": "an Atlantid",
+      "sentinel": "a Sentinel",
+      "experimental": "an Experimental",
+      "alien": "an Alien",
+      "royal": "a Royal"
+    },
+    "ship": {
+      "shuttle": "a Shuttle",
+      "fighter": "a Fighter",
+      "hauler": "a Hauler",
+      "explorer": "an Explorer",
+      "solar": "a Solar",
+      "interceptor": "an Interceptor",
+      "exotic": "an Exotic"
+    }
+  },
+  "itemTables": {
+    "to": "{low} to {high}",
+    "type": "Type",
+    "ship": "Ship",
+    "damage": "Damage",
+    "mining": "Mining",
+    "scanner": "Scanner",
+    "shield": "Shield",
+    "hyperdrive": "Hyperdrive",
+    "maneuverability": "Maneuverability",
+    "lowest": "Lowest",
+    "highest": "Highest",
+    "mean": "Mean",
+    "median": "Median",
+    "upgradedToS": "Upgraded to S",
+    "foundAtS": "Found at S",
+    "allowedNote": "What the game allows at class S, in percent.",
+    "toolNote": "Tools found at class S in Euclid, with no module installed.",
+    "noPistolDamage": "Pistols have no base damage.",
+    "noRifleMining": "Rifles have no base mining.",
+    "shipNote": "Ships found at class S and claimed, bare, while you fly that ship, in Euclid.",
+    "noExplorerDamage": "Explorers have no base damage.",
+    "noFighterHyperdrive": "Fighters have no base hyperdrive.",
+    "raisedNote": "Base damage at class S. A pistol has none."
+  },
   "luck": {
     "tabMultitool": "Multitool",
     "tabStaff": "Staff",

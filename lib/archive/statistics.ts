@@ -154,7 +154,7 @@ export function tablesOf(slug: string, language: Language = "en") {
   const tables = Object.entries(pagesIn(language)[slug].tables).map(
     ([name, table]) => [name, printed(table, NUMBERS[language])] as const,
   );
-  return { ...Object.fromEntries(tables), ...itemTables(slug) };
+  return { ...Object.fromEntries(tables), ...itemTables(slug, language) };
 }
 
 // The numbers of a table, for a chart.
@@ -171,9 +171,53 @@ function printedNumbers(slug: string, language: Language) {
   const numbers = (page?.numbers ?? data.numbers) as Record<string, Value>;
   const out: Record<string, string> = {};
   for (const [name, value] of Object.entries(numbers)) {
-    out[name] = printValue(value, NUMBERS[language]);
+    out[name] =
+      typeof value === "string"
+        ? wordsIn(slug, value, language)
+        : printValue(value, NUMBERS[language]);
   }
-  return page ? { ...out, ...itemNumbers(slug) } : out;
+  return page ? { ...out, ...itemNumbers(slug, language) } : out;
+}
+
+// A share the generator wrote as English text, "6.3%" or "-15%".
+const WRITTEN_SHARE = /^([+-]?)(\d+(?:\.\d+)?)%$/;
+
+// A value of a page's numbers that the generator wrote as English words (a
+// name, "two 63.7%, three 36.3%"): its translation is filed in the catalogue
+// under `<page>.value:<the English>`, so a value that changes on a recount
+// finds no translation and shows its new English until it is translated again.
+// A share alone prints in the language's own form.
+function wordsIn(slug: string, english: string, language: Language) {
+  if (language === "en") {
+    return english;
+  }
+  const filed = catalogueOf(language)[`${slug}.value:${english}`];
+  if (filed) {
+    return filed;
+  }
+  const share = english.match(WRITTEN_SHARE);
+  if (!share) {
+    return english;
+  }
+  const digits = share[2].split(".")[1]?.length ?? 0;
+  const printed = new Intl.NumberFormat(NUMBERS[language].locale, {
+    style: "percent",
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
+  }).format(Number(share[2]) / 100);
+  return `${share[1]}${printed}`;
+}
+
+// The values of a page's numbers written as English words, which a
+// translation files under `<page>.value:<English>`.
+export function wordValuesOf(slug: string): string[] {
+  const pages = data.pages as Record<string, { numbers?: object }>;
+  return Object.values(
+    (pages[slug]?.numbers ?? {}) as Record<string, Value>,
+  ).filter(
+    (value): value is string =>
+      typeof value === "string" && /\p{L}/u.test(value),
+  );
 }
 
 // The bare numbers of a page, for the word beside a number in its language.
