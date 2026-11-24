@@ -5,6 +5,7 @@ import path from "node:path";
 import type { NextConfig } from "next";
 
 import { TOOLS } from "./lib/archive/tools";
+import { DEFAULT_LANGUAGE } from "./lib/i18n/languages";
 import { BASE_PATH, LEGACY_HOST } from "./lib/site";
 
 // The guides menu the generator writes: each group and its guides.
@@ -86,7 +87,10 @@ function guideMoves(): Move[] {
 function redirectList() {
   const moves = guideMoves();
   const legacy = { type: "host" as const, value: LEGACY_HOST };
-  const newSite = `${PORTAL}${BASE_PATH}`;
+  // Every page names its language since 2026-11-24 (D20), so an old address
+  // goes straight to the English page, one redirect rather than two.
+  const home = `${BASE_PATH}/${DEFAULT_LANGUAGE}`;
+  const newSite = `${PORTAL}${home}`;
   return [
     // The legal pages belong to the portal since 2026-11-14 (D12), the release
     // notes since 2026-11-15 (D16): every old address of them, on any host,
@@ -142,14 +146,22 @@ function redirectList() {
     // one game, so it leads to this section only for now.
     {
       source: "/",
-      destination: BASE_PATH,
+      destination: home,
       basePath: false as const,
       permanent: false,
+    },
+    // The section's own root names no language; the proxy never sees it, so
+    // it goes to the English home here (D20).
+    {
+      source: BASE_PATH,
+      destination: home,
+      basePath: false as const,
+      permanent: true,
     },
     // An old guide's path without the prefix, straight to its page.
     ...moves.map(({ source, destination }) => ({
       source,
-      destination: `${BASE_PATH}${destination}`,
+      destination: `${home}${destination}`,
       basePath: false as const,
       permanent: true,
     })),
@@ -160,7 +172,7 @@ function redirectList() {
     // is redirected.
     {
       source: `/:path((?!${BASE_PATH.slice(1)}(?:[/.]|$)|_vercel/).+)`,
-      destination: `${BASE_PATH}/:path`,
+      destination: `${home}/:path`,
       basePath: false as const,
       permanent: true,
     },
@@ -173,7 +185,11 @@ function redirectList() {
       permanent: true,
     },
     // The old guide paths inside this section.
-    ...moves.map((move) => ({ ...move, permanent: true })),
+    ...moves.map(({ source, destination }) => ({
+      source,
+      destination: `/${DEFAULT_LANGUAGE}${destination}`,
+      permanent: true,
+    })),
   ];
 }
 

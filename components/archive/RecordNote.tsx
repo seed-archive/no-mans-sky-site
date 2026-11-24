@@ -2,7 +2,7 @@
 
 import MuiLink from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import Link from "@/components/archive/LocalLink";
 import type { ReactNode } from "react";
 import { FormattedMessage } from "react-intl";
 

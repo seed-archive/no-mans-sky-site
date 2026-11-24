@@ -1,6 +1,6 @@
 # Races
 
-**Does it matter whether a system is Gek, Korvax, or Vy'keen?** Only for Atlantid multitools: every one comes from a Korvax system. Otherwise the three pay alike, and a median system offers about the same number of tools under any of them. Ships are the exception, since each race favours one ship type, as [ship types](/guides/ship-types) shows.
+**Does it matter whether a system is Gek, Korvax, or Vy'keen?** Only for Atlantid multitools and for ships. Every Atlantid comes from a Korvax system, and each race favours one ship type, as [ship types](/guides/ship-types) shows. Otherwise the three pay alike, and a median system offers about the same number of tools under any of them.
 
 Uncharted systems pay nothing on their planets: no tool and no crashed ship, because no building stands on a planet of a system with no lifeform.
 

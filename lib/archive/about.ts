@@ -1,5 +1,6 @@
 import stats from "@/lib/archive/about-stats.json";
 import { galaxyHref } from "@/lib/archive/galaxies";
+import { type Language, localPath } from "@/lib/i18n/languages";
 import { BASE_PATH } from "@/lib/site";
 
 export { stats };
@@ -72,7 +73,7 @@ function bucket(histogram: Record<string, number>, keys: string[]) {
   return keys.reduce((sum, key) => sum + (histogram[key] ?? 0), 0);
 }
 
-function numbers(): Record<string, string> {
+function numbers(language: Language): Record<string, string> {
   const offers = stepOf(euclid.tools, "offers");
   const kept = stepOf(euclid.tools, "kept");
   const ships = stepOf(euclid.ships, "kept");
@@ -125,7 +126,10 @@ function numbers(): Record<string, string> {
     showcaseList: regular
       .map((row) => {
         const name = row.name.replace(" Galaxy", "");
-        return `<a href="${BASE_PATH}${galaxyHref(name)}">${name}</a>`;
+        const href = galaxyHref(name);
+        return href
+          ? `<a href="${BASE_PATH}${localPath(language, href)}">${name}</a>`
+          : name;
       })
       .join(", "),
     showcaseGalaxies: COUNT_WORDS[regular.length] ?? String(regular.length),
@@ -137,8 +141,8 @@ function numbers(): Record<string, string> {
 
 // Writes the numbers into the rendered text; a name it does not know stays
 // visible, so a typo in about.md shows on the page.
-export function fillNumbers(html: string) {
-  const values = numbers();
+export function fillNumbers(html: string, language: Language) {
+  const values = numbers(language);
   return html.replace(/\{\{(\w+)\}\}/g, (found, name: string) =>
     name in values ? values[name] : found,
   );

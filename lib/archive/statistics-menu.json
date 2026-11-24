@@ -3,370 +3,370 @@
     "pages": [
       {
         "slug": "galaxies",
-        "title": "Galaxies"
+        "title": "galaxies.galaxies-c4962d"
       },
       {
         "slug": "where-to-look",
-        "title": "Where to look"
+        "title": "where-to-look.where-to-look-29fba0"
       }
     ],
     "slug": "galaxies",
-    "title": "Galaxies"
+    "title": "menu.galaxies"
   },
   {
     "pages": [
       {
         "slug": "systems",
-        "title": "Star systems"
+        "title": "systems.star-systems-59281b"
       },
       {
         "slug": "economy",
-        "title": "Economy"
+        "title": "economy.economy-daa997"
       },
       {
         "slug": "races",
-        "title": "Races"
+        "title": "races.races-c9b291"
       }
     ],
     "slug": "systems",
-    "title": "Systems"
+    "title": "menu.systems"
   },
   {
     "pages": [
       {
         "slug": "space-stations",
-        "title": "Space stations"
+        "title": "space-stations.space-stations-6b0e2a"
       },
       {
         "slug": "technology-merchants",
-        "title": "Station technology merchants"
+        "title": "technology-merchants.station-technology-merchants-521006"
       },
       {
         "slug": "forsaken-trader",
-        "title": "Forsaken Trader"
+        "title": "forsaken-trader.forsaken-trader-2c0abe"
       },
       {
         "slug": "fossil-collector",
-        "title": "Fossil Collector"
+        "title": "fossil-collector.fossil-collector-20600a"
       },
       {
         "slug": "scrap-dealer",
-        "title": "Scrap Dealer"
+        "title": "scrap-dealer.scrap-dealer-e78ceb"
       },
       {
         "slug": "salvage-exchange",
-        "title": "Salvage Exchange"
+        "title": "salvage-exchange.salvage-exchange-d64f5f"
       },
       {
         "slug": "cartographer",
-        "title": "Cartographer"
+        "title": "cartographer.cartographer-e75bf3"
       },
       {
         "slug": "charts",
-        "title": "Charts"
+        "title": "charts.charts-661748"
       },
       {
         "slug": "autophage-merchant",
-        "title": "Autophage Synthesis Terminal"
+        "title": "autophage-merchant.autophage-synthesis-terminal-6e9029"
       },
       {
         "slug": "galactic-trade-terminal",
-        "title": "Galactic Trade Terminal"
+        "title": "galactic-trade-terminal.galactic-trade-terminal-082ca9"
       },
       {
         "slug": "starship-pilots",
-        "title": "Starship Pilot"
+        "title": "starship-pilots.starship-pilot-723a2d"
       },
       {
         "slug": "outlaw-station",
-        "title": "Outlaw Station"
+        "title": "outlaw-station.outlaw-station-763345"
       },
       {
         "slug": "deep-space-outpost",
-        "title": "Deep-Space Outpost"
+        "title": "deep-space-outpost.deep-space-outpost-cc122e"
       },
       {
         "slug": "station-decoration",
-        "title": "Space station decoration"
+        "title": "station-decoration.space-station-decoration-619281"
       },
       {
         "slug": "alien-traders",
-        "title": "Alien Trader"
+        "title": "alien-traders.alien-trader-756b10"
       },
       {
         "slug": "settlement-technology-merchant",
-        "title": "Settlement Technology Merchant"
+        "title": "settlement-technology-merchant.settlement-technology-merchant-507f44"
       },
       {
         "slug": "anomaly-module-merchant",
-        "title": "Space Anomaly Module Merchant"
+        "title": "anomaly-module-merchant.space-anomaly-module-merchant-40dd18"
       }
     ],
     "slug": "stations",
-    "title": "Stations"
+    "title": "menu.stations"
   },
   {
     "pages": [
       {
         "slug": "sources-by-size",
-        "title": "Sources by planet size"
+        "title": "sources-by-size.sources-by-planet-size-eac289"
       },
       {
         "slug": "sources-by-type",
-        "title": "Sources by planet type"
+        "title": "sources-by-type.sources-by-planet-type-b07730"
       },
       {
         "slug": "empty-worlds",
-        "title": "Empty worlds"
+        "title": "empty-worlds.empty-worlds-10a33f"
       },
       {
         "slug": "sentinels-and-dissonance",
-        "title": "Sentinels and dissonance"
+        "title": "sentinels-and-dissonance.sentinels-and-dissonance-f48ebe"
       },
       {
         "slug": "fishing",
-        "title": "Fishing"
+        "title": "fishing.fishing-2eecd5"
       }
     ],
     "slug": "planets",
-    "title": "Planets"
+    "title": "menu.planets"
   },
   {
     "pages": [
       {
         "slug": "multitool-types",
-        "title": "Multitool types"
+        "title": "multitool-types.multitool-types-521d9d"
       },
       {
         "slug": "multitool-classes",
-        "title": "Multitool classes"
+        "title": "multitool-classes.multitool-classes-cb4bf8"
       },
       {
         "slug": "multitool-stats",
-        "title": "Multitool stats"
+        "title": "multitool-stats.multitool-stats-e00c9f"
       },
       {
         "slug": "multitool-upgrades",
-        "title": "How to upgrade a multitool"
+        "title": "multitool-upgrades.how-to-upgrade-a-multitool-c50a46"
       },
       {
         "slug": "figures",
-        "title": "Tetris figures"
+        "title": "figures.tetris-figures-2f3d11"
       },
       {
         "slug": "square",
-        "title": "The square on a multitool"
+        "title": "square.the-square-on-a-multitool-7297dc"
       },
       {
         "slug": "supercharged-slots",
-        "title": "Supercharged slots"
+        "title": "supercharged-slots.supercharged-slots-fd8691"
       },
       {
         "slug": "best-multitools",
-        "title": "Best multitools"
+        "title": "best-multitools.best-multitools-33e43d"
       },
       {
         "slug": "staffs",
-        "title": "Staffs"
+        "title": "staffs.staffs-650e26"
       },
       {
         "slug": "multitool-modules",
-        "title": "Multitool modules"
+        "title": "multitool-modules.multitool-modules-9f0b1d"
       }
     ],
     "slug": "multitools",
-    "title": "Multitools"
+    "title": "menu.multitools"
   },
   {
     "pages": [
       {
         "slug": "ship-types",
-        "title": "Ship types"
+        "title": "ship-types.ship-types-3a8ee2"
       },
       {
         "slug": "ship-classes",
-        "title": "Ship classes"
+        "title": "ship-classes.ship-classes-d411ef"
       },
       {
         "slug": "ship-stats",
-        "title": "Ship stats"
+        "title": "ship-stats.ship-stats-5d73c4"
       },
       {
         "slug": "ship-upgrades",
-        "title": "How to upgrade a ship"
+        "title": "ship-upgrades.how-to-upgrade-a-ship-2dc1d1"
       },
       {
         "slug": "ship-figures",
-        "title": "Ship figures"
+        "title": "ship-figures.ship-figures-ddfef6"
       },
       {
         "slug": "ship-square",
-        "title": "The square on a ship"
+        "title": "ship-square.the-square-on-a-ship-f742bf"
       },
       {
         "slug": "interceptors",
-        "title": "Interceptors"
+        "title": "interceptors.interceptors-ac84c5"
       },
       {
         "slug": "best-interceptors",
-        "title": "Best Interceptors"
+        "title": "best-interceptors.best-interceptors-2bf3c5"
       },
       {
         "slug": "interceptor-prices",
-        "title": "Interceptor prices"
+        "title": "interceptor-prices.interceptor-prices-448c6e"
       },
       {
         "slug": "living-ships",
-        "title": "Living ships"
+        "title": "living-ships.living-ships-60fd23"
       },
       {
         "slug": "starship-modules",
-        "title": "Starship modules"
+        "title": "starship-modules.starship-modules-7c78ce"
       },
       {
         "slug": "corvettes",
-        "title": "Corvettes"
+        "title": "corvettes.corvettes-17ac7a"
       },
       {
         "slug": "corvette-modules",
-        "title": "Corvette modules"
+        "title": "corvette-modules.corvette-modules-cec5a0"
       }
     ],
     "slug": "ships",
-    "title": "Ships"
+    "title": "menu.ships"
   },
   {
     "pages": [
       {
         "slug": "freighters",
-        "title": "Freighters"
+        "title": "freighters.freighters-c107b8"
       },
       {
         "slug": "dreadnoughts",
-        "title": "Dreadnoughts"
+        "title": "dreadnoughts.dreadnoughts-cac3c9"
       },
       {
         "slug": "freighter-modules",
-        "title": "Freighter modules"
+        "title": "freighter-modules.freighter-modules-bea53e"
       },
       {
         "slug": "frigates",
-        "title": "Frigates"
+        "title": "frigates.frigates-2f4124"
       },
       {
         "slug": "organic-frigates",
-        "title": "Organic frigates"
+        "title": "organic-frigates.organic-frigates-232f97"
       },
       {
         "slug": "sentinel-capital-ship",
-        "title": "Sentinel capital ship"
+        "title": "sentinel-capital-ship.sentinel-capital-ship-a9ab5d"
       },
       {
         "slug": "freighter-technology",
-        "title": "Freighter technology"
+        "title": "freighter-technology.freighter-technology-6ee653"
       }
     ],
     "slug": "freighters",
-    "title": "Freighters"
+    "title": "menu.freighters"
   },
   {
     "pages": [
       {
         "slug": "exosuit-modules",
-        "title": "Exosuit modules"
+        "title": "exosuit-modules.exosuit-modules-473101"
       }
     ],
     "slug": "exosuit",
-    "title": "Exosuit"
+    "title": "menu.exosuit"
   },
   {
     "pages": [
       {
         "slug": "roamer-modules",
-        "title": "Roamer modules"
+        "title": "roamer-modules.roamer-modules-f4252a"
       },
       {
         "slug": "nomad-modules",
-        "title": "Nomad modules"
+        "title": "nomad-modules.nomad-modules-196659"
       },
       {
         "slug": "pilgrim-modules",
-        "title": "Pilgrim modules"
+        "title": "pilgrim-modules.pilgrim-modules-aee680"
       },
       {
         "slug": "colossus-modules",
-        "title": "Colossus modules"
+        "title": "colossus-modules.colossus-modules-15cd9d"
       },
       {
         "slug": "nautilon-modules",
-        "title": "Nautilon modules"
+        "title": "nautilon-modules.nautilon-modules-6fc5b8"
       },
       {
         "slug": "minotaur-modules",
-        "title": "Minotaur modules"
+        "title": "minotaur-modules.minotaur-modules-ef0805"
       }
     ],
     "slug": "exocraft",
-    "title": "Exocraft"
+    "title": "menu.exocraft"
   },
   {
     "pages": [
       {
         "slug": "creature-roles",
-        "title": "Creature roles"
+        "title": "creature-roles.creature-roles-1f54d1"
       },
       {
         "slug": "creature-grades",
-        "title": "Creature grades"
+        "title": "creature-grades.creature-grades-d88ab4"
       },
       {
         "slug": "creature-stats",
-        "title": "Creature stats"
+        "title": "creature-stats.creature-stats-96df2b"
       },
       {
         "slug": "best-creatures",
-        "title": "Best creatures"
+        "title": "best-creatures.best-creatures-1d21f1"
       },
       {
         "slug": "creature-affinity",
-        "title": "Creature affinity"
+        "title": "creature-affinity.creature-affinity-0c254c"
       },
       {
         "slug": "battle-moves",
-        "title": "Battle moves"
+        "title": "battle-moves.battle-moves-974a15"
       }
     ],
     "slug": "creatures",
-    "title": "Creatures"
+    "title": "menu.creatures"
   },
   {
     "pages": [
       {
         "slug": "farming",
-        "title": "Farming"
+        "title": "farming.farming-de2487"
       },
       {
         "slug": "best-selling-dishes",
-        "title": "Best-selling dishes"
+        "title": "best-selling-dishes.best-selling-dishes-ef87f6"
       },
       {
         "slug": "food-for-scanning",
-        "title": "Food for scanning"
+        "title": "food-for-scanning.food-for-scanning-eec035"
       },
       {
         "slug": "food-for-hazards",
-        "title": "Food for hazards"
+        "title": "food-for-hazards.food-for-hazards-aa37d3"
       },
       {
         "slug": "refiner-loops",
-        "title": "Refiner loops"
+        "title": "refiner-loops.refiner-loops-3e9061"
       },
       {
         "slug": "refining-for-money",
-        "title": "Refining for money"
+        "title": "refining-for-money.refining-for-money-e0df40"
       }
     ],
     "slug": "crafting",
-    "title": "Crafting"
+    "title": "menu.crafting"
   }
 ]

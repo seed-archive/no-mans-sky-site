@@ -6,6 +6,7 @@ import {
   type ChartSpec,
 } from "@/lib/archive/chart-spec";
 import { rawTableOf, tablesOf, type StatTable } from "@/lib/archive/statistics";
+import type { Language } from "@/lib/i18n/languages";
 import type {
   Cell,
   ColumnKind,
@@ -407,8 +408,12 @@ function ringLabel(text: string) {
 
 // Every column as an index: the core ring is 100, so lines of any size share one
 // scale. The tooltip keeps the printed number.
-function rings(slug: string, printed: StatTable): ChartSpec {
-  const table = rawTableOf(slug, "rings");
+function rings(
+  slug: string,
+  printed: StatTable,
+  language: Language,
+): ChartSpec {
+  const table = rawTableOf(slug, "rings", language);
   return chartSpec({
     kind: "line",
     title: "Compared with the core, 100",
@@ -432,10 +437,10 @@ function rings(slug: string, printed: StatTable): ChartSpec {
 
 // The charts of a page, by the name of the table each draws. The table's mark
 // places a block with both.
-export function chartsOf(slug: string) {
+export function chartsOf(slug: string, language: Language = "en") {
   const out: Record<string, ChartSpec> = {};
   const rules = RULES[slug] ?? {};
-  for (const [name, printed] of Object.entries(tablesOf(slug))) {
+  for (const [name, printed] of Object.entries(tablesOf(slug, language))) {
     const rule = rules[name] ?? {};
     if (rule === NONE) {
       continue;
@@ -443,21 +448,27 @@ export function chartsOf(slug: string) {
     if (rule === RANGE || rule === ROLL) {
       out[name] =
         rule === RANGE
-          ? rangeSpec(printed, rawTableOf(slug, name))
+          ? rangeSpec(printed, rawTableOf(slug, name, language))
           : rollSpec(printed);
       continue;
     }
     const spec =
       name === "rings"
-        ? rings(slug, printed)
+        ? rings(slug, printed, language)
         : specOf(
             printed,
-            slug in ITEM_PAGES ? undefined : rawTableOf(slug, name),
+            slug in ITEM_PAGES ? undefined : rawTableOf(slug, name, language),
             rule,
           );
     if (spec) {
       out[name] = spec;
     }
   }
-  return out;
+  // Axes and the numbers beside the labels print in the page's language.
+  return Object.fromEntries(
+    Object.entries(out).map(([name, spec]) => [
+      name,
+      { ...spec, locale: language },
+    ]),
+  );
 }

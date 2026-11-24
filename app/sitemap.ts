@@ -11,6 +11,8 @@ import {
   questPath,
 } from "@/lib/archive/guides";
 import { QUESTS } from "@/lib/archive/quests";
+import { localPath } from "@/lib/i18n/languages";
+import { translationsOf } from "@/lib/i18n/translations";
 
 const BATCH = 1000;
 // The showcase star's galaxy stays off the map: a reader finds it, Google does not.
@@ -66,9 +68,35 @@ async function recordEntries(base: string): Promise<MetadataRoute.Sitemap> {
     }));
 }
 
+// Each page once in every language it is translated into, each entry naming the
+// others (D20): an address `/x` of the list below becomes `/en/x`, `/ru/x`, ….
+function inLanguages(
+  base: string,
+  pages: MetadataRoute.Sitemap,
+): MetadataRoute.Sitemap {
+  return pages.flatMap((page) => {
+    const path = page.url.slice(base.length) || "/";
+    const languages = translationsOf(path);
+    const urls = Object.fromEntries(
+      languages.map((language) => [
+        language,
+        `${base}${localPath(language, path)}`,
+      ]),
+    );
+    return languages.map((language) => ({
+      ...page,
+      url: urls[language],
+      alternates: { languages: urls },
+    }));
+  });
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:5010";
+  return inLanguages(base, await pages(base));
+}
 
+async function pages(base: string): Promise<MetadataRoute.Sitemap> {
   return [
     {
       url: base,

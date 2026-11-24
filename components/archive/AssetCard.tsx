@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import MuiLink from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Link from "next/link";
+import Link from "@/components/archive/LocalLink";
 import { usePathname } from "next/navigation";
 import { FormattedMessage } from "react-intl";
 
