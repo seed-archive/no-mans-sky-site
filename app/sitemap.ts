@@ -1,7 +1,17 @@
 import type { MetadataRoute } from "next";
 
 import statisticsMenu from "@/lib/archive/statistics-menu.json";
-import { FEED_KINDS, STATION_BUILDING } from "@/lib/archive/kinds";
+import { FEED_KINDS, type Kind, STATION_BUILDING } from "@/lib/archive/kinds";
+import {
+  databasePath,
+  kindPath,
+  recordPath,
+  toolGroupPath,
+  TOOLS_PATH,
+  toolPath,
+} from "@/lib/archive/paths";
+import { TOOL_GROUPS, TOOLS } from "@/lib/archive/tools";
+import { indexable } from "@/lib/i18n/indexing";
 import { TOPICS } from "@/lib/archive/statistics";
 import { createArchiveClient } from "@/lib/db/supabase.server";
 import {
@@ -62,21 +72,24 @@ async function recordEntries(base: string): Promise<MetadataRoute.Sitemap> {
     .filter((row) => row.kind !== "galaxy" || parents.has(row.id))
     .filter((row) => row.kind !== "building" || row.name === STATION_BUILDING)
     .map((row) => ({
-      url: `${base}/${row.kind}/${row.id}`,
+      url: `${base}${recordPath(row.kind as Kind, row.id)}`,
       changeFrequency: "yearly" as const,
       priority: 0.5,
     }));
 }
 
-// Each page once in every language it is translated into, each entry naming the
-// others (D20): an address `/x` of the list below becomes `/en/x`, `/ru/x`, ….
+// Each page once in every language it is translated into and indexed in, each
+// entry naming the others (D20): an address `/x` of the list below becomes
+// `/en/x`, `/ru/x`, ….
 function inLanguages(
   base: string,
   pages: MetadataRoute.Sitemap,
 ): MetadataRoute.Sitemap {
   return pages.flatMap((page) => {
     const path = page.url.slice(base.length) || "/";
-    const languages = translationsOf(path);
+    const languages = translationsOf(path).filter((language) =>
+      indexable(language, path),
+    );
     const urls = Object.fromEntries(
       languages.map((language) => [
         language,
@@ -110,37 +123,17 @@ async function pages(base: string): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.6,
     },
-    // The tools, their own page first.
-    {
-      url: `${base}/tools`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    // The finders, the builders, and the recipe books.
+    // The tools: their own page, each group's, and every tool.
     ...[
-      "/tools/interceptor-finder",
-      "/tools/capital-freighter-finder",
-      "/tools/freighter-finder",
-      "/tools/living-ship-finder",
-      "/tools/living-frigate-finder",
-      "/tools/starship-finder",
-      "/tools/planet-globe",
-      "/tools/refiner-recipes",
-      "/tools/cooking-recipes",
-      "/tools/crafting-recipes",
+      TOOLS_PATH,
+      ...TOOL_GROUPS.map((group) => toolGroupPath(group.slug)),
+      ...TOOLS.map((tool) => toolPath(tool.slug)),
     ].map((path) => ({
       url: `${base}${path}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
-    {
-      url: `${base}/tools/how-lucky-am-i`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
     {
       url: `${base}/guides`,
       lastModified: new Date(),
@@ -177,8 +170,14 @@ async function pages(base: string): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.4,
     },
+    {
+      url: `${base}${databasePath()}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     ...FEED_KINDS.map((kind) => ({
-      url: `${base}/${kind}`,
+      url: `${base}${kindPath(kind)}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,

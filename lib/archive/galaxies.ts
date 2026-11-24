@@ -1,3 +1,5 @@
+import { recordPath } from "@/lib/archive/paths";
+
 // The galaxies the pages name, by the name a table or a sentence prints.
 const GALAXY_PAGES: Record<string, string> = {
   Euclid: "b7e59a53-13de-521b-af6b-dcbf6280eb9d",
@@ -9,5 +11,5 @@ const GALAXY_PAGES: Record<string, string> = {
 
 export function galaxyHref(name: string) {
   const id = GALAXY_PAGES[name];
-  return id ? `/galaxy/${id}` : undefined;
+  return id ? recordPath("galaxy", id) : undefined;
 }

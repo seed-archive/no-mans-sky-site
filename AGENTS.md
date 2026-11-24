@@ -18,7 +18,7 @@ games and the portal fit together is `../.claude/rules/architecture.md`.
 
 | Part | What it is |
 |---|---|
-| `app` | Next.js routes: the catalog (`[kind]`), `guides`, `quests`, the tools, `about`, the legal pages, `api` |
+| `app` | Next.js routes: the Database (`database/[kind]`), `guides`, `quests`, the tools (`tools/<group>/<tool>`), `about`, the legal pages, `api` |
 | `components` | `archive` (screens and widgets), `legal`, `providers` (theme, intl, auth) |
 | `lib` | `site.ts` (the section's prefix), `archive` (queries, statistics, guides), `db` (Supabase client and generated types), `i18n` (messages) |
 | `content` | Markdown of every long text, one folder a locale |

@@ -8,6 +8,7 @@ import {
   type Language,
   localPath,
 } from "./languages";
+import { indexable } from "./indexing";
 import { translationsOf } from "./translations";
 
 // The language of the page being rendered, from its address.
@@ -35,18 +36,24 @@ export async function requireTranslation(path: string): Promise<Language> {
 }
 
 // A page's metadata with its canonical, its own address in its own language,
-// and hreflang to each translation plus x-default to English (D20).
+// and hreflang to each indexed translation plus x-default to English (D20); a
+// page not indexed in its language is noindex, its links still followed.
 export async function localMetadata(
   path: string,
   metadata: Metadata,
 ): Promise<Metadata> {
   const language = await pageLanguage();
   const languages: Record<string, string> = Object.fromEntries(
-    translationsOf(path).map((one) => [one, localPath(one, path)]),
+    translationsOf(path)
+      .filter((one) => indexable(one, path))
+      .map((one) => [one, localPath(one, path)]),
   );
   languages["x-default"] = localPath(DEFAULT_LANGUAGE, path);
   return {
     ...metadata,
+    ...(indexable(language, path)
+      ? {}
+      : { robots: { index: false, follow: true } }),
     alternates: { canonical: localPath(language, path), languages },
   };
 }

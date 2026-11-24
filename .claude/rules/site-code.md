@@ -17,7 +17,9 @@ The stack, the principles, forms, localization and Supabase types follow the arc
 
 ## Data
 
-- Paths of guides are built with `guidePath` and `groupPath`, never typed.
+- Paths of guides are built with `guidePath` and `groupPath`, never typed; paths of the Database and the tools with
+  `lib/archive/paths.ts` (`databasePath`, `kindPath`, `recordPath`, `toolGroupPath`, `toolPath`), which also makes
+  the Markdown's short links long (`longArchiveLinks`).
 - Statistics numbers print only through `lib/archive/statistics-format.ts`. A galaxy in a table goes through
   `GalaxyLink`; a new galaxy on a page needs a line in `lib/archive/galaxies.ts`.
 - Every table of numbers gets a chart, in `lib/archive/statistics-charts.ts`, on the server, from `rawTableOf`, drawn by
@@ -42,6 +44,9 @@ Every page's address names its language, `/no-mans-sky/<en|ru|es|de>/…` (the p
   the page is not translated.
 - A page counts as translated in a language only once it is listed in `lib/i18n/translations.ts`; that list also
   feeds hreflang and the sitemap.
+- `indexable(language, path)` (`lib/i18n/indexing.ts`) says whether search engines index a page: the Database
+  (`/database…`) in English only (the owner, 2026-11-24). `localMetadata` makes the others noindex,follow and leaves
+  them out of hreflang; the sitemap leaves them out.
 - An address without a language answers 308 to English: the proxy for every page, `next.config.ts` for the section's
   root and the old addresses (straight to `/en/`, one hop). A two-letter code the archive does not have answers 404.
 - The browser's language never redirects: `LanguageNotice` offers the page in it, in that language, and keeps the

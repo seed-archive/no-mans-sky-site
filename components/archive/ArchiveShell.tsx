@@ -15,6 +15,7 @@ import { useText } from "@/components/archive/useText";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { PAGE_KINDS } from "@/lib/archive/kinds";
 import statisticsMenu from "@/lib/archive/statistics-menu.json";
+import { kindPath, toolPath } from "@/lib/archive/paths";
 import { TOOLS } from "@/lib/archive/tools";
 import { groupPath, QUESTS_PATH, questPath } from "@/lib/archive/guides";
 
@@ -72,7 +73,7 @@ const COLUMNS: Column[] = [
   {
     title: <FormattedMessage id="archive.browse" />,
     links: PAGE_KINDS.map((kind) => ({
-      href: `/${kind}`,
+      href: kindPath(kind),
       label: <FormattedMessage id={`kinds.${kind}`} />,
     })),
   },
@@ -99,7 +100,7 @@ const COLUMNS: Column[] = [
   {
     title: <FormattedMessage id="archive.tools" />,
     links: TOOLS.map((tool) => ({
-      href: tool.href,
+      href: toolPath(tool.slug),
       label: <FormattedMessage id={tool.id} />,
     })),
   },

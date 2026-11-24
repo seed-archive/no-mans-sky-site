@@ -1,41 +1,54 @@
 // The tools in groups, as the header's Tools menu and /tools show them (the
 // owner, 2026-11-24: grouped as the guides are), in the order a player looks
 // for them: ships first, then rating a find, the recipes, and the planets.
+// Each group is a level of the address, /tools/<group>/<tool>, with a page of
+// its own; its slug is short, stable and English (the owner, 2026-11-24). The
+// paths are built in `paths.ts`.
 export const TOOL_GROUPS = [
   {
+    slug: "ships",
     id: "archive.toolsShips",
     tools: [
-      { href: "/tools/interceptor-finder", id: "archive.interceptorFinder" },
+      { slug: "interceptor-finder", id: "archive.interceptorFinder" },
       {
-        href: "/tools/capital-freighter-finder",
+        slug: "capital-freighter-finder",
         id: "archive.capitalFreighterFinder",
       },
-      { href: "/tools/freighter-finder", id: "archive.freighterFinder" },
-      { href: "/tools/living-ship-finder", id: "archive.livingShipFinder" },
-      {
-        href: "/tools/living-frigate-finder",
-        id: "archive.livingFrigateFinder",
-      },
-      { href: "/tools/starship-finder", id: "archive.starshipFinder" },
+      { slug: "freighter-finder", id: "archive.freighterFinder" },
+      { slug: "living-ship-finder", id: "archive.livingShipFinder" },
+      { slug: "living-frigate-finder", id: "archive.livingFrigateFinder" },
+      { slug: "starship-finder", id: "archive.starshipFinder" },
     ],
   },
   {
+    slug: "finds",
     id: "archive.toolsFinds",
-    tools: [{ href: "/tools/how-lucky-am-i", id: "archive.luckCalculator" }],
+    tools: [{ slug: "how-lucky-am-i", id: "archive.luckCalculator" }],
   },
   {
+    slug: "recipes",
     id: "archive.toolsRecipes",
     tools: [
-      { href: "/tools/refiner-recipes", id: "archive.refinerRecipes" },
-      { href: "/tools/cooking-recipes", id: "archive.cookingRecipes" },
-      { href: "/tools/crafting-recipes", id: "archive.craftingRecipes" },
+      { slug: "refiner-recipes", id: "archive.refinerRecipes" },
+      { slug: "cooking-recipes", id: "archive.cookingRecipes" },
+      { slug: "crafting-recipes", id: "archive.craftingRecipes" },
     ],
   },
   {
+    slug: "planets",
     id: "archive.toolsPlanets",
-    tools: [{ href: "/tools/planet-globe", id: "archive.planetGlobe" }],
+    tools: [{ slug: "planet-globe", id: "archive.planetGlobe" }],
   },
-];
+] as const;
 
-// Every tool, in the groups' order: the footer and the redirects.
-export const TOOLS = TOOL_GROUPS.flatMap((group) => group.tools);
+export type ToolGroup = (typeof TOOL_GROUPS)[number];
+
+export type ToolGroupSlug = ToolGroup["slug"];
+
+export type ToolSlug = ToolGroup["tools"][number]["slug"];
+
+// Every tool with its group, in the groups' order: the footer and the
+// redirects.
+export const TOOLS = TOOL_GROUPS.flatMap((group) =>
+  group.tools.map((tool) => ({ ...tool, group: group.slug })),
+);

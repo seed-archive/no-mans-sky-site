@@ -4,7 +4,9 @@ import { createClient } from "@supabase/supabase-js";
 
 import { supabasePublishableKey, supabaseUrl } from "@/lib/db/env";
 import type { Database } from "@/lib/db/supabase.types";
-import type { Language } from "@/lib/i18n/languages";
+import type { Kind } from "@/lib/archive/kinds";
+import { recordPath } from "@/lib/archive/paths";
+import { type Language, localPath } from "@/lib/i18n/languages";
 import { pageLanguage } from "@/lib/i18n/page";
 import { BASE_PATH } from "@/lib/site";
 
@@ -36,7 +38,7 @@ const CLASS_ORDER = ["S", "A", "B", "C"];
 type Row = {
   id: string;
   name: string;
-  kind: string;
+  kind: Kind;
   word: string;
   rank: number;
 };
@@ -59,7 +61,7 @@ function sentence(rows: Row[], words: [string, string][], language: Language) {
       )[0];
     return best
       ? [
-          `<a href="${BASE_PATH}/${language}/${best.kind}/${best.id}">${escaped(best.name)}</a> ${phrase}`,
+          `<a href="${BASE_PATH}${localPath(language, recordPath(best.kind, best.id))}">${escaped(best.name)}</a> ${phrase}`,
         ]
       : [];
   });

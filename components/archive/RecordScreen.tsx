@@ -16,6 +16,7 @@ import { ItemTabs } from "@/components/archive/ItemTabs";
 import { RecordNote } from "@/components/archive/RecordNote";
 import { RecordTrail } from "@/components/archive/RecordTrail";
 import { childKinds, type Kind } from "@/lib/archive/kinds";
+import { toolPath } from "@/lib/archive/paths";
 import type { CatalogQuery } from "@/lib/archive/query";
 import { readRecord } from "@/lib/archive/read";
 import { getBrowserSupabase } from "@/lib/db/supabase.browser";
@@ -67,7 +68,10 @@ export function RecordScreen(props: {
       {record.data ? <AssetCard asset={record.data} /> : null}
       {record.data ? <RecordNote asset={record.data} /> : null}
       {record.data && kind === "planet" ? (
-        <MuiLink component={Link} href={`/tools/planet-globe?planet=${id}`}>
+        <MuiLink
+          component={Link}
+          href={`${toolPath("planet-globe")}?planet=${id}`}
+        >
           <FormattedMessage id="archive.globeLink" />
         </MuiLink>
       ) : null}

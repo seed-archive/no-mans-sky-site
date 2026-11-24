@@ -112,7 +112,7 @@
     "tourInMenu": "Du findest es in diesem Menü.",
     "tourSwitchTitle": "Diagramm oder Tabelle",
     "tourSwitch": "Jeder Zahlenblock hat zwei Ansichten. Dieser Schalter wechselt zwischen Diagramm und Tabelle.",
-    "tourEncyclopediaTitle": "Katalog",
+    "tourEncyclopediaTitle": "Datenbank",
     "tourEncyclopedia": "Jedes Multiwerkzeug, Schiff, jede Kreatur, jedes System und jeder Planet, die wir aufführen, mit dem, was sie enthalten.",
     "tourStatisticsTitle": "Ratgeber",
     "tourStatistics": "Eine Frage pro Seite, von der Galaxie bis zur Kreatur: wo du suchen solltest und was dich erwartet.",
@@ -200,6 +200,7 @@
     "finderNoS": "Dies ist ein System mit niedrigem <a>Reichtum</a>, daher findest du hier kein Wrack der Klasse S.",
     "statistics": "Ratgeber",
     "guidesMenu": "Gruppen der Ratgeber",
+    "databaseMenu": "Listen der Datenbank",
     "quests": "Missionen",
     "allQuests": "Alle Missionen",
     "linkCopied": "Link kopiert",
@@ -211,7 +212,7 @@
     "artemisPath": "Der Artemis-Pfad",
     "atlasPath": "Der Weg des Atlas",
     "starbirth": "Sterngeburt",
-    "browse": "Katalog",
+    "browse": "Datenbank",
     "yourLikes": "Deine Favoriten"
   },
   "kind": {
@@ -471,6 +472,27 @@
     "system": "Sternensysteme",
     "planet": "Planeten",
     "galaxy": "Galaxien"
+  },
+  "kindLine": {
+    "galaxy": "Jede Galaxie mit ihrem Typ und den aufgeführten Sternensystemen darin.",
+    "system": "Die Sternensysteme der aufgeführten Funde: ihr Stern, ihre Wirtschaft und ihre Raumstation.",
+    "planet": "Die Planeten dieser Systeme: Biom, Wächter, Ressourcen und was jeder enthält.",
+    "ship": "Abgestürzte Schiffe mit vier turbogeladenen Plätzen nebeneinander, mit den Portalglyphen und Koordinaten jedes Wracks.",
+    "tool": "Multiwerkzeuge und Stäbe mit vier turbogeladenen Plätzen nebeneinander bei Klasse S.",
+    "creature": "Kreaturen, die du adoptieren kannst und deren drei Bewertungen S sind."
+  },
+  "toolLine": {
+    "interceptor-finder": "Bau einen Wächter-Abfangjäger aus jedem Teil, das das Spiel ihm geben kann.",
+    "capital-freighter-finder": "Jede Form, die ein Großfrachter annehmen kann.",
+    "freighter-finder": "Jede Form, die ein gewöhnlicher Frachter annehmen kann.",
+    "living-ship-finder": "Jede Form, die ein lebendes Schiff annehmen kann.",
+    "living-frigate-finder": "Jede Form, die eine organische Fregatte, der kosmische Wal, annehmen kann.",
+    "starship-finder": "Jede Form jedes Schiffstyps: exotisch, solar, Jäger, Frachtschiff, Forscher und Shuttle.",
+    "how-lucky-am-i": "Eine Wertung von 0 bis 100 für ein Multiwerkzeug, einen Stab oder ein Schiff, das du gefunden hast.",
+    "refiner-recipes": "Was die tragbare, die mittlere und die große Raffinerie herstellen.",
+    "cooking-recipes": "Jedes Gericht und der Bonus, den es im Nährstoffaufnehmer gibt.",
+    "crafting-recipes": "Alles, was du von Hand herstellst.",
+    "planet-globe": "Dreh einen Planeten der Datenbank, jeder Fund dort markiert, wo er steht."
   },
   "affinity": {
     "tropical": "Tropisch",
