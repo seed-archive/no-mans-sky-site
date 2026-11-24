@@ -10,7 +10,7 @@ Monolithe und Harmonische Lager zeigen 0, weil die meisten Planeten keine haben.
 
 <!-- widget:tools -->
 
-## Stab-Terminals
+## Synthese-Terminals
 
 <!-- widget:staffs -->
 
