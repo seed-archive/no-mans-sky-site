@@ -3,7 +3,7 @@ import type { PartGroup } from "@/lib/archive/builder/parts";
 import type { ShipModule } from "@/lib/archive/builder/ship";
 import { BASE_PATH } from "@/lib/site";
 
-// The living frigate, the whale of the Dream Aerial, on /tools/living-frigate-finder, a
+// The living frigate, the whale of the Dream Aerial, on /tools/ships/organic-frigate-finder, a
 // builder. The groups are the choices of the game's own tree of living frigate
 // parts, written by the No Man's Sky generator: one hull with five lists, the front
 // accessory, the tail, the wings, the side detail, and the front wings. Its

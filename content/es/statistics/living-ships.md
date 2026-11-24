@@ -44,6 +44,6 @@ La tabla del juego tiene las estadísticas base de una nave viviente solo para l
 
 Una nave viviente lleva su propia tecnología, órganos como el Corazón pulsante y la Corteza de singularidad, y mejoras cultivadas a partir de un Huevo psicónico.
 
-La flota de tu carguero también puede tener fragatas vivas, y vienen de una ballena cósmica: [fragatas orgánicas](/guides/organic-frigates).
+La flota de tu carguero también puede tener [fragatas orgánicas](/guides/organic-frigates), y vienen de una ballena cósmica.
 
 Todas las demás naves llevan los módulos de [módulos de nave](/guides/starship-modules).

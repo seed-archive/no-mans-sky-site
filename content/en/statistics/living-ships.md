@@ -44,6 +44,6 @@ The game's table holds a living ship's base stats for class S only.
 
 A living ship takes its own technology, organs such as the Pulsing Heart and the Singularity Cortex, and upgrades grown from a Psychonic Egg.
 
-Your freighter's fleet can hold living frigates too, and they come from a cosmic whale: [organic frigates](/guides/organic-frigates).
+Your freighter's fleet can hold [organic frigates](/guides/organic-frigates) too, and they come from a cosmic whale.
 
 Every other ship plugs in the modules of [starship modules](/guides/starship-modules).

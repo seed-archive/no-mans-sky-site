@@ -44,6 +44,6 @@ Die Tabelle des Spiels hat die Grundwerte eines lebenden Schiffs nur für Klasse
 
 Ein lebendes Schiff nimmt seine eigene Technologie, Organe wie das PULS-HERZ und den Singularitätskortex, und Upgrades, die aus einem Psychonischen Ei wachsen.
 
-Die Flotte deines Frachters kann auch lebende Fregatten aufnehmen, und sie kommen von einem kosmischen Wal: [Organische Fregatten](/guides/organic-frigates).
+Die Flotte deines Frachters kann auch [organische Fregatten](/guides/organic-frigates) aufnehmen, und sie kommen von einem kosmischen Wal.
 
 Jedes andere Schiff nimmt die Module unter [Raumschiffmodule](/guides/starship-modules) auf.

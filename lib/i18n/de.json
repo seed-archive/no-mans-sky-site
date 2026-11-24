@@ -487,7 +487,7 @@
     "capital-freighter-finder": "Jede Form, die ein Großfrachter annehmen kann.",
     "freighter-finder": "Jede Form, die ein gewöhnlicher Frachter annehmen kann.",
     "living-ship-finder": "Jede Form, die ein lebendes Schiff annehmen kann.",
-    "living-frigate-finder": "Jede Form, die eine organische Fregatte, der kosmische Wal, annehmen kann.",
+    "organic-frigate-finder": "Jede Form, die eine organische Fregatte, der kosmische Wal, annehmen kann.",
     "starship-finder": "Jede Form jedes Schiffstyps: exotisch, solar, Jäger, Frachtschiff, Forscher und Shuttle.",
     "how-lucky-am-i": "Eine Wertung von 0 bis 100 für ein Multiwerkzeug, einen Stab oder ein Schiff, das du gefunden hast.",
     "refiner-recipes": "Was die tragbare, die mittlere und die große Raffinerie herstellen.",
@@ -673,7 +673,7 @@
   },
   "numbers": {
     "about": "etwa {n}",
-    "oneIn": "einer von {n}",
+    "oneIn": "1 von {n}",
     "under": "unter {n}",
     "over": "über {n}"
   },
@@ -735,7 +735,7 @@
       "title": "Wächter-Abfangjäger in No Man's Sky: jeder Abfangjäger, Teil für Teil — Seed Archive",
       "description": "Bau einen Wächter-Abfangjäger aus No Man's Sky aus jedem Teil, das das Spiel ihm geben kann: Cockpit, Flügel, Rumpf, Schürze und Farbe."
     },
-    "living-frigate-finder": {
+    "organic-frigate-finder": {
       "title": "Organische Fregatten in No Man's Sky: jede Form einer organischen Fregatte — Seed Archive",
       "description": "Organische Fregatten in No Man's Sky: Bau einen kosmischen Wal aus Frontzubehör, Schwanz, Flügeln und Seitenteilen zusammen und sieh jede Form, die das Spiel baut."
     },

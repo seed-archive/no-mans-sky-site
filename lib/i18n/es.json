@@ -487,7 +487,7 @@
     "capital-freighter-finder": "Cada forma que puede tomar un carguero capital.",
     "freighter-finder": "Cada forma que puede tomar un carguero normal.",
     "living-ship-finder": "Cada forma que puede tomar una nave viviente.",
-    "living-frigate-finder": "Cada forma que puede tomar una fragata orgánica, la ballena cósmica.",
+    "organic-frigate-finder": "Cada forma que puede tomar una fragata orgánica, la ballena cósmica.",
     "starship-finder": "Cada forma de cada tipo de nave: exótica, solar, caza, carguero, exploradora y lanzadera.",
     "how-lucky-am-i": "Una puntuación de 0 a 100 para una multiherramienta, un bastón o una nave que encontraste.",
     "refiner-recipes": "Lo que fabrican la refinería portátil, la mediana y la grande.",
@@ -673,7 +673,7 @@
   },
   "numbers": {
     "about": "unos {n}",
-    "oneIn": "uno de cada {n}",
+    "oneIn": "1 de cada {n}",
     "under": "menos del {n}",
     "over": "más del {n}"
   },
@@ -735,7 +735,7 @@
       "title": "Interceptores centinela de No Man's Sky: cada interceptor, pieza a pieza — Seed Archive",
       "description": "Monta un interceptor centinela de No Man's Sky con cada pieza que el juego puede darle: la cabina, las alas, el casco, el faldón y el color."
     },
-    "living-frigate-finder": {
+    "organic-frigate-finder": {
       "title": "Fragatas orgánicas de No Man's Sky: cada forma de una fragata orgánica — Seed Archive",
       "description": "Fragatas orgánicas de No Man's Sky: monta una ballena cósmica con su accesorio frontal, su cola, sus alas y sus piezas laterales, y mira cada forma que crea el juego."
     },
