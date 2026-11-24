@@ -14,6 +14,6 @@ Die Obergrenze verlangt einen Wurf genau an der Spitze der Spanne, etwa bei {{on
 
 <!-- widget:creaturesOften -->
 
-Eine Kreatur zahlt auch für ihren Scan, und ein Gericht im Nährstoffprozessor vervielfacht diese Bezahlung: [Essen zum Scannen](/guides/food-for-scanning) nennt das Gericht, das seiner eigenen Obergrenze am nächsten kommt.
+Eine Kreatur zahlt auch für ihren Scan, und ein Gericht im Nährstoffprozessor des Exo-Anzugs vervielfacht diese Bezahlung: [Essen zum Scannen](/guides/food-for-scanning) nennt das Gericht, das seiner eigenen Obergrenze am nächsten kommt.
 
 Bewertungen achten nie auf den Planeten. Das Einzige, was ein Planet seinen Kreaturen mitgibt, ist die [Affinität der Kreaturen](/guides/creature-affinity).

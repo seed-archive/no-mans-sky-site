@@ -10,7 +10,7 @@ Ein Fundort ist eine Stelle im Raster eines Planeten, an der ein Gebäude steht;
 
 <!-- widget:tools -->
 
-## Stab-Terminals
+## Synthese-Terminals
 
 <!-- widget:staffs -->
 

@@ -8,11 +8,12 @@ import { DEFAULT_LANGUAGE, type Language, LANGUAGES } from "./languages";
 // Part 1 of the guides (2026-11-24): the Galaxies and Systems groups whole.
 const PART_1 = ["/guides/galaxies", "/guides/systems"];
 // The rest of the guides, a part at a time (2026-11-24), each group whole:
-// part 2 planets and crafting, 7 creatures.
+// part 2 planets and crafting, 3 stations, 7 creatures.
 const GUIDES = [
   ...PART_1,
   "/guides/planets",
   "/guides/crafting",
+  "/guides/stations",
   "/guides/creatures",
 ];
 
