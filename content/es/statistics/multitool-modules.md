@@ -104,7 +104,7 @@ El módulo prohibido es la mejora centinela para el lanzarrayos, y una instalaci
 
 ## Cada módulo de multiherramienta
 
-Los módulos que fabricas o recibes, aparte de los módulos de mejora. Un plano se compra en la Anomalía espacial. Cómo mejorar la propia multiherramienta a S está en [cómo mejorar una multiherramienta](/guides/multitool-upgrades). La misión [Los que regresaron](/quests/they-who-returned) da el armonizador de escáner y el núcleo polifónico, que permiten al escáner descodificar a los autófagos camuflados, y la misión del armero [Investigación de armas](/quests/weapons-research) da el láser de extracción avanzado. La historia, [El camino de Artemis](/quests/the-artemis-path), da el campo de fuerza personal, y la misión de la nave viviente [Nacimiento de estrella](/quests/starbirth), el rayo solar y el rayo de ánima.
+Los módulos que fabricas o recibes, aparte de los módulos de mejora. Un plano se compra en la Anomalía espacial. Cómo mejorar la propia multiherramienta a S está en [cómo mejorar una multiherramienta](/guides/multitool-upgrades). La misión [Los que regresaron](/quests/they-who-returned) da el armonizador de escáner y el núcleo polifónico, que permiten al escáner descodificar a los autófagos camuflados, y la misión del armero [Investigación de armas](/quests/weapons-research) da el láser de extracción avanzado. La historia, [El camino de Ártemis](/quests/the-artemis-path), da el campo de fuerza personal, y la misión de la nave viviente [Nacimiento de estrella](/quests/starbirth), el rayo solar y el rayo de ánima.
 
 <!-- widget:built -->
 

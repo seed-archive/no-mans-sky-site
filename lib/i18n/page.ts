@@ -9,6 +9,7 @@ import {
   localPath,
 } from "./languages";
 import { indexable } from "./indexing";
+import { messageOf } from "./messages";
 import { translationsOf } from "./translations";
 
 // The language of the page being rendered, from its address.
@@ -56,4 +57,17 @@ export async function localMetadata(
       : { robots: { index: false, follow: true } }),
     alternates: { canonical: localPath(language, path), languages },
   };
+}
+
+// A page's metadata whose title and description are the messages
+// `meta.<key>.title` and `meta.<key>.description` of the page's language.
+export async function messageMetadata(
+  path: string,
+  key: string,
+): Promise<Metadata> {
+  const language = await pageLanguage();
+  return localMetadata(path, {
+    title: messageOf(language, `meta.${key}.title`),
+    description: messageOf(language, `meta.${key}.description`),
+  });
 }

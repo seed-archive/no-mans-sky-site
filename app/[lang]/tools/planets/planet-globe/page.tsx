@@ -5,18 +5,13 @@ import { readGlobePlanets } from "@/lib/archive/read/globe";
 import { createArchiveClient } from "@/lib/db/supabase.server";
 import { toolPath } from "@/lib/archive/paths";
 import { toolTrail } from "@/lib/archive/trails";
-import { localMetadata, requireTranslation } from "@/lib/i18n/page";
+import { messageMetadata, requireTranslation } from "@/lib/i18n/page";
 
 const SLUG = "planet-globe";
 const PATH = toolPath(SLUG);
 
 export function generateMetadata() {
-  return localMetadata(PATH, {
-    title:
-      "No Man's Sky planet globe: land, sea, and what stands where — Seed Archive",
-    description:
-      "Turn a No Man's Sky planet of the catalog as a globe: its land and seas in the planet's own colours, its mountains, and the buildings, multitools, and crashed ships on it.",
-  });
+  return messageMetadata(PATH, SLUG);
 }
 
 export default async function PlanetGlobePage(props: {

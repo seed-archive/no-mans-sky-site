@@ -42,7 +42,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     group.pages.map((page) => menuText(language, page.title).toLowerCase()),
   );
   return localMetadata(groupPath(group.slug), {
-    title: `${messageOf(language, "archive.groupTitle", { title })} — Seed Archive`,
+    title: messageOf(language, "meta.page", {
+      title: messageOf(language, "archive.groupTitle", { title }),
+    }),
     description: messageOf(language, "archive.groupDescription", {
       title,
       pages,

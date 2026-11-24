@@ -36,7 +36,7 @@ Rewards of an edition or a platform come from the options, under Redeem Bonus Co
 
 ## 7. Leviathan
 
-*"Death is not the end; the loop continues."* Summer 2022. A roguelike time loop: death restarted the save, progress carried between loops, and community research gave upgrades. Its end meets the Leviathan, a creature of space. It taught the Memory Fragment, the Memory Resonator, and the Whalesong Flute, and gave the Organic Frigate; the Solar Ray and three exocraft suspensions came from it alone.
+*"Death is not the end; the loop continues."* Summer 2022. A roguelike time loop: death restarted the save, progress carried between loops, and community research gave upgrades. Its end meets the Leviathan, a creature of space. It taught the Memory Fragment, the Memory Resonator, and the Whalesong Flute, and gave the Organic Frigate; the Solar Ray and three exocraft suspensions came from it too.
 
 ## 8. Polestar
 

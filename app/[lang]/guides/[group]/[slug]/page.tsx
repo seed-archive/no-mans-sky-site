@@ -28,23 +28,22 @@ type Props = { params: Promise<{ group: string; slug: string }> };
 export const dynamicParams = false;
 
 // The pages worth the most in search say their question in the title
-// (docs/seo.md); the rest read "<title> in No Man's Sky".
-const TITLES: Record<string, string> = {
-  freighters: "How to get a class S capital freighter in No Man's Sky",
-  "multitool-classes": "Where to find a class S multitool in No Man's Sky",
-  "ship-classes": "How to find a class S crashed ship in No Man's Sky",
-  interceptors: "How to get a Sentinel Interceptor in No Man's Sky",
-  "living-ships": "How to get a living ship in No Man's Sky",
-  "technology-merchants":
-    "Technology merchants: where to buy class S upgrade modules in No Man's Sky",
-  "freighter-modules": "How to farm class S freighter modules in No Man's Sky",
-  galaxies: "Which galaxy is best in No Man's Sky",
-  "where-to-look": "Where in a galaxy to look for class S items",
-  staffs: "Which staff head to pick in No Man's Sky",
-  economy: "Wealthy systems and economy in No Man's Sky",
-  "forsaken-trader":
-    "Forsaken Trader and Haunting Mementos: where to find them in No Man's Sky",
-};
+// (docs/seo.md), the message `guideQuestion.<slug>`; the rest read "<title> in
+// No Man's Sky".
+const QUESTION_TITLES = new Set([
+  "freighters",
+  "multitool-classes",
+  "ship-classes",
+  "interceptors",
+  "living-ships",
+  "technology-merchants",
+  "freighter-modules",
+  "galaxies",
+  "where-to-look",
+  "staffs",
+  "economy",
+  "forsaken-trader",
+]);
 
 export function generateStaticParams() {
   return TOPICS.map((topic) => ({
@@ -57,17 +56,14 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const { group, slug } = await props.params;
   const language = await pageLanguage();
   const topic = topicOf(slug, language);
-  // The question titles of TITLES are English; another language names the
-  // guide in its own words.
-  const named =
-    language === "en" && TITLES[slug]
-      ? TITLES[slug]
-      : messageOf(language, "archive.guideTitle", {
-          title: topic?.title ?? "",
-        });
+  const named = QUESTION_TITLES.has(slug)
+    ? messageOf(language, `guideQuestion.${slug}`)
+    : messageOf(language, "archive.guideTitle", {
+        title: topic?.title ?? "",
+      });
   return topic && groupOfGuide(slug)?.slug === group
     ? localMetadata(guidePath(topic.slug), {
-        title: `${named} — Seed Archive`,
+        title: messageOf(language, "meta.page", { title: named }),
         description: topic.fact,
       })
     : {};

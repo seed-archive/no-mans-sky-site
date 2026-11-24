@@ -26,7 +26,9 @@ export async function toolGroupMetadata(
   const language = await pageLanguage();
   const group = groupOf(slug);
   return localMetadata(toolGroupPath(slug), {
-    title: `${messageOf(language, group.id)} — Seed Archive`,
+    title: messageOf(language, "meta.page", {
+      title: messageOf(language, group.id),
+    }),
     description: group.tools
       .map((tool) => messageOf(language, `toolLine.${tool.slug}`))
       .join(" "),

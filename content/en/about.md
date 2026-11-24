@@ -123,6 +123,6 @@ One more system holds the exception: **{{starTool}}**, a staff with a perfect sq
 
 ## About these numbers
 
-Everything here is an average over about {{regions}} voxels of Euclid scattered around the core, rounded, and {{otherRegions}} voxels each of three other galaxies. Star counts cover {{regionsCounted}} voxels. Finds come from about {{starsPerRegion}} stars of each voxel, scaled up to the whole voxel, and the averages hold to ±1%.
+Everything here is an average over voxels of Euclid scattered around the core, rounded, with a smaller look at three other galaxies. Finds are counted on part of each voxel's stars and scaled up to the whole voxel, and the averages hold to ±1%.
 
 The numbers say where to look. The finds are still yours to make.

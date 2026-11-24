@@ -41,7 +41,9 @@ export function PictureUpload(props: {
       if (!supabase || !user) {
         throw new Error(intl.formatMessage({ id: "archive.unavailable" }));
       }
-      const picture = await shrinkPicture(file);
+      const picture = await shrinkPicture(file).catch(() => {
+        throw new Error(intl.formatMessage({ id: "archive.uploadTooLarge" }));
+      });
       const name = picture.type === "image/webp" ? "webp" : "jpg";
       const path = `${assetId}/${user.id}/${crypto.randomUUID()}.${name}`;
       const stored = await supabase.storage
