@@ -5594,7 +5594,7 @@
       "title": "corvette-modules.corvette-modules-cec5a0"
     },
     "corvettes": {
-      "fact": "corvettes.build-the-best-corvette-finalise-ab55c9",
+      "fact": "corvettes.build-the-best-corvette-finalise-1639c5",
       "numbers": {
         "barrels": { "k": "plain", "v": 12 },
         "cargo_most": { "k": "plain", "v": 9 },
@@ -7210,7 +7210,7 @@
     },
     "economy": {
       "fact": {
-        "t": "economy.farm-three-star-systems-class-a684fa",
+        "t": "economy.farm-high-wealth-systems-class-8ab73b",
         "v": [
           { "k": "share", "v": 0 },
           { "k": "share", "v": 0.02000137265 }
@@ -7233,7 +7233,7 @@
       "tables": {
         "classes": {
           "head": [
-            "economy.economy-daa997",
+            "economy.economy-type-c9ed3d",
             "economy.c-0bf9f2",
             "economy.b-0bfb85",
             "economy.a-0bf6cc",
@@ -7345,7 +7345,7 @@
         },
         "economy": {
           "head": [
-            "economy.economy-daa997",
+            "economy.economy-type-c9ed3d",
             "economy.tools-in-a-system-95ca71",
             "economy.wrecks-in-a-system-4f495f",
             "economy.class-s-tools-8bddc1",
@@ -7467,7 +7467,7 @@
             "share",
             "share"
           ],
-          "note": "economy.share-of-each-type-among-af16b3",
+          "note": "economy.share-of-each-type-among-a64694",
           "rows": [
             [
               "economy.abandoned-d5c907",
@@ -7595,7 +7595,7 @@
     },
     "empty-worlds": {
       "fact": {
-        "t": "empty-worlds.no-planet-is-empty-crashed-67fdca",
+        "t": "empty-worlds.only-the-planets-of-uncharted-83bd9a",
         "v": [{ "k": "share", "v": 0.2442615502 }]
       },
       "numbers": {
@@ -7688,7 +7688,7 @@
               "empty-worlds.no-366ffa"
             ],
             [
-              "empty-worlds.harmonic-camp-350243",
+              "empty-worlds.harmonic-camp-162c63",
               "empty-worlds.yes-9f3590",
               "empty-worlds.no-366ffa",
               "empty-worlds.no-366ffa",
@@ -18914,7 +18914,7 @@
               0.01261929054
             ],
             [
-              "multitool-classes.harmonic-camp-350243",
+              "multitool-classes.harmonic-camp-162c63",
               0.543266576,
               0.3125560691,
               0.1338347747,
@@ -20851,7 +20851,7 @@
               }
             ],
             [
-              "multitool-types.harmonic-camp-350243",
+              "multitool-types.harmonic-camp-162c63",
               0.01155494637,
               {
                 "t": "multitool-types.sentinel-rifle-0-sentinel-pistol-01f22f",
@@ -24114,7 +24114,7 @@
       "title": "puzzles.puzzle-answers-025186"
     },
     "races": {
-      "fact": "races.gek-korvax-or-vy-keen-9b959b",
+      "fact": "races.gek-korvax-or-vy-keen-0492c6",
       "numbers": {
         "gekKept": { "k": "about", "v": 294756 },
         "korvax": { "k": "share", "v": 1 },
@@ -24148,7 +24148,7 @@
             "races.shop-742cc9",
             "races.sentinel-pillar-1a79af",
             "races.monolith-6aa665",
-            "races.harmonic-camp-350243"
+            "races.harmonic-camp-162c63"
           ],
           "kinds": ["text", "median", "median", "median", "median"],
           "note": "races.medians-per-planet-in-euclid-171ed4",
@@ -24167,7 +24167,7 @@
             "races.korvax-55d28a"
           ],
           "kinds": ["text", "share", "share", "share"],
-          "note": "races.share-of-each-population-s-d5f68b",
+          "note": "races.share-of-each-population-s-4ac6c1",
           "rows": [
             ["races.atlantid-plain-4e5470", 0, 0, 0.182319694],
             ["races.atlantid-blue-333588", 0, 0, 0.1820515558],
@@ -42129,7 +42129,7 @@
               0.9638874799
             ],
             [
-              "sources-by-size.harmonic-camp-350243",
+              "sources-by-size.harmonic-camp-162c63",
               28842,
               "sources-by-size.scorched-af5388",
               0.9639086247
@@ -42140,7 +42140,7 @@
           "head": [
             "sources-by-size.planets-367a20",
             "sources-by-size.monolith-6aa665",
-            "sources-by-size.harmonic-camp-350243",
+            "sources-by-size.harmonic-camp-162c63",
             "sources-by-size.sentinel-wreck-f95c6f",
             "sources-by-size.sunken-ship-c3450d"
           ],
@@ -42330,7 +42330,7 @@
             "sources-by-size.shop-742cc9",
             "sources-by-size.sentinel-pillar-1a79af",
             "sources-by-size.monolith-6aa665",
-            "sources-by-size.harmonic-camp-350243"
+            "sources-by-size.harmonic-camp-162c63"
           ],
           "kinds": ["text", "median", "median", "median", "median"],
           "note": "sources-by-size.medians-per-planet-of-euclid-c321a5",
@@ -42385,7 +42385,7 @@
           "head": [
             "sources-by-type.planets-367a20",
             "sources-by-type.monolith-6aa665",
-            "sources-by-type.harmonic-camp-350243",
+            "sources-by-type.harmonic-camp-162c63",
             "sources-by-type.sentinel-wreck-f95c6f",
             "sources-by-type.sunken-ship-c3450d"
           ],
@@ -42829,7 +42829,7 @@
             "sources-by-type.shop-742cc9",
             "sources-by-type.sentinel-pillar-1a79af",
             "sources-by-type.monolith-6aa665",
-            "sources-by-type.harmonic-camp-350243"
+            "sources-by-type.harmonic-camp-162c63"
           ],
           "kinds": ["text", "median", "median", "median", "median"],
           "note": "sources-by-type.medians-per-planet-of-euclid-c321a5",
@@ -42938,7 +42938,7 @@
             [
               "space-stations.exosuit-afedc0",
               "space-stations.12-to-18-7ada40",
-              "space-stations.life-support-movement-and-shield-bb1e31"
+              "space-stations.life-support-at-class-b-4d92ef"
             ],
             [
               "space-stations.exocraft-631601",
@@ -43006,7 +43006,7 @@
         "kept": {
           "head": ["square.type-55d06d", "square.share-856dd8"],
           "kinds": ["text", "share"],
-          "note": "square.tools-we-keep-in-euclid-10eb2d",
+          "note": "square.tools-a-system-page-lists-014f16",
           "rows": [
             ["square.staff-19a971", 0.06377985652],
             ["square.experimental-49995f", 0.06660463168],
@@ -43030,7 +43030,7 @@
             ["square.monolith-6aa665", 0.06968911162, 1144.590061],
             ["square.sentinel-pillar-1a79af", 0.06989503725, 1140.939169],
             ["square.shop-742cc9", 0.07011981853, 1134.993661],
-            ["square.harmonic-camp-350243", 0.07012375863, 1136.77132],
+            ["square.harmonic-camp-162c63", 0.07012375863, 1136.77132],
             ["square.space-station-2cbb1d", 0.07012781932, 1135.251235],
             ["square.crashed-freighter-1b0d7d", 0.07988228986, 914.2171895],
             ["square.debris-eeb67a", 0.07993536908, 918.9565197],
@@ -47554,7 +47554,7 @@
       "title": "station-decoration.space-station-decoration-619281"
     },
     "supercharged-slots": {
-      "fact": "supercharged-slots.put-a-weapon-s-three-03e89a",
+      "fact": "supercharged-slots.put-a-weapon-s-three-3f5156",
       "numbers": {
         "apart": "1.47",
         "block": "1.82",
@@ -47581,7 +47581,7 @@
             "supercharged-slots.three-illegal-modules-8da390"
           ],
           "kinds": ["text", "text", "tenths", "tenths"],
-          "note": "supercharged-slots.the-boltcaster-s-highest-damage-f3f3bd",
+          "note": "supercharged-slots.the-boltcaster-s-highest-damage-537371",
           "rows": [
             [
               "supercharged-slots.pistol-9d7f76",
@@ -47733,28 +47733,28 @@
             "supercharged-slots.where-to-put-it-ab94bd"
           ],
           "kinds": ["text", "text", "text", "text", "text"],
-          "note": "supercharged-slots.technology-that-adds-nothing-to-0e62c9",
+          "note": "supercharged-slots.technology-that-adds-nothing-to-b6ed09",
           "rows": [
             [
               "supercharged-slots.barrel-ioniser-088548",
               "supercharged-slots.boltcaster-5a1b1e",
               "supercharged-slots.less-recoil-one-more-shot-9534c6",
               "supercharged-slots.a-module-beside-it-gains-4e3fcb",
-              "supercharged-slots.against-a-module-that-touches-bfa78e"
+              "supercharged-slots.against-a-module-adjacent-to-14f6a3"
             ],
             [
               "supercharged-slots.ricochet-module-625be4",
               "supercharged-slots.boltcaster-5a1b1e",
               "supercharged-slots.shots-bounce-twice-no-damage-f6a33f",
               "supercharged-slots.the-same-as-the-barrel-71065e",
-              "supercharged-slots.against-the-other-module-that-78af1c"
+              "supercharged-slots.against-the-other-module-adjacent-0a1849"
             ],
             [
               "supercharged-slots.cadmium-emeril-indium-atlantid-drive-5d182c",
               "supercharged-slots.hyperdrive-fa17ab",
               "supercharged-slots.opens-the-stars-of-its-186ff0",
               "supercharged-slots.the-hyperdrive-or-a-module-8b6a49",
-              "supercharged-slots.around-the-modules-each-touching-3e2b68"
+              "supercharged-slots.around-the-modules-each-adjacent-349244"
             ]
           ],
           "text": 5
@@ -47782,13 +47782,13 @@
               1.469088052
             ],
             [
-              "supercharged-slots.one-module-touching-the-boltcaster-21254c",
+              "supercharged-slots.one-module-adjacent-to-the-e78d5c",
               "supercharged-slots.nothing-ea492a",
               2503.9,
               1.513204811
             ],
             [
-              "supercharged-slots.two-modules-touching-the-boltcaster-a515e5",
+              "supercharged-slots.two-modules-adjacent-to-the-13df6f",
               "supercharged-slots.nothing-ea492a",
               2579,
               1.558590681
@@ -47812,19 +47812,19 @@
               2.268810056
             ],
             [
-              "supercharged-slots.the-boltcaster-and-one-module-c9cd8f",
+              "supercharged-slots.the-boltcaster-and-one-module-6c45dc",
               "supercharged-slots.both-6318c2",
               4850.7,
               2.93146794
             ],
             [
-              "supercharged-slots.three-modules-touching-each-other-4ff546",
+              "supercharged-slots.three-modules-adjacent-to-each-f20afc",
               "supercharged-slots.the-three-modules-7780ed",
               5644.1,
               3.410950625
             ],
             [
-              "supercharged-slots.three-modules-the-boltcaster-touching-881ea1",
+              "supercharged-slots.three-modules-the-boltcaster-adjacent-4a1bef",
               "supercharged-slots.the-three-modules-7780ed",
               5800.9,
               3.505711005
@@ -47851,15 +47851,15 @@
               "supercharged-slots.1-25-to-every-stat-e02411"
             ],
             [
-              "supercharged-slots.a-module-touching-another-module-16066a",
+              "supercharged-slots.a-module-adjacent-to-another-a7385c",
               "supercharged-slots.6-to-its-damage-and-784ac3"
             ],
             [
-              "supercharged-slots.a-module-touching-its-weapon-31b1ed",
+              "supercharged-slots.a-module-adjacent-to-its-25bec3",
               "supercharged-slots.5-to-its-damage-and-b16a7f"
             ],
             [
-              "supercharged-slots.a-weapon-touching-its-modules-7538f2",
+              "supercharged-slots.a-weapon-adjacent-to-its-319c68",
               "supercharged-slots.nothing-the-weapon-gains-only-8236c7"
             ],
             [
@@ -47930,7 +47930,7 @@
     },
     "systems": {
       "fact": {
-        "t": "systems.a-star-system-holds-up-0d8c6e",
+        "t": "systems.a-star-system-holds-up-67b1c3",
         "v": [
           { "k": "share", "v": 0.4369392308 },
           { "k": "share", "v": 0.01138261011 }
@@ -49541,7 +49541,7 @@
             "share",
             "median"
           ],
-          "note": "where-to-look.stars-of-euclid-spread-over-6537b8",
+          "note": "where-to-look.stars-of-euclid-spread-over-7124d3",
           "rows": [
             [
               {
