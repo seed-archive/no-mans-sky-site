@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { useSnackbar } from "notistack";
 
 import { CatalogFilters } from "@/components/archive/CatalogFilters";
@@ -38,6 +38,7 @@ export function CatalogScreen(props: {
 }) {
   const { pathname, query, heading = false } = props;
   const { enqueueSnackbar } = useSnackbar();
+  const intl = useIntl();
   const list = useQuery({
     queryKey: catalogKey(query),
     queryFn: async () => {
@@ -51,9 +52,11 @@ export function CatalogScreen(props: {
 
   useEffect(() => {
     if (list.error instanceof Error) {
-      enqueueSnackbar(list.error.message, { variant: "error" });
+      enqueueSnackbar(intl.formatMessage({ id: "archive.unavailable" }), {
+        variant: "error",
+      });
     }
-  }, [enqueueSnackbar, list.error]);
+  }, [enqueueSnackbar, list.error, intl]);
 
   // Nothing at all here: no form to search with, only a note.
   if (list.data && list.data.total === 0 && !isFiltered(query)) {

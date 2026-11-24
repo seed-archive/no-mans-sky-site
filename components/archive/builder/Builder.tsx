@@ -13,6 +13,7 @@ import { useAuth } from "@seed-archive/ui/auth";
 
 import { ColourTiles } from "@/components/archive/builder/ColourTiles";
 import { PartTiles } from "@/components/archive/builder/PartTiles";
+import { usePartText } from "@/components/archive/builder/partText";
 import { Ship } from "@/components/archive/builder/Ship";
 import { SignIn } from "@/components/archive/builder/SignIn";
 import { INK, SURFACE } from "@/components/archive/builder/style";
@@ -68,7 +69,11 @@ export function Builder(props: { ship: ShipModule }) {
     () => ship.groups.filter((row) => choice[row.id] !== undefined),
     [ship.groups, choice],
   );
-  const names = useMemo(() => chipNames(ship.groups, fits), [ship, fits]);
+  const partText = usePartText();
+  const names = useMemo(
+    () => chipNames(ship.groups, fits, partText),
+    [ship, fits, partText],
+  );
   const painted = useMemo(
     () => colours?.paintedOf(paint) ?? null,
     [colours, paint],
@@ -157,7 +162,7 @@ export function Builder(props: { ship: ShipModule }) {
             assignment={core?.start ?? null}
             group={group}
             value={choice[group.id]}
-            title={names.get(group.id) ?? group.title}
+            title={names.get(group.id) ?? partText(group.title)}
             onChange={(option) => {
               if (core && assignment) {
                 setPicks(pick(core, assignment, group, option));

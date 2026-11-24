@@ -3,18 +3,13 @@ import { Trail } from "@/components/archive/Trail";
 import { readContent } from "@/lib/archive/content";
 import { toolPath } from "@/lib/archive/paths";
 import { toolTrail } from "@/lib/archive/trails";
-import { localMetadata, requireTranslation } from "@/lib/i18n/page";
+import { messageMetadata, requireTranslation } from "@/lib/i18n/page";
 
 const SLUG = "living-frigate-finder";
 const PATH = toolPath(SLUG);
 
 export function generateMetadata() {
-  return localMetadata(PATH, {
-    title:
-      "No Man's Sky living frigates: every shape of an organic frigate — Seed Archive",
-    description:
-      "Living frigates in No Man's Sky: put a cosmic whale together from its front accessory, tail, wings, and side parts, and see every shape the game makes.",
-  });
+  return messageMetadata(PATH, SLUG);
 }
 
 export default async function LivingFrigateFinderPage() {

@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useQuery } from "@tanstack/react-query";
 import { notFound } from "next/navigation";
 import { useEffect } from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { useSnackbar } from "notistack";
 
 import { AssetCard } from "@/components/archive/AssetCard";
@@ -29,6 +29,7 @@ export function RecordScreen(props: {
 }) {
   const { kind, id, pathname, query } = props;
   const { enqueueSnackbar } = useSnackbar();
+  const intl = useIntl();
   const record = useQuery({
     queryKey: ["record", kind, id],
     queryFn: async () => {
@@ -42,9 +43,11 @@ export function RecordScreen(props: {
 
   useEffect(() => {
     if (record.error instanceof Error) {
-      enqueueSnackbar(record.error.message, { variant: "error" });
+      enqueueSnackbar(intl.formatMessage({ id: "archive.unavailable" }), {
+        variant: "error",
+      });
     }
-  }, [enqueueSnackbar, record.error]);
+  }, [enqueueSnackbar, record.error, intl]);
 
   if (record.isSuccess && record.data === null) {
     notFound();

@@ -22,6 +22,7 @@ import {
   histogramRows,
   inVoxel,
   OWN_OFFERS,
+  type Say,
   share,
   STARS_PER_REGION,
   stats,
@@ -29,46 +30,49 @@ import {
 } from "@/lib/archive/about";
 import { RANK_OPTIONS } from "@/lib/archive/kinds";
 
+// The page's messages, `about.<id>`, and its numbers in their words.
+function useSay() {
+  const intl = useIntl();
+  const say: Say = (id, values) => intl.formatMessage({ id }, values);
+  const t = (id: string, values?: Record<string, string>) =>
+    say(`about.${id}`, values);
+  const count = (value: number) => amount(value, say);
+  return { intl, say, t, count };
+}
+
 // The page in one narrowing column: each step links to the section that
 // tells it.
 function Tiles() {
+  const { t, count } = useSay();
   const steps = [
+    [count(stats.galaxy.systems), t("tileSystems"), "the-size-of-the-haystack"],
     [
-      amount(stats.galaxy.systems),
-      "star systems in a galaxy",
-      "the-size-of-the-haystack",
-    ],
-    [
-      amount(stepOf(euclid.tools, "ground")),
-      "spots in one system that could hand you a multitool",
+      count(stepOf(euclid.tools, "ground")),
+      t("tileSpots"),
       "where-a-multitool-comes-from",
     ],
     [
-      amount(stepOf(euclid.tools, "sources")),
-      "of them above sea level and not too steep to build on",
+      count(stepOf(euclid.tools, "sources")),
+      t("tileSources"),
       "the-multitool-funnel",
     ],
     [
-      amount(stepOf(euclid.tools, "offers")),
-      "chances at a multitool, by where you start",
+      count(stepOf(euclid.tools, "offers")),
+      t("tileOffers"),
       "where-a-multitool-comes-from",
     ],
     [
-      amount(stepOf(euclid.tools, "connected")),
-      "of them with four adjacent slots at S",
+      count(stepOf(euclid.tools, "connected")),
+      t("tileConnected"),
       "the-multitool-funnel",
     ],
-    [
-      "6 + 2",
-      "multitools and ships on a system page",
-      "what-a-good-system-looks-like",
-    ],
-    ["1", "square on show", "the-star-of-the-show"],
+    ["6 + 2", t("tilePage"), "what-a-good-system-looks-like"],
+    ["1", t("tileSquare"), "the-star-of-the-show"],
   ];
   return (
     <Stack
       component="nav"
-      aria-label="On this page"
+      aria-label={t("onThisPage")}
       spacing={0.75}
       sx={{ alignItems: "center" }}
     >
@@ -109,21 +113,22 @@ function Tiles() {
 }
 
 function Scale() {
+  const { t, count } = useSay();
   const { galaxy } = stats;
   const planets = euclid.planets_per_system;
   const rows: [string, number][] = [
-    ["Voxels in a galaxy", galaxy.regions],
-    ["Stars in a voxel", STARS_PER_REGION],
-    ["Star systems in a galaxy", galaxy.systems],
-    ["Planets and moons in a system", planets],
-    ["Planets and moons in a voxel", planets * STARS_PER_REGION],
+    [t("scaleRegions"), galaxy.regions],
+    [t("scaleStars"), STARS_PER_REGION],
+    [t("scaleSystems"), galaxy.systems],
+    [t("scalePlanets"), planets],
+    [t("scaleRegionPlanets"), planets * STARS_PER_REGION],
   ];
   return (
     <DataTable
-      head={["The count", "About"]}
+      head={[t("theCount"), t("roughly")]}
       rows={rows.map(([label, value]) => ({
         key: label,
-        cells: [label, amount(value)],
+        cells: [label, count(value)],
       }))}
     />
   );
@@ -131,7 +136,7 @@ function Scale() {
 
 function Colours() {
   const shares = euclid.star_colours as Record<string, number>;
-  const intl = useIntl();
+  const { intl, t } = useSay();
   const rows = Object.entries(
     euclid.star_colours as Record<string, number>,
   ).sort((one, other) => other[1] - one[1]);
@@ -142,13 +147,13 @@ function Colours() {
         labels: rows.map(([colour]) =>
           intl.formatMessage({ id: `star.${colour}` }),
         ),
-        series: [{ label: "Share", values: rows.map(([, value]) => value) }],
+        series: [{ label: t("share"), values: rows.map(([, value]) => value) }],
         format: "share",
-        label: "Star colours",
+        label: t("starColours"),
       })}
     >
       <DataTable
-        head={["Star", "Share"]}
+        head={[t("star"), t("share")]}
         rows={Object.entries(shares)
           .sort((one, other) => other[1] - one[1])
           .map(([colour, value]) => ({
@@ -164,18 +169,25 @@ function Colours() {
 }
 
 function Sources() {
+  const { t } = useSay();
   const spots = euclid.cells as Record<string, number>;
+  const kinds = [
+    "beacon",
+    "droppod",
+    "debris",
+    "shop",
+    "freighter",
+    "monolith",
+    "head",
+    "pillar",
+    "camp",
+  ];
   const rows: [string, number][] = [
-    ["Beacons", spots.beacon],
-    ["Drop Pods", spots.droppod],
-    ["Debris", spots.debris],
-    ["Shops", spots.shop],
-    ["Crashed freighters", spots.freighter],
-    ["Monoliths", spots.monolith],
-    ["Robot heads", spots.head],
-    ["Sentinel pillars", spots.pillar],
-    ["Harmonic Camps", spots.camp],
-    ["Space stations", spots.station / euclid.planets_per_system],
+    ...kinds.map((kind): [string, number] => [
+      t(`sources.${kind}`),
+      spots[kind],
+    ]),
+    [t("sources.station"), spots.station / euclid.planets_per_system],
   ];
   // Fewest first: this table is no step of the funnel (the owner, 2026-11-04).
   rows.sort((one, other) => one[1] - other[1]);
@@ -187,16 +199,16 @@ function Sources() {
         labels: rows.map(([label]) => label),
         series: [
           {
-            label: "Share of all spots",
+            label: t("spotShare"),
             values: rows.map(([, spot]) => spot / total),
           },
         ],
         format: "share",
-        label: "Share of all spots",
+        label: t("spotShare"),
       })}
     >
       <DataTable
-        head={["Source", "Share of all spots"]}
+        head={[t("sourceHead"), t("spotShare")]}
         rows={rows.map(([label, spot]) => ({
           key: label,
           cells: [label, share(spot / total)],
@@ -206,49 +218,55 @@ function Sources() {
   );
 }
 
-const STEP_LABELS: Record<string, string> = {
-  ground: "All spots",
-  sources: "Sea level and slope",
-  // One spot offers a tool for every place you can start from.
-  offers: `Chances, by where you start (×${Math.round(
-    stepOf(euclid.tools, "offers") / stepOf(euclid.tools, "sources"),
-  )})`,
-  connected: "Four slots adjacent at S",
-  square: "Four slots form a square",
-  class: "Class S on the ground",
-  own_load: "No trips needed",
-  kept: "One per type and figure",
-  shown: "On the list",
-};
+// The steps of a funnel, each a message `about.step.<key>`.
+const STEP_KEYS = new Set([
+  "ground",
+  "sources",
+  "offers",
+  "connected",
+  "square",
+  "class",
+  "own_load",
+  "kept",
+  "shown",
+]);
+
+// One spot offers a tool for every place you can start from.
+const STARTS = Math.round(
+  stepOf(euclid.tools, "offers") / stepOf(euclid.tools, "sources"),
+);
 
 function Funnel(props: { steps: typeof euclid.tools }) {
+  const { t, count } = useSay();
+  const label = (key: string) =>
+    STEP_KEYS.has(key) ? t(`step.${key}`, { starts: String(STARTS) }) : key;
   return (
     <ChartBlock
       spec={chartSpec({
         kind: "bars",
-        labels: props.steps.map((step) => STEP_LABELS[step.key] ?? step.key),
+        labels: props.steps.map((step) => label(step.key)),
         series: [
           {
-            label: "System",
+            label: t("system"),
             values: props.steps.map((step) =>
               Math.log10(Math.max(step.per_system, 1)),
             ),
-            exact: props.steps.map((step) => amount(step.per_system)),
+            exact: props.steps.map((step) => count(step.per_system)),
           },
         ],
         format: "power",
-        label: "Steps of the funnel, per system",
+        label: t("funnel"),
       })}
     >
       <DataTable
-        head={["Step", "Planet", "System", "Voxel"]}
+        head={[t("stepHead"), t("planet"), t("system"), t("voxel")]}
         rows={props.steps.map((step) => ({
           key: step.key,
           cells: [
-            STEP_LABELS[step.key] ?? step.key,
-            amount(step.per_planet),
-            amount(step.per_system),
-            amount(step.per_system * STARS_PER_REGION),
+            label(step.key),
+            count(step.per_planet),
+            count(step.per_system),
+            count(step.per_system * STARS_PER_REGION),
           ],
         }))}
       />
@@ -258,11 +276,15 @@ function Funnel(props: { steps: typeof euclid.tools }) {
 
 // Counts too far apart for one straight scale, as powers of ten. Under one in
 // a voxel draws no bar; the tooltip and the table keep the number.
-function countSeries(label: string, values: number[]) {
+function countSeries(
+  label: string,
+  values: number[],
+  count: (value: number) => string,
+) {
   return {
     label,
     values: values.map((value) => Math.log10(Math.max(value, 1))),
-    exact: values.map((value) => amount(value)),
+    exact: values.map((value) => count(value)),
   };
 }
 
@@ -309,24 +331,20 @@ function orderedTypes(shares: Record<string, number>, types: string[]) {
     .flatMap((group) => [...group].sort((left, right) => of(right) - of(left)));
 }
 
-const SOURCE_NAMES: [string, string][] = [
-  ["shop", "Shop"],
-  ["monolith", "Monolith"],
-  ["camp", "Camp"],
-  ["station", "Space station"],
-  ["pillar", "Pillar"],
-  ["head", "Robot head"],
-  ["beacon", "Beacon"],
-  ["freighter", "Crashed freighter"],
-  ["droppod", "Drop Pod"],
-  ["debris", "Debris"],
+// The kinds of place that pay a type, in the order a row names them; each a
+// message `about.source.<kind>`.
+const SOURCE_KINDS = [
+  "shop",
+  "monolith",
+  "camp",
+  "station",
+  "pillar",
+  "head",
+  "beacon",
+  "freighter",
+  "droppod",
+  "debris",
 ];
-
-// The kinds of place that pay a type.
-function paidBy(counts: Record<string, number> | undefined): string {
-  const names = SOURCE_NAMES.filter(([kind]) => (counts?.[kind] ?? 0) > 0);
-  return names.length ? names.map(([, name]) => name).join(", ") : "—";
-}
 
 function TypeTable(props: { types: string[] }) {
   const bySource = (
@@ -335,7 +353,17 @@ function TypeTable(props: { types: string[] }) {
   const all = inVoxel(euclid.tool_types, OWN_OFFERS);
   const kept = inVoxel(euclid.kept_tool_types, stepOf(euclid.tools, "kept"));
   const order = orderedTypes(among(all, props.types), props.types);
-  const intl = useIntl();
+  const { intl, t, count } = useSay();
+  // The kinds of place that pay a type.
+  const paidBy = (counts: Record<string, number> | undefined) => {
+    const names = SOURCE_KINDS.filter((kind) => (counts?.[kind] ?? 0) > 0);
+    return names.length
+      ? intl.formatList(
+          names.map((kind) => t(`source.${kind}`)),
+          { type: "unit", style: "short" },
+        )
+      : "—";
+  };
   return (
     <ChartBlock
       spec={chartSpec({
@@ -345,27 +373,29 @@ function TypeTable(props: { types: string[] }) {
         ),
         series: [
           countSeries(
-            "All sources",
+            t("allSources"),
             order.map((type) => all[type] ?? 0),
+            count,
           ),
           countSeries(
-            "We keep",
+            t("weKeep"),
             order.map((type) => kept[type] ?? 0),
+            count,
           ),
         ],
         format: "power",
-        label: "Tool types in a voxel, all sources and what we keep",
+        label: t("typesChart"),
       })}
     >
       <DataTable
-        head={["Type", "All sources", "From", "We keep"]}
+        head={[t("type"), t("allSources"), t("from"), t("weKeep")]}
         rows={order.map((type) => ({
           key: type,
           cells: [
             <FormattedMessage key={type} id={`toolBody.${type}`} />,
-            amount(all[type] ?? 0),
+            count(all[type] ?? 0),
             paidBy(bySource?.[type]),
-            amount(kept[type] ?? 0),
+            count(kept[type] ?? 0),
           ],
         }))}
       />
@@ -426,62 +456,51 @@ const FIGURE_CELLS: Record<string, [number, number][]> = {
   ],
 };
 
-// One row for a shape and everything it turns or mirrors into. Places count
-// where the shape fits on a multitool's 7 by 4 and a ship's 10 by 3.
+// One row for a shape and everything it turns or mirrors into, its name the
+// message `about.shape.<mark>`. Places count where the shape fits on a
+// multitool's 7 by 4 and a ship's 10 by 3.
 const SHAPES = [
-  { mark: "I", name: "Line", members: ["I"], turns: 2, tool: 23, ship: 21 },
-  { mark: "O", name: "Square", members: ["O"], turns: 1, tool: 18, ship: 18 },
-  { mark: "T", name: "T", members: ["T"], turns: 4, tool: 54, ship: 50 },
-  {
-    mark: "S",
-    name: "Zigzag",
-    members: ["S", "Z"],
-    turns: 4,
-    tool: 54,
-    ship: 50,
-  },
-  {
-    mark: "L",
-    name: "Corner",
-    members: ["L", "J"],
-    turns: 8,
-    tool: 108,
-    ship: 100,
-  },
+  { mark: "I", members: ["I"], turns: 2, tool: 23, ship: 21 },
+  { mark: "O", members: ["O"], turns: 1, tool: 18, ship: 18 },
+  { mark: "T", members: ["T"], turns: 4, tool: 54, ship: 50 },
+  { mark: "S", members: ["S", "Z"], turns: 4, tool: 54, ship: 50 },
+  { mark: "L", members: ["L", "J"], turns: 8, tool: 108, ship: 100 },
 ];
 
 function Figures() {
+  const { t } = useSay();
   const tools = euclid.tool_figures as Record<string, number>;
   const ships = euclid.kept_ship_figures as Record<string, number>;
   const total = (shares: Record<string, number>, members: string[]) =>
     members.reduce((sum, member) => sum + (shares[member] ?? 0), 0);
+  const nameOf = (mark: string) => t(`shape.${mark}`);
   return (
     <ChartBlock
       spec={chartSpec({
         kind: "bars",
-        labels: SHAPES.map((shape) => shape.name),
+        labels: SHAPES.map((shape) => nameOf(shape.mark)),
         series: [
           {
-            label: "Adjacent tools",
+            label: t("adjacentTools"),
             values: SHAPES.map((shape) => total(tools, shape.members)),
           },
           {
-            label: "Ships we keep",
+            label: t("shipsWeKeep"),
             values: SHAPES.map((shape) => total(ships, shape.members)),
           },
         ],
         format: "share",
-        label: "Figures of adjacent tools and of ships we keep",
+        label: t("figuresChart"),
       })}
     >
       <DataTable
         head={[
-          "Shape",
-          "Name",
-          "Turns",
-          "Places",
-          "Adjacent tools",
-          "Ships we keep",
+          t("shapeHead"),
+          t("name"),
+          t("turns"),
+          t("places"),
+          t("adjacentTools"),
+          t("shipsWeKeep"),
         ]}
         textColumns={2}
         rows={SHAPES.map((shape) => ({
@@ -497,7 +516,7 @@ function Figures() {
             >
               <CellMark cells={FIGURE_CELLS[shape.mark]} />
             </Stack>,
-            shape.name,
+            nameOf(shape.mark),
             shape.turns,
             `${shape.tool} / ${shape.ship}`,
             share(total(tools, shape.members)),
@@ -510,18 +529,19 @@ function Figures() {
 }
 
 function Classes() {
+  const { t, count } = useSay();
   const columns = [
-    ["All tools", inVoxel(euclid.tool_classes, OWN_OFFERS)],
+    [t("allTools"), inVoxel(euclid.tool_classes, OWN_OFFERS)],
     [
-      "Tools we keep",
+      t("toolsWeKeep"),
       inVoxel(euclid.kept_tool_classes, stepOf(euclid.tools, "kept")),
     ],
     [
-      "All wrecks",
+      t("allWrecks"),
       inVoxel(euclid.ship_classes, stepOf(euclid.ships, "sources")),
     ],
     [
-      "Ships we keep",
+      t("shipsWeKeep"),
       inVoxel(euclid.kept_ship_classes, stepOf(euclid.ships, "kept")),
     ],
   ] as const;
@@ -534,25 +554,20 @@ function Classes() {
           countSeries(
             label,
             RANK_OPTIONS.map((letter) => counts[letter] ?? 0),
+            count,
           ),
         ),
         format: "power",
-        label: "Classes of tools and wrecks in a voxel",
+        label: t("classesChart"),
       })}
     >
       <DataTable
-        head={[
-          "Class",
-          "All tools",
-          "Tools we keep",
-          "All wrecks",
-          "Ships we keep",
-        ]}
+        head={[t("class"), ...columns.map(([label]) => label)]}
         rows={RANK_OPTIONS.map((letter) => ({
           key: letter,
           cells: [
             letter,
-            ...columns.map(([, counts]) => amount(counts[letter] ?? 0)),
+            ...columns.map(([, counts]) => count(counts[letter] ?? 0)),
           ],
         }))}
       />
@@ -563,7 +578,7 @@ function Classes() {
 function Hulls() {
   const all = inVoxel(euclid.ship_hulls, stepOf(euclid.ships, "sources"));
   const kept = inVoxel(euclid.kept_ship_hulls, stepOf(euclid.ships, "kept"));
-  const intl = useIntl();
+  const { intl, t, count } = useSay();
   const order = Object.entries(all).sort((one, other) => other[1] - one[1]);
   return (
     <ChartBlock
@@ -574,26 +589,28 @@ function Hulls() {
         ),
         series: [
           countSeries(
-            "All wrecks",
+            t("allWrecks"),
             order.map(([, value]) => value),
+            count,
           ),
           countSeries(
-            "We keep",
+            t("weKeep"),
             order.map(([hull]) => kept[hull] ?? 0),
+            count,
           ),
         ],
         format: "power",
-        label: "Ship types in a voxel, among wrecks and ships we keep",
+        label: t("hullsChart"),
       })}
     >
       <DataTable
-        head={["Ship", "All wrecks", "We keep"]}
+        head={[t("ship"), t("allWrecks"), t("weKeep")]}
         rows={order.map(([hull, value]) => ({
           key: hull,
           cells: [
             <FormattedMessage key={hull} id={`hull.${hull}`} />,
-            amount(value),
-            amount(kept[hull] ?? 0),
+            count(value),
+            count(kept[hull] ?? 0),
           ],
         }))}
       />
@@ -602,28 +619,30 @@ function Hulls() {
 }
 
 function Histogram() {
+  const { say, t } = useSay();
+  const rows = histogramRows(say);
   return (
     <ChartBlock
       spec={chartSpec({
         kind: "line",
-        labels: histogramRows().map((row) => row.label),
+        labels: rows.map((row) => row.label),
         series: [
           {
-            label: "Systems, by tools",
-            values: histogramRows().map((row) => row.tools),
+            label: t("byTools"),
+            values: rows.map((row) => row.tools),
           },
           {
-            label: "Systems, by ships",
-            values: histogramRows().map((row) => row.ships),
+            label: t("byShips"),
+            values: rows.map((row) => row.ships),
           },
         ],
         format: "share",
-        label: "Systems by items kept",
+        label: t("histogramChart"),
       })}
     >
       <DataTable
-        head={["Items kept", "Systems, by tools", "Systems, by ships"]}
-        rows={histogramRows().map((row) => ({
+        head={[t("itemsKept"), t("byTools"), t("byShips")]}
+        rows={rows.map((row) => ({
           key: row.label,
           cells: [row.label, share(row.tools), share(row.ships)],
         }))}
@@ -633,6 +652,7 @@ function Histogram() {
 }
 
 function Galaxies() {
+  const { t, count } = useSay();
   const all = [stats.euclid, ...stats.galaxies];
   return (
     <ChartBlock
@@ -641,21 +661,21 @@ function Galaxies() {
         labels: all.map((galaxy) => galaxy.name.replace(" Galaxy", "")),
         series: [
           {
-            label: "Tools per system",
+            label: t("toolsPerSystem"),
             values: all.map((galaxy) => stepOf(galaxy.tools, "offers")),
-            exact: all.map((galaxy) => amount(stepOf(galaxy.tools, "offers"))),
+            exact: all.map((galaxy) => count(stepOf(galaxy.tools, "offers"))),
           },
         ],
         format: "count",
-        label: "Tools per system by galaxy",
+        label: t("galaxiesChart"),
       })}
     >
       <DataTable
         head={[
-          "Galaxy",
-          "Stars per voxel",
-          "Tools per system",
-          "Wrecks per system",
+          t("galaxy"),
+          t("starsPerVoxel"),
+          t("toolsPerSystem"),
+          t("wrecksPerSystem"),
         ]}
         rows={all.map((galaxy) => ({
           key: galaxy.name,
@@ -666,9 +686,9 @@ function Galaxies() {
               <FormattedMessage id={`galaxyType.${galaxy.type}`} />
               {")"}
             </>,
-            amount(galaxy.stars_per_region),
-            amount(stepOf(galaxy.tools, "offers")),
-            amount(stepOf(galaxy.ships, "sources")),
+            count(galaxy.stars_per_region),
+            count(stepOf(galaxy.tools, "offers")),
+            count(stepOf(galaxy.ships, "sources")),
           ],
         }))}
       />

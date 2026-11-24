@@ -14,7 +14,7 @@ A capital freighter has a wedge hull, which carries a spine of cargo modules wit
 
 A capital freighter comes from a space battle. A battle comes when you warp in with one due, once 3 hours of play and 5 warps have passed since the last. Your first two battles save a regular freighter; from the third on, the freighter you save is the capital one of the system. While you own no freighter, its captain gives it to you for free. Save the game in a neighbouring system with the battle due, warp in, and load again until the ship comes at the class you want.
 
-A pirate system gives class S most often, as [freighters](/guides/freighters) shows. Once you own a freighter a pirate system always sends a [dreadnought](/guides/dreadnoughts) instead of the ship you picked. A wealthy system can bring one too, so try it before you own a freighter. A dreadnought you destroy pays [freighter modules](/guides/freighter-modules) for the freighter you end up with.
+A pirate system gives class S most often, as [freighters](/guides/freighters) shows. Once you own a freighter a pirate system always sends a [dreadnought](/guides/dreadnoughts) instead of the ship you picked. Once you own a freighter, any system can send one, so look for your capital freighter before you own a freighter. A dreadnought you destroy pays [freighter modules](/guides/freighter-modules) for the freighter you end up with.
 
 ## What stays the same in a system
 

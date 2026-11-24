@@ -3,37 +3,47 @@ import { Trail } from "@/components/archive/Trail";
 import { guideQuestions } from "@/lib/archive/content";
 import { QUESTS_PATH, questPath } from "@/lib/archive/guides";
 import { QUESTS } from "@/lib/archive/quests";
-import { localMetadata, requireTranslation } from "@/lib/i18n/page";
+import { messageOf } from "@/lib/i18n/messages";
+import {
+  localMetadata,
+  pageLanguage,
+  requireTranslation,
+} from "@/lib/i18n/page";
 
 // The Quests section's own page: its pages, each with its question and short
 // answer. Like a group of the guides, it tells nothing of its own.
 
-const TITLE = "Quests";
-const TRAIL = [{ name: "Home", href: "/" }, { name: TITLE }];
-
-export function generateMetadata() {
+export async function generateMetadata() {
+  const language = await pageLanguage();
+  const quests = new Intl.ListFormat(language, {
+    type: "unit",
+    style: "short",
+  }).format(QUESTS.map((quest) => quest.title.toLowerCase()));
   return localMetadata(QUESTS_PATH, {
-    title: `${TITLE} in No Man's Sky — Seed Archive`,
-    description: `${TITLE} in No Man's Sky: ${QUESTS.map((quest) =>
-      quest.title.toLowerCase(),
-    ).join(", ")}.`,
+    title: messageOf(language, "meta.quests.title"),
+    description: messageOf(language, "meta.quests.description", { quests }),
   });
 }
 
 export default async function QuestsPage() {
-  await requireTranslation(QUESTS_PATH);
+  const language = await requireTranslation(QUESTS_PATH);
+  const title = messageOf(language, "archive.quests");
+  const trail = [
+    { name: messageOf(language, "archive.home"), href: "/" },
+    { name: title },
+  ];
   const questions = await guideQuestions(
     QUESTS.map((quest) => quest.slug),
     "quests",
   );
   return (
     <>
-      <Trail steps={TRAIL} />
+      <Trail steps={trail} />
       <TopicList
         topics={QUESTS}
         questions={questions}
         section={{
-          title: TITLE,
+          title,
           pages: QUESTS.map((quest) => ({
             slug: quest.slug,
             title: quest.title,

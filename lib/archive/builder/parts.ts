@@ -74,14 +74,18 @@ export function firstOf(group: PartGroup) {
 
 // A chip's name is its title, and where another group that applies has the same
 // title (each set of wings has its own Plate shade), the title of the group it
-// hangs on, then a number.
-export function chipNames(groups: PartGroup[], fits: PartGroup[]) {
+// hangs on, then a number. `text` gives a title in the page's language.
+export function chipNames(
+  groups: PartGroup[],
+  fits: PartGroup[],
+  text: (title: string) => string,
+) {
   const title = (row: PartGroup) => {
     const same = fits.filter((other) => other.title === row.title);
     const parent = groups.find((up) => up.id === row.requires?.group);
     return same.length > 1 && parent
-      ? `${row.title} · ${parent.title}`
-      : row.title;
+      ? `${text(row.title)} · ${text(parent.title)}`
+      : text(row.title);
   };
   const names = new Map(fits.map((row) => [row.id, title(row)]));
   const seen = new Map<string, number>();

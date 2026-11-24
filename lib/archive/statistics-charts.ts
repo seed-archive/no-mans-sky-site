@@ -7,6 +7,7 @@ import {
 } from "@/lib/archive/chart-spec";
 import { rawTableOf, tablesOf, type StatTable } from "@/lib/archive/statistics";
 import type { Language } from "@/lib/i18n/languages";
+import { messageOf } from "@/lib/i18n/messages";
 import type {
   Cell,
   ColumnKind,
@@ -19,6 +20,7 @@ type Rule = {
   kind?: ChartSpec["kind"];
   // The heads to draw.
   columns?: string[];
+  // Message ids of the chart's title and axis.
   title?: string;
   axis?: string;
   // Rows left off the chart, when one would flatten the rest. The table keeps them.
@@ -128,7 +130,7 @@ const RULES: Record<string, Record<string, Plan>> = {
   },
   "multitool-classes": {
     peaks: { columns: ["Median S tools"] },
-    wealth: { title: "Multitool classes by wealth" },
+    wealth: { title: "charts.classesByWealth" },
   },
   "multitool-stats": {
     damage: STAT,
@@ -289,6 +291,7 @@ function specOf(
   printed: StatTable,
   raw: RawTable | undefined,
   rule: Rule,
+  language: Language,
 ): ChartSpec | null {
   const at = columnsOf(rule, printed.head, raw?.kinds);
   if (!at.length) {
@@ -313,8 +316,8 @@ function specOf(
     series,
     format,
     label: printed.note,
-    title: rule.title,
-    axis: rule.axis,
+    title: rule.title && messageOf(language, rule.title),
+    axis: rule.axis && messageOf(language, rule.axis),
     whole: rule.whole,
   });
 }
@@ -364,7 +367,7 @@ function rangeSpec(printed: StatTable, raw: RawTable | undefined): ChartSpec {
 
 // The parts of a roll, from 0 to 1, stacked in order. A part in two pieces, as
 // `0 to 0.05, and 0.20 to 1`, adds an unnamed last series for the second.
-function rollSpec(printed: StatTable): ChartSpec {
+function rollSpec(printed: StatTable, language: Language): ChartSpec {
   const pieces = (cell: string) =>
     cell.split(", and ").map((one) => spanOf(one) ?? ([0, 0] as const));
   const columns = printed.head.slice(1);
@@ -395,7 +398,7 @@ function rollSpec(printed: StatTable): ChartSpec {
     series: [...series, ...second],
     format: "roll",
     label: printed.note,
-    axis: "The roll",
+    axis: messageOf(language, "charts.roll"),
   });
 }
 
@@ -416,9 +419,9 @@ function rings(
   const table = rawTableOf(slug, "rings", language);
   return chartSpec({
     kind: "line",
-    title: "Compared with the core, 100",
+    title: messageOf(language, "charts.ringsTitle"),
     label: printed.note,
-    axis: "Light years from the core, outer edge of the ring",
+    axis: messageOf(language, "charts.ringsAxis"),
     labels: printed.rows.map((row) => ringLabel(row[0])),
     series: table.head.slice(1).map((label, index) => {
       const values = table.rows.map((row) => numberOf(row[index + 1]));
@@ -449,7 +452,7 @@ export function chartsOf(slug: string, language: Language = "en") {
       out[name] =
         rule === RANGE
           ? rangeSpec(printed, rawTableOf(slug, name, language))
-          : rollSpec(printed);
+          : rollSpec(printed, language);
       continue;
     }
     const spec =
@@ -459,6 +462,7 @@ export function chartsOf(slug: string, language: Language = "en") {
             printed,
             slug in ITEM_PAGES ? undefined : rawTableOf(slug, name, language),
             rule,
+            language,
           );
     if (spec) {
       out[name] = spec;
