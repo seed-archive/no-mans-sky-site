@@ -66,6 +66,33 @@
   "seed": {
     "ru": { "use": "сид", "avoid": ["Зерно мира", "зерно мира"] }
   },
+  "organic frigate": {
+    "ru": {
+      "use": "органический фрегат",
+      "avoid": ["живой фрегат", "живые фрегаты", "живых фрегатов"]
+    },
+    "es": {
+      "use": "fragata orgánica",
+      "avoid": ["fragata viviente", "fragatas vivientes", "fragatas vivas"]
+    },
+    "de": {
+      "use": "organische Fregatte",
+      "avoid": ["lebende Fregatte", "lebende Fregatten", "lebenden Fregatten"]
+    }
+  },
+  "cosmic whale": {
+    "es": {
+      "use": "ballena cósmica",
+      "avoid": ["ballena espacial", "ballenas espaciales"]
+    },
+    "de": { "use": "Kosmischer Wal", "avoid": ["Weltraumwal", "Weltraumwale"] }
+  },
+  "harmonic camp": {
+    "es": {
+      "use": "campo armónico",
+      "avoid": ["campamento armónico", "campamentos armónicos"]
+    }
+  },
   "staff terminal": {
     "de": {
       "use": "Synthese-Terminal",

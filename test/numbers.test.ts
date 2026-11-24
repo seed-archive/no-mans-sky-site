@@ -22,10 +22,10 @@ describe("numbers in a page's language", () => {
     expect(plain(printNumber("smallShare", 0.00001, de))).toBe("unter 0,01 %");
   });
 
+  // "1 из N", not "один из N": the numeral agrees with no noun, so any
+  // sentence takes it (2026-11-24).
   it("words a one-in", () => {
-    expect(plain(printNumber("oneIn", 33_000_000, ru))).toBe(
-      "один из 33 000 000",
-    );
+    expect(plain(printNumber("oneIn", 33_000_000, ru))).toBe("1 из 33 000 000");
   });
 
   it("keeps English as it was", () => {

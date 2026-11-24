@@ -52,8 +52,21 @@ function languageMoves(): Move[] {
       source: `/:lang(${LANGUAGE_PATTERN})/tools/${tool.slug}`,
       destination: `/:lang${toolPath(tool.slug)}`,
     })),
+    // The living frigates became the organic frigates, the site's word for
+    // them, on 2026-11-24 (the owner): every old address of the tool.
+    ...OLD_FRIGATE_PATHS.map((old) => ({
+      source: `/:lang(${LANGUAGE_PATTERN})${old}`,
+      destination: `/:lang${toolPath(FRIGATE_TOOL)}`,
+    })),
   ];
 }
+
+const FRIGATE_TOOL = "organic-frigate-finder";
+const OLD_FRIGATE_PATHS = [
+  "/living-frigate-finder",
+  "/tools/living-frigate-finder",
+  "/tools/ships/living-frigate-finder",
+];
 
 // The old paths without a language, each to its page now, inside this section.
 // Statistics became Guides on 2026-11-03, and each guide moved under its group
@@ -103,6 +116,10 @@ function guideMoves(): Move[] {
         destination: toolPath(tool.slug),
       })),
     ),
+    ...OLD_FRIGATE_PATHS.map((source) => ({
+      source,
+      destination: toolPath(FRIGATE_TOOL),
+    })),
     // The catalog became the Database on 2026-11-24: /<kind>[/<id>] to
     // /database/<kind>[/<id>].
     {
