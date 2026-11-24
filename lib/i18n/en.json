@@ -516,6 +516,10 @@
     "system": "Each star system here holds the planets of the listed finds. What a <systems>star system</systems> holds, and which <economy>economy</economy> pays best, are in the guides.",
     "galaxy": "What the type of a galaxy changes, and which one to search, is under <galaxies>galaxies</galaxies>."
   },
+  "guidesPage": {
+    "title": "No Man's Sky guides: where to find the best items — Seed Archive",
+    "description": "No Man's Sky guides, from the galaxy down to the creature: where to find S-class multitools, ships, freighters, upgrade modules, and creatures, and how rare each one is."
+  },
   "catalogExamples": {
     "first": "{name} is {type}",
     "next": "{name} {type}",

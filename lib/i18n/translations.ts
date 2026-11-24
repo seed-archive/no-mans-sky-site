@@ -9,17 +9,8 @@ import { DEFAULT_LANGUAGE, type Language, LANGUAGES } from "./languages";
 const PART_1 = ["/guides/galaxies", "/guides/systems"];
 // The rest of the guides, a part at a time (2026-11-24), each group whole:
 // part 2 planets and crafting, 3 stations, 4 multitools and exosuit, 5 ships,
-// 7 creatures.
-const GUIDES = [
-  ...PART_1,
-  "/guides/planets",
-  "/guides/crafting",
-  "/guides/stations",
-  "/guides/multitools",
-  "/guides/exosuit",
-  "/guides/ships",
-  "/guides/creatures",
-];
+// 6 freighters and exocraft, 7 creatures: every guide.
+const GUIDES = ["/guides"];
 
 const TRANSLATED: Record<Language, readonly string[]> = {
   en: [],

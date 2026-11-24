@@ -516,6 +516,10 @@
     "system": "Cada sistema estelar de aquí contiene los planetas de los hallazgos de la lista. Qué contiene un <systems>sistema estelar</systems>, y qué <economy>economía</economy> paga mejor, está en las guías.",
     "galaxy": "Lo que cambia el tipo de una galaxia, y en cuál buscar, está en <galaxies>galaxias</galaxies>."
   },
+  "guidesPage": {
+    "title": "Guías de No Man's Sky: dónde encontrar los mejores objetos — Seed Archive",
+    "description": "Guías de No Man's Sky, de la galaxia a la criatura: dónde encontrar multiherramientas, naves, cargueros, módulos de mejora y criaturas de clase S, y lo raro que es cada uno."
+  },
   "catalogExamples": {
     "first": "{name} es {type}",
     "next": "{name}, {type}",

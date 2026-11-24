@@ -516,6 +516,10 @@
     "system": "Jedes Sternensystem hier enthält die Planeten der aufgeführten Funde. Was ein <systems>Sternensystem</systems> enthält und welche <economy>Wirtschaft</economy> am besten zahlt, steht in den Ratgebern.",
     "galaxy": "Was der Typ einer Galaxie verändert und welche du durchsuchen solltest, steht unter <galaxies>Galaxien</galaxies>."
   },
+  "guidesPage": {
+    "title": "Ratgeber zu No Man's Sky: wo du die besten Gegenstände findest — Seed Archive",
+    "description": "Ratgeber zu No Man's Sky, von der Galaxie bis zur Kreatur: wo du Multiwerkzeuge, Schiffe, Frachter, Upgrade-Module und Kreaturen der Klasse S findest und wie selten jedes davon ist."
+  },
   "catalogExamples": {
     "first": "{name} ist {type}",
     "next": "{name} {type}",
