@@ -205,9 +205,9 @@
   "sources-by-type.swamp-7970af": "Pantano",
   "sources-by-type.waterworld-1b4e54": "Mundo acuático",
   "sources-by-type.weird-fca936": "Raro",
-  "sources-by-size.value:large": "grande",
-  "sources-by-size.value:moon": "luna",
-  "sources-by-type.value:Lava": "Lava",
-  "sources-by-type.value:Red": "Rojo",
-  "sources-by-type.value:Gas Giant": "Gigante gaseoso"
+  "sources-by-size.large-d02db4": "grande",
+  "sources-by-size.moon-84ae40": "luna",
+  "sources-by-type.lava-030f7b": "Lava",
+  "sources-by-type.red-7f187c": "Rojo",
+  "sources-by-type.gas-giant-6b5627": "Gigante gaseoso"
 }

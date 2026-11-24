@@ -205,9 +205,9 @@
   "sources-by-type.swamp-7970af": "Болотная",
   "sources-by-type.waterworld-1b4e54": "Водный мир",
   "sources-by-type.weird-fca936": "Экзотическая",
-  "sources-by-size.value:large": "большой",
-  "sources-by-size.value:moon": "луна",
-  "sources-by-type.value:Lava": "Лавовая",
-  "sources-by-type.value:Red": "Красная",
-  "sources-by-type.value:Gas Giant": "Газовый гигант"
+  "sources-by-size.large-d02db4": "большой",
+  "sources-by-size.moon-84ae40": "луна",
+  "sources-by-type.lava-030f7b": "Лавовая",
+  "sources-by-type.red-7f187c": "Красная",
+  "sources-by-type.gas-giant-6b5627": "Газовый гигант"
 }
