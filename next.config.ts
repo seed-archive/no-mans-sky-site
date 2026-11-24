@@ -22,6 +22,9 @@ type Move = { source: string; destination: string };
 const PORTAL = "https://seedarchive.gg";
 const PORTAL_PAGES = ["privacy", "terms", "release-notes"];
 
+// The section's icons, the archive's sprout, served from app/ under the prefix.
+const ROOT_ICONS = ["favicon.ico", "icon.svg", "apple-icon.png"];
+
 // The tools, each at /tools/<slug> since 2026-11-16 and at /<slug> before.
 const TOOL_SLUGS = TOOLS.map((tool) => tool.href.replace(/^\/tools\//, ""));
 
@@ -158,6 +161,15 @@ function redirectList() {
       basePath: false as const,
       permanent: true,
     },
+    // The section's icons at the domain's root, where Vercel's dashboard reads
+    // a project's icon; the rule below would send them to a language's page.
+    // On seedarchive.gg the portal serves the root, so visitors never get here.
+    ...ROOT_ICONS.map((icon) => ({
+      source: `/${icon}`,
+      destination: `${BASE_PATH}/${icon}`,
+      basePath: false as const,
+      permanent: true,
+    })),
     // An old guide's path without the prefix, straight to its page.
     ...moves.map(({ source, destination }) => ({
       source,
