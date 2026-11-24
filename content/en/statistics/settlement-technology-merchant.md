@@ -12,4 +12,4 @@ Every item it can show, with the description the game gives it and its value.
 
 <!-- widget:stock -->
 
-The Space Anomaly keeps a merchant who sells every upgrade module at its lowest class: the [Space Anomaly Module Merchant](/guides/anomaly-module-merchant).
+The Space Anomaly keeps a merchant who sells the upgrade modules at their lowest class: the [Space Anomaly Module Merchant](/guides/anomaly-module-merchant).

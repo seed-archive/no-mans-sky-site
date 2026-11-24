@@ -1,6 +1,6 @@
 # The square on a multitool
 
-**How rare is a square of supercharged slots on a multitool?** {{bestOneIn}} at best, for {{best}} tools, and {{worstOneIn}} for {{worst}} tools, the worst bet. Source hardly matters, and once the slots are adjacent, neither does type: every type makes a square {{typeLow}} to {{typeHigh}} of the time. What sets a rare type apart is how seldom its slots are adjacent at all, and [How lucky am I?](/tools/how-lucky-am-i) scores a square as rarer still than adjacent slots.
+**How rare is a square of supercharged slots on a multitool?** {{bestOneIn}} at best, for {{best}} tools, and {{worstOneIn}} for {{worst}} tools, the worst bet. Source hardly matters, and once the slots are adjacent, neither does type: every type of multitool makes a square {{typeLow}} to {{typeHigh}} of the time, staffs a little more. What sets a rare type apart is how seldom its slots are adjacent at all, and [How lucky am I?](/tools/how-lucky-am-i) scores a square as rarer still than adjacent slots.
 
 A square fits {{places}} places on a multitool, and a ship has odds of its own: [the square on a ship](/guides/ship-square). What a square adds to damage, against every other figure, is on [supercharged slots](/guides/supercharged-slots). {{listShare}} of systems list one, and {{listNoStaff}} list one that is not a staff.
 
@@ -30,7 +30,7 @@ For [staffs](/guides/staffs) class is the whole story: no class C staff is a squ
 
 ## What we list
 
-The tools a system page lists, one of each type and figure, as [how it works](/about) describes it, before the showcase leaves out every square. The rare types are favoured, so these are not the shares of a whole galaxy.
+The table counts the tools a system page lists, one of each type and figure, as [how it works](/about) describes it, before the showcase leaves out every square. The rare types are favoured, so these are not the shares of a whole galaxy.
 
 <!-- widget:kept -->
 

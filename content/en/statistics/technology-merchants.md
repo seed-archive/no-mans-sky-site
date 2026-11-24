@@ -22,7 +22,7 @@ A class S multitool module is on sale at {{toolOne}} of stations. The limits of 
 
 <!-- widget:exosuit -->
 
-The exosuit merchant sells the most at S: {{suitOne}} for each module. Life Support has no class B, and the protection modules have no class C. What a Movement System or a protection module raises is on [exosuit modules](/guides/exosuit-modules).
+The exosuit merchant sells the most at S: {{suitOne}} for each module. Life Support and the protection modules have no class C. What a Movement System or a protection module raises is on [exosuit modules](/guides/exosuit-modules).
 
 ## Exocraft technology merchant
 

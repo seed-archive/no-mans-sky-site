@@ -24,7 +24,7 @@ Crashed ships stand on {{crashedPlanets}} of planets. Sunken ones need a sea and
 
 ## By race
 
-Each of the [races](/guides/races) favours one ship type, about twice as much as the next: Gek systems hold {{gekHauler}} Haulers, Vy'keen {{vykeenFighter}} Fighters, Korvax {{korvaxExplorer}} Explorers. Uncharted systems spread evenly, and hold no Interceptor.
+Each of the [races](/guides/races) favours one of Haulers, Fighters, and Explorers, about twice as much as the other two: Gek systems hold {{gekHauler}} Haulers, Vy'keen {{vykeenFighter}} Fighters, Korvax {{korvaxExplorer}} Explorers. Uncharted systems spread evenly.
 
 <!-- widget:races -->
 

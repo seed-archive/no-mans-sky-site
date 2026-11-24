@@ -47,7 +47,7 @@ A companion can lay an egg, a Companion Egg, and the egg carries its parent's ba
 - **In its native climate**, and grown at least {{growDays}} days if it hatched from an egg itself.
 - **One egg at a time.** {{eggHours}} hours between two eggs, no other egg of yours lying nearby, and a free egg slot.
 
-The egg hatches {{hatchHours}} hours later. Before that the Egg Sequencer on the Space Anomaly can re-sequence it with ingredients: size, temperament, colour, and accessories can shift, and the body can change, but the battle grades and moves stay out of its reach.
+The egg hatches {{hatchHours}} hours later. Before that the Egg Sequencer on the Space Anomaly can re-sequence it with ingredients: size, traits, colour, and accessories can shift, but the battle grades and moves stay out of its reach.
 
 The battle grades come from the species, and the egg copies them, so a hatchling has its parent's letters: an all-S creature lays all-S eggs, and a medal egg's creature, the Wandering Shrimp Tank among them, keeps its three S in its eggs. Its five moves are drawn again on hatching, from the same species roll, so a hatchling starts with the moves its parent first had, not the ones mutated since.
 
@@ -79,7 +79,7 @@ Every move here weighs the same, so each has the same chance. Avoid the reckless
 
 ### Slot 4: heals and shields
 
-The plain Heal lands on the turn you use it; heal over time and the delayed heal pay later, and Absorb heals only while the enemy hits. How much each heals in the end is not on this page yet.
+The plain Heal lands on the turn you use it; heal over time and the delayed heal pay later, and Absorb heals only while the enemy hits.
 
 <!-- widget:moves4 -->
 

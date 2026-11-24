@@ -10,7 +10,7 @@ A chart searches the planet or system you are in, and most mark the nearest plac
 
 ## What a Planetary Chart marks
 
-The Cartographer sells four sorts of Planetary Chart. Each marks one building, drawn by the chances below, so pick the sort by what you are after: an Emergency chart for a crashed freighter or a distress signal, a Commercial one for a shop or a dig site, an Alien one for a monolith or a ruin.
+The Cartographer sells four sorts of Planetary Chart. Each marks one building, drawn by the chances below, so pick the sort by what you are after: an Emergency chart for a crashed freighter or a distress signal, a Commercial one for a shop or a dig site, an Alien one for a monolith or a ruin, a Secret one for a depot, a harvester or a factory.
 
 <!-- widget:planetary -->
 

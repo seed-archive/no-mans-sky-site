@@ -1,15 +1,15 @@
 # Empty worlds
 
-**Can a planet be empty?** No. Crashed ships reach every type but Waterworlds, and those have sunken ships instead. What a planet can lack is anything that pays a tool. A spot, below, is a place on a planet's grid that holds a building.
+**Can a planet be empty?** Only in an Uncharted system. Every other planet holds something: crashed ships reach every type but Waterworlds, and those have sunken ships instead. What a planet in a charted system can lack is anything that pays a tool. A spot, below, is a place on a planet's grid that holds a building.
 
 - In charted systems, {{noToolCharted}} of planets hold no tool source. Nearly all of those are Dead and Weird worlds and gas giants, and they still hold staff terminals.
-- In Uncharted systems, planets hold neither. A median one holds {{unchartedMedian}} spots, all wrecks.
+- In Uncharted systems, planets hold neither, nor any other spot: the median one holds {{unchartedMedian}} spots.
 
 Beyond the spots, any planet with water has fish to catch, as [fishing](/guides/fishing) lists by planet type, and one whose card shows Ancient Bones holds bone piles, whose fossils the [Fossil Collector](/guides/fossil-collector) trades.
 
 ## What each kind of planet can hold
 
-No kind of planet is ruled out whole: every column has a yes. Gas giants hold no shop, monolith, or pillar, so they have no tool source. They are not empty, though: {{gasMedian}} spots at the median, because the grid of a 523 km body is huge. Those spots follow the same rules as all the others, and we have not stood on a gas giant to check them.
+No kind of planet is ruled out whole: every column has a yes. Gas giants hold no shop, monolith, or pillar and are never dissonant, so no camp stands on one either: they have no tool source. They are not empty, though: {{gasMedian}} spots at the median, because the grid of a 523 km body is huge. Those spots follow the same rules as all the others, and we have not stood on a gas giant to check them.
 
 <!-- widget:matrix -->
 
@@ -23,7 +23,7 @@ No kind of planet is ruled out whole: every column has a yes. Gas giants hold no
 
 The grid does not care about water, but a building does. A spot at sea level or under it, up to 5 m above the water, stands empty.
 
-{{seaNone}} of planets lose nothing to it. Where the rule bites, it bites hard: a median {{seaWet}} of the grid gone. Lush worlds are the wettest, Dead and Weird worlds lose nothing. A few planets lose 90% or more.
+{{seaNone}} of planets lose nothing to it. Where the rule bites, it bites hard: a median {{seaWet}} of the grid gone. Lush worlds are the wettest; Dead and Weird worlds lose almost nothing at the median. A few planets lose 90% or more.
 
 <!-- widget:sea -->
 
