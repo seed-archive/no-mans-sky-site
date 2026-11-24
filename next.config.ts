@@ -95,6 +95,30 @@ function redirectList() {
   const home = `${BASE_PATH}/${DEFAULT_LANGUAGE}`;
   const newSite = `${PORTAL}${home}`;
   return [
+    // The section's icons at a domain's root, where Vercel's dashboard reads a
+    // project's icon (from its primary domain, still the old address), first,
+    // so neither the old-address rule nor the language rule sends them to a
+    // page. On seedarchive.gg the portal serves the root, so visitors never get
+    // here.
+    ...ROOT_ICONS.flatMap((icon) => [
+      ...(process.env.LEGACY_HOST_REDIRECT
+        ? [
+            {
+              source: `/${icon}`,
+              has: [legacy],
+              destination: `${PORTAL}${BASE_PATH}/${icon}`,
+              basePath: false as const,
+              permanent: true,
+            },
+          ]
+        : []),
+      {
+        source: `/${icon}`,
+        destination: `${BASE_PATH}/${icon}`,
+        basePath: false as const,
+        permanent: true,
+      },
+    ]),
     // The legal pages belong to the portal since 2026-11-14 (D12), the release
     // notes since 2026-11-15 (D16): every old address of them, on any host,
     // straight to the portal's page.
@@ -161,15 +185,6 @@ function redirectList() {
       basePath: false as const,
       permanent: true,
     },
-    // The section's icons at the domain's root, where Vercel's dashboard reads
-    // a project's icon; the rule below would send them to a language's page.
-    // On seedarchive.gg the portal serves the root, so visitors never get here.
-    ...ROOT_ICONS.map((icon) => ({
-      source: `/${icon}`,
-      destination: `${BASE_PATH}/${icon}`,
-      basePath: false as const,
-      permanent: true,
-    })),
     // An old guide's path without the prefix, straight to its page.
     ...moves.map(({ source, destination }) => ({
       source,
