@@ -16,4 +16,4 @@ A regular freighter is bought from a fleet. Fleets warp into every kind of syste
 
 ## Shape and class
 
-The class is rolled again each time a fleet arrives, so the shape tells you nothing about the class. How often a [regular freighter](/guides/freighters) comes at each class depends on the wealth of the system. the [capital freighters](/tools/capital-freighter-finder) page shows the shapes of the freighters a space battle saves, and the [Sentinel Interceptors](/tools/interceptor-finder) page the shapes of crashed Sentinel ships.
+The class is rolled again each time a fleet arrives, so the shape tells you nothing about the class. How often a [regular freighter](/guides/freighters) comes at each class depends on the wealth of the system. The [capital freighters](/tools/capital-freighter-finder) page shows the shapes of the freighters a space battle saves, and the [Sentinel Interceptors](/tools/interceptor-finder) page the shapes of crashed Sentinel ships.

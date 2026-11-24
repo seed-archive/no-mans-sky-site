@@ -1,6 +1,6 @@
 # Planet globe
 
-**What does a planet of the database look like, and where on it is each find?** Pick a planet and turn it: the globe shows its land and seas in the planet's own colours, its mountains, and a dot on every building we list there. A gold dot holds a multitool or a crashed ship; click it to open the find.
+**What does a planet of the database look like, and where on it is each find?** Pick a planet and turn it: the globe shows its land and seas in the planet's own colours, its mountains, and a dot on every place we list there. A gold dot holds a multitool or a crashed ship; click it to open the find.
 
 <!-- widget:finder -->
 

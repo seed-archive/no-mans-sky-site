@@ -14,6 +14,6 @@ A living ship has one body. On it sit a head, round, jaw, pointed, or flat, and 
 
 ## Getting a living ship
 
-The crash site where the ship waits fixes its shape, its look, its colours, and its name: the same site always holds the same living ship. The Void Egg's quest picks that site for you, at random among the crash sites of the planet it sends you to, so no place can be named for a shape. From the second ship on you can turn down the ship you are offered: the egg comes back, and the next ship waits at a new site. [Living ships](/guides/living-ships) explains the quest and what each more ship costs.
+The crash site where the ship waits fixes its shape, its look, its colours, and its name: the same site always holds the same living ship. The Void Egg's quest picks that site for you, at random among the crash sites of the planet it sends you to, so no place can be named for a shape. From the second ship on you can turn down the ship you are offered: the egg comes back, and the next ship waits at a new site. [Living ships](/guides/living-ships) explains the quest and what each further ship costs.
 
 An organic frigate comes another way: you call a cosmic whale with a Dream Aerial, and [organic frigates](/guides/organic-frigates) explains how. The [Sentinel Interceptors](/tools/interceptor-finder) page shows the shapes of crashed Sentinel ships.

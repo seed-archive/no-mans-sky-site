@@ -10,7 +10,13 @@ import { QUESTS, questOf } from "@/lib/archive/quests";
 import { fillStatistics, tablesOf } from "@/lib/archive/statistics";
 import { chartsOf } from "@/lib/archive/statistics-charts";
 import { articleData } from "@/lib/archive/trail";
-import { localHref, localMetadata, requireTranslation } from "@/lib/i18n/page";
+import { messageOf } from "@/lib/i18n/messages";
+import {
+  localHref,
+  localMetadata,
+  pageLanguage,
+  requireTranslation,
+} from "@/lib/i18n/page";
 
 // One page of the Quests section, drawn as a guide is: its Markdown with the
 // `{{name}}` numbers and `<!-- widget:KEY -->` tables of its page in
@@ -26,9 +32,14 @@ export function generateStaticParams() {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const quest = questOf((await props.params).slug);
+  const language = await pageLanguage();
   return quest
     ? localMetadata(questPath(quest.slug), {
-        title: `${quest.title} in No Man's Sky — Seed Archive`,
+        title: messageOf(language, "meta.page", {
+          title: messageOf(language, "archive.guideTitle", {
+            title: quest.title,
+          }),
+        }),
         description: quest.fact,
       })
     : {};
@@ -42,8 +53,8 @@ export default async function QuestPage(props: Props) {
   const path = questPath(quest.slug);
   const language = await requireTranslation(path);
   const trail = [
-    { name: "Home", href: "/" },
-    { name: "Quests", href: QUESTS_PATH },
+    { name: messageOf(language, "archive.home"), href: "/" },
+    { name: messageOf(language, "archive.quests"), href: QUESTS_PATH },
     { name: quest.title },
   ];
   const html = await readContent(`quests/${quest.slug}`);

@@ -18,4 +18,4 @@ The {{questionBuildings}} ask a question in words: an alarm to stop, a machine t
 
 <!-- widget:questions -->
 
-A monolith also holds a multitool, always an Atlantid one, as [multitool types](/guides/multitool-types) shows.
+A Korvax monolith also holds a multitool, always an Atlantid one, and a Gek or Vy'keen monolith holds none, as [multitool types](/guides/multitool-types) shows.

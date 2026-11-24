@@ -14,24 +14,38 @@ import {
   type AssetCard,
   type TrailStep,
 } from "@/lib/archive/read";
-import en from "@/lib/i18n/en.json";
 import { createArchiveClient } from "@/lib/db/supabase.server";
 import { trailData, type PageStep } from "@/lib/archive/trail";
-import { localPath } from "@/lib/i18n/languages";
-import { localMetadata, requireTranslation } from "@/lib/i18n/page";
+import { type Language, localPath } from "@/lib/i18n/languages";
+import { messageOf } from "@/lib/i18n/messages";
+import {
+  localMetadata,
+  pageLanguage,
+  requireTranslation,
+} from "@/lib/i18n/page";
 import { getQueryClient } from "@/lib/query-client";
 
 type Search = Record<string, string | string[] | undefined>;
 
-// The value of a term field, in the words of the site.
-function termOf(record: AssetCard, label: string): string | null {
+// The stored value of a term field: its key in the field's message group.
+function valueOf(record: AssetCard, label: string): string | null {
+  const field = record.fields.find((one) => one.label === label);
+  return field && field.type === "term" && field.value ? field.value : null;
+}
+
+// The value of a term field, in the words of the page's language.
+function termOf(
+  language: Language,
+  record: AssetCard,
+  label: string,
+): string | null {
   const field = record.fields.find((one) => one.label === label);
   if (!field || field.type !== "term" || !field.value) {
     return null;
   }
-  const group = (en as Record<string, unknown>)[field.group] as
-    Record<string, string> | undefined;
-  return group?.[field.value] ?? field.value;
+  const id = `${field.group}.${field.value}`;
+  const text = messageOf(language, id);
+  return text === id ? field.value : text;
 }
 
 function stepOf(record: AssetCard, kind: TrailStep["kind"]) {
@@ -39,86 +53,105 @@ function stepOf(record: AssetCard, kind: TrailStep["kind"]) {
 }
 
 // "on Burgh V in the Iroish system of Dugnowarilda Galaxy", from what the
-// trail holds.
-function placeOf(record: AssetCard) {
+// trail holds: one message for each depth of a record, from its planet or
+// space station up to its galaxy.
+function placeOf(language: Language, record: AssetCard) {
   const planet = stepOf(record, "planet");
+  const station = stepOf(record, "building");
   const system = stepOf(record, "system");
   const galaxy = stepOf(record, "galaxy");
-  const parts = [
-    planet
-      ? `on ${planet}`
-      : stepOf(record, "building")
-        ? "at the space station"
-        : null,
-    system ? `in the ${system} system` : null,
-    galaxy ? `of ${galaxy}` : null,
-  ];
-  return parts.filter(Boolean).join(" ");
+  if (!galaxy) {
+    return "";
+  }
+  const depth = !system
+    ? "galaxy"
+    : planet
+      ? "planet"
+      : station
+        ? "station"
+        : "system";
+  return messageOf(language, `recordMeta.place.${depth}`, {
+    planet: planet ?? "",
+    system: system ?? "",
+    galaxy,
+  });
 }
 
-// A record's title and description, in the words players search.
-function recordMeta(record: AssetCard): { title: string; description: string } {
-  const { name } = record;
-  const place = placeOf(record);
-  const rank = termOf(record, "archive.rank");
-  const classWord = rank ? `class ${rank} ` : "";
-  const glyphs = "with the portal glyphs and coordinates to get there";
+// A record's title and description, in the words players search: the
+// messages `recordMeta.<kind>.*`.
+function recordMeta(
+  language: Language,
+  record: AssetCard,
+): { title: string; description: string } {
+  const say = (id: string, values: Record<string, string>) =>
+    messageOf(language, `recordMeta.${record.kind}.${id}`, values);
+  const name = record.name;
+  const place = placeOf(language, record);
+  const rank = termOf(language, record, "archive.rank") ?? "none";
   switch (record.kind) {
     case "tool": {
-      const head = termOf(record, "archive.headItem");
+      const head = termOf(language, record, "archive.headItem");
       const what = head
-        ? `${classWord}${head} staff`
-        : `${classWord}${termOf(record, "archive.toolBody") ?? ""} multitool`;
+        ? say("staff", { rank, head })
+        : say("multitool", {
+            rank,
+            body: termOf(language, record, "archive.toolBody") ?? "",
+          });
       return {
-        title: `${name}: ${what}`,
-        description: `${name} is a ${what} of No Man's Sky with four adjacent supercharged slots at class S, ${place}, ${glyphs}.`,
+        title: say("title", { name, what }),
+        description: say("description", { name, what, place }),
       };
     }
     case "ship": {
-      const hull = termOf(record, "archive.hull");
       const what =
-        hull === "Interceptor"
-          ? `${classWord}Sentinel Interceptor`
-          : `${classWord}${hull ?? ""} crashed ship`;
+        valueOf(record, "archive.hull") === "interceptor"
+          ? say("interceptor", { rank })
+          : say("crashed", {
+              rank,
+              hull: termOf(language, record, "archive.hull") ?? "",
+            });
       return {
-        title: `${name}: ${what}`,
-        description: `${name} is a ${what} of No Man's Sky with four adjacent supercharged slots, ${place}, ${glyphs}.`,
+        title: say("title", { name, what }),
+        description: say("description", { name, what, place }),
       };
     }
     case "creature": {
-      const allS = [
-        "archive.combat",
-        "archive.agility",
-        "archive.health",
-      ].every((label) => termOf(record, label) === "S");
-      const what = allS ? "all-S creature" : "creature";
+      const allS = ["archive.combat", "archive.agility", "archive.health"]
+        .every((label) => valueOf(record, label) === "S")
+        .toString();
       const planet = stepOf(record, "planet");
       return {
-        title: planet ? `${name}: ${what} on ${planet}` : `${name}: ${what}`,
-        description: `${name} is a${allS ? "n" : ""} ${what} to adopt in No Man's Sky, ${place}, ${glyphs}.`,
+        title: planet
+          ? say("titleOn", { name, allS, planet })
+          : say("title", { name, allS }),
+        description: say("description", { name, allS, place }),
       };
     }
     case "planet":
       return {
-        title: `${name}: planet of the ${stepOf(record, "system") ?? ""} system`,
-        description: `${name}, a planet ${place} in No Man's Sky: biome, Sentinels, resources, and the multitools, crashed ships, and creatures it holds.`,
+        title: say("title", { name, system: stepOf(record, "system") ?? "" }),
+        description: say("description", { name, place }),
       };
     case "building": {
       const system = stepOf(record, "system") ?? name;
       return {
-        title: `${system} space station`,
-        description: `The space station of the ${system} system in No Man's Sky, and any listed multitool its weapon cabinets sell.`,
+        title: say("title", { system }),
+        description: say("description", { system }),
       };
     }
     case "system":
       return {
-        title: `${name} system: multitools and crashed ships`,
-        description: `The ${name} star system ${place} in No Man's Sky: its star, economy, and space station, and the planets with their multitools and crashed ships.`,
+        title: say("title", { name }),
+        description: say("description", { name, place }),
       };
     case "galaxy":
       return {
         title: name,
-        description: `${name}, a${termOf(record, "archive.galaxyType") === "Empty" ? "n" : ""} ${termOf(record, "archive.galaxyType") ?? ""} galaxy of No Man's Sky, and the star systems listed in it.`,
+        description: say("description", {
+          name,
+          type: termOf(language, record, "archive.galaxyType") ?? "",
+          empty: String(valueOf(record, "archive.galaxyType") === "empty"),
+        }),
       };
   }
 }
@@ -135,9 +168,10 @@ export async function generateMetadata(props: {
   if (!record) {
     return {};
   }
-  const meta = recordMeta(record);
+  const language = await pageLanguage();
+  const meta = recordMeta(language, record);
   return localMetadata(recordPath(kind, id), {
-    title: `${meta.title} in No Man's Sky — Seed Archive`,
+    title: messageOf(language, "recordMeta.page", { title: meta.title }),
     description: meta.description,
   });
 }

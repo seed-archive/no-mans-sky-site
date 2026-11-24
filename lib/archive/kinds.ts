@@ -10,48 +10,6 @@ export const KINDS = [
 
 export type Kind = (typeof KINDS)[number];
 
-// The title and description of each catalog list, in the words players search.
-export const CATALOG_PAGES: Record<
-  Kind,
-  { title: string; description: string }
-> = {
-  galaxy: {
-    title: "No Man's Sky galaxies: types and listed systems",
-    description:
-      "Galaxies of No Man's Sky with their type, Normal, Lush, Harsh, or Empty, and the star systems listed in each.",
-  },
-  system: {
-    title: "Star systems with multitools and crashed ships in No Man's Sky",
-    description:
-      "Star systems of No Man's Sky with their star, economy, and space station, and the planets that hold the listed multitools and crashed ships.",
-  },
-  planet: {
-    title: "Planets with multitools and crashed ships in No Man's Sky",
-    description:
-      "Planets of the listed star systems in No Man's Sky, with biome, Sentinels, and resources, and the multitools, crashed ships, and creatures on each.",
-  },
-  building: {
-    title: "Space stations in No Man's Sky",
-    description:
-      "Space stations of No Man's Sky and any listed multitool their weapon cabinets sell.",
-  },
-  ship: {
-    title: "Crashed ships with adjacent supercharged slots in No Man's Sky",
-    description:
-      "Crashed ships and Sentinel Interceptors of No Man's Sky whose four supercharged slots sit side by side, with the portal glyphs and coordinates of each wreck.",
-  },
-  tool: {
-    title: "Multitools with adjacent supercharged slots in No Man's Sky",
-    description:
-      "Multitools and staffs of No Man's Sky whose four supercharged slots at class S sit side by side, with the portal glyphs and coordinates to pick each one up.",
-  },
-  creature: {
-    title: "Creatures to adopt in No Man's Sky",
-    description:
-      "Creatures of No Man's Sky you can adopt as a companion, with their grades, planet, portal glyphs, and coordinates.",
-  },
-};
-
 export const FEED_KINDS = ["planet", "ship", "tool", "creature"] as const;
 
 export const PAGE_SIZE = 25;

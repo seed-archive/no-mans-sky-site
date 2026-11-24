@@ -100,6 +100,7 @@
     "uploadFailed": "Das Bild konnte nicht gespeichert werden.",
     "uploadRejected": "Diese Datei passt nicht: Verwende JPEG, PNG oder WebP bis 30 MB.",
     "uploadSignIn": "Melde dich mit Google an, um einen Screenshot hinzuzufügen.",
+    "uploadTooLarge": "Das Bild lässt sich nicht klein genug machen.",
     "about": "So funktioniert es",
     "navigation": "Navigation",
     "language": "Sprache",
@@ -675,5 +676,530 @@
     "oneIn": "einer von {n}",
     "under": "unter {n}",
     "over": "über {n}"
+  },
+  "meta": {
+    "page": "{title} — Seed Archive",
+    "site": {
+      "title": "Die besten Gegenstände in No Man's Sky und wo du sie findest — Seed Archive",
+      "description": "Wo du die besten Multiwerkzeuge, abgestürzten Schiffe und Kreaturen in No Man's Sky findest: Funde mit Portalglyphen und Ratgeber von der Galaxie bis zum Planeten."
+    },
+    "home": {
+      "title": "Die besten Gegenstände in No Man's Sky und wo du sie findest — Seed Archive",
+      "description": "So bekommst du den besten Gegenstand in No Man's Sky: Multiwerkzeuge und abgestürzte Schiffe mit vier benachbarten turbogeladenen Plätzen und Kreaturen mit lauter S, mit Portalglyphen, dazu Ratgeber, woher jeder davon kommt."
+    },
+    "about": {
+      "title": "So wird das beste Multiwerkzeug gefunden: benachbarte turbogeladene Plätze — Seed Archive",
+      "description": "Wie eine Galaxie aus Billionen Sternen auf eine kurze Liste von Multiwerkzeugen und abgestürzten Schiffen pro System schrumpft und warum vier benachbarte turbogeladene Plätze am meisten zählen."
+    },
+    "gameBugs": {
+      "title": "Fehler im Spiel No Man's Sky — Seed Archive",
+      "description": "Fehler von No Man's Sky, bei denen eine Karte das eine sagt und das Spiel das andere tut, und was jeder davon an dem ändert, was du farmst."
+    },
+    "quests": {
+      "title": "Missionen in No Man's Sky — Seed Archive",
+      "description": "Missionen in No Man's Sky: {quests}."
+    },
+    "tools": {
+      "title": "Werkzeuge für No Man's Sky: Schiffsbaukästen, Glückswertung und Rezepte — Seed Archive",
+      "description": "Werkzeuge für No Man's Sky: Bau einen Abfangjäger, einen Frachter oder ein lebendes Schiff, bewerte einen Fund und schlag jedes Raffinerie-, Koch- und Herstellungsrezept nach."
+    },
+    "how-lucky-am-i": {
+      "title": "Wie viel Glück habe ich? Bewerte dein Multiwerkzeug oder Schiff aus No Man's Sky — Seed Archive",
+      "description": "Gib ein Multiwerkzeug, einen Stab oder ein beanspruchtes Schiff aus No Man's Sky mit seinen turbogeladenen Plätzen und Werten ein und sieh, wie es von 0 bis 100 abschneidet."
+    },
+    "planet-globe": {
+      "title": "Planetenglobus für No Man's Sky: Land, Meer und was wo steht — Seed Archive",
+      "description": "Dreh einen Planeten von No Man's Sky aus der Datenbank als Globus: sein Land und seine Meere in den eigenen Farben des Planeten, seine Berge und die Gebäude, Multiwerkzeuge und abgestürzten Schiffe darauf."
+    },
+    "cooking-recipes": {
+      "title": "Kochrezepte für No Man's Sky: jedes Gericht des Nährstoffprozessors — Seed Archive",
+      "description": "Jedes Rezept des Nährstoffprozessors in No Man's Sky, gefiltert nach Zutat oder Gericht, mit dem Verkaufswert jedes Gerichts und seinem Bonus im Nährstoffaufnehmer."
+    },
+    "crafting-recipes": {
+      "title": "Herstellungsrezepte für No Man's Sky: alles, was du von Hand herstellst — Seed Archive",
+      "description": "Jedes Herstellungsrezept von No Man's Sky, gefiltert nach den Teilen, die du hast, oder dem Gegenstand, den du brauchst, mit dem Verkaufswert jedes Gegenstands."
+    },
+    "refiner-recipes": {
+      "title": "Raffinerie-Rezepte für No Man's Sky: tragbar, mittel und groß — Seed Archive",
+      "description": "Jedes Raffinerie-Rezept von No Man's Sky, gefiltert nach den Zutaten, die du hast, oder dem Gegenstand, den du willst, mit der Raffinerie, die jedes braucht."
+    },
+    "capital-freighter-finder": {
+      "title": "Großfrachter in No Man's Sky: jede Form eines Großfrachters — Seed Archive",
+      "description": "Wähl Rumpf, Länge und Teile eines Großfrachters in No Man's Sky und sieh das Schiff, das das Spiel baut."
+    },
+    "freighter-finder": {
+      "title": "Gewöhnliche Frachter in No Man's Sky: jede Form eines gewöhnlichen Frachters — Seed Archive",
+      "description": "Gewöhnliche Frachter in No Man's Sky: Bau einen gewöhnlichen Frachter aus Rumpf, Länge und Teilen zusammen und sieh jede Form, die das Spiel baut. Flotten bringen jede Form in jedes System."
+    },
+    "interceptor-finder": {
+      "title": "Wächter-Abfangjäger in No Man's Sky: jeder Abfangjäger, Teil für Teil — Seed Archive",
+      "description": "Bau einen Wächter-Abfangjäger aus No Man's Sky aus jedem Teil, das das Spiel ihm geben kann: Cockpit, Flügel, Rumpf, Schürze und Farbe."
+    },
+    "living-frigate-finder": {
+      "title": "Organische Fregatten in No Man's Sky: jede Form einer organischen Fregatte — Seed Archive",
+      "description": "Organische Fregatten in No Man's Sky: Bau einen kosmischen Wal aus Frontzubehör, Schwanz, Flügeln und Seitenteilen zusammen und sieh jede Form, die das Spiel baut."
+    },
+    "living-ship-finder": {
+      "title": "Lebende Schiffe in No Man's Sky: jede Form eines lebenden Schiffs — Seed Archive",
+      "description": "Lebende Schiffe in No Man's Sky: Bau ein lebendes Schiff aus Kopf, Unterseite, Flügeln und Teilen zusammen und sieh jede Form, die das Spiel baut."
+    },
+    "starship-finder": {
+      "title": "Raumschiff-Baukasten für No Man's Sky: jede Form jedes Schiffstyps — Seed Archive",
+      "description": "Raumschiffe in No Man's Sky: Bau ein exotisches, ein solares Schiff, einen Jäger, einen Transporter, einen Entdecker oder ein Shuttle aus seinen Teilen zusammen und sieh jede Form, die das Spiel baut, den seltenen Tintenfisch eingeschlossen."
+    },
+    "galaxy": {
+      "title": "Galaxien in No Man's Sky: Typen und aufgeführte Systeme — Seed Archive",
+      "description": "Galaxien von No Man's Sky mit ihrem Typ, normal, fruchtbar, rau oder leer, und den aufgeführten Sternensystemen in jeder."
+    },
+    "system": {
+      "title": "Sternensysteme mit Multiwerkzeugen und abgestürzten Schiffen in No Man's Sky — Seed Archive",
+      "description": "Sternensysteme von No Man's Sky mit ihrem Stern, ihrer Wirtschaft und ihrer Raumstation und den Planeten mit den aufgeführten Multiwerkzeugen und abgestürzten Schiffen."
+    },
+    "planet": {
+      "title": "Planeten mit Multiwerkzeugen und abgestürzten Schiffen in No Man's Sky — Seed Archive",
+      "description": "Planeten der aufgeführten Sternensysteme in No Man's Sky mit Biom, Wächtern und Ressourcen und den Multiwerkzeugen, abgestürzten Schiffen und Kreaturen auf jedem."
+    },
+    "ship": {
+      "title": "Abgestürzte Schiffe mit benachbarten turbogeladenen Plätzen in No Man's Sky — Seed Archive",
+      "description": "Abgestürzte Schiffe und Wächter-Abfangjäger von No Man's Sky, deren vier turbogeladene Plätze nebeneinanderliegen, mit den Portalglyphen und Koordinaten jedes Wracks."
+    },
+    "tool": {
+      "title": "Multiwerkzeuge mit benachbarten turbogeladenen Plätzen in No Man's Sky — Seed Archive",
+      "description": "Multiwerkzeuge und Stäbe von No Man's Sky, deren vier turbogeladene Plätze bei Klasse S nebeneinanderliegen, mit den Portalglyphen und Koordinaten, um jedes abzuholen."
+    },
+    "creature": {
+      "title": "Kreaturen zum Adoptieren in No Man's Sky — Seed Archive",
+      "description": "Kreaturen von No Man's Sky, die du als Begleiter adoptieren kannst, mit ihren Bewertungen, ihrem Planeten, ihren Portalglyphen und Koordinaten."
+    }
+  },
+  "guideQuestion": {
+    "freighters": "So bekommst du einen Großfrachter der Klasse S in No Man's Sky",
+    "multitool-classes": "Wo du ein Multiwerkzeug der Klasse S in No Man's Sky findest",
+    "ship-classes": "So findest du ein abgestürztes Schiff der Klasse S in No Man's Sky",
+    "interceptors": "So bekommst du einen Wächter-Abfangjäger in No Man's Sky",
+    "living-ships": "So bekommst du ein lebendes Schiff in No Man's Sky",
+    "technology-merchants": "Technologiehändler: wo du Verbesserungsmodule der Klasse S in No Man's Sky kaufst",
+    "freighter-modules": "So farmst du Frachtermodule der Klasse S in No Man's Sky",
+    "galaxies": "Welche Galaxie in No Man's Sky die beste ist",
+    "where-to-look": "Wo du in einer Galaxie nach Gegenständen der Klasse S suchst",
+    "staffs": "Welchen Stabkopf du in No Man's Sky wählst",
+    "economy": "Wohlhabende Systeme und Wirtschaft in No Man's Sky",
+    "forsaken-trader": "Verlorener Händler und gespenstische Andenken: wo du sie in No Man's Sky findest"
+  },
+  "recordMeta": {
+    "page": "{title} in No Man's Sky — Seed Archive",
+    "place": {
+      "planet": "auf {planet} im System {system} von {galaxy}",
+      "station": "auf der Raumstation im System {system} von {galaxy}",
+      "system": "im System {system} von {galaxy}",
+      "galaxy": "in {galaxy}"
+    },
+    "tool": {
+      "staff": "{rank, select, none {Stab mit {head}} other {Stab der Klasse {rank} mit {head}}}",
+      "multitool": "{rank, select, none {Multiwerkzeug ({body})} other {Multiwerkzeug der Klasse {rank} ({body})}}",
+      "title": "{name}: {what}",
+      "description": "{name}: {what} aus No Man's Sky mit vier benachbarten turbogeladenen Plätzen bei Klasse S, {place}, mit den Portalglyphen und Koordinaten, um dorthin zu gelangen."
+    },
+    "ship": {
+      "interceptor": "{rank, select, none {Wächter-Abfangjäger} other {Wächter-Abfangjäger der Klasse {rank}}}",
+      "crashed": "{rank, select, none {abgestürztes Schiff ({hull})} other {abgestürztes Schiff der Klasse {rank} ({hull})}}",
+      "title": "{name}: {what}",
+      "description": "{name}: {what} aus No Man's Sky mit vier benachbarten turbogeladenen Plätzen, {place}, mit den Portalglyphen und Koordinaten, um dorthin zu gelangen."
+    },
+    "creature": {
+      "title": "{name}: {allS, select, true {Kreatur mit lauter S} other {Kreatur}}",
+      "titleOn": "{name}: {allS, select, true {Kreatur mit lauter S} other {Kreatur}} auf {planet}",
+      "description": "{allS, select, true {{name} ist eine Kreatur mit lauter S, die du in No Man's Sky adoptieren kannst, {place}, mit den Portalglyphen und Koordinaten, um dorthin zu gelangen.} other {{name} ist eine Kreatur, die du in No Man's Sky adoptieren kannst, {place}, mit den Portalglyphen und Koordinaten, um dorthin zu gelangen.}}"
+    },
+    "planet": {
+      "title": "{name}: Planet des Systems {system}",
+      "description": "{name}, ein Planet {place} in No Man's Sky: Biom, Wächter, Ressourcen und die Multiwerkzeuge, abgestürzten Schiffe und Kreaturen darauf."
+    },
+    "building": {
+      "title": "Raumstation von {system}",
+      "description": "Die Raumstation des Systems {system} in No Man's Sky und jedes aufgeführte Multiwerkzeug, das ihre Waffenschränke verkaufen."
+    },
+    "system": {
+      "title": "System {name}: Multiwerkzeuge und abgestürzte Schiffe",
+      "description": "Das Sternensystem {name} {place} in No Man's Sky: sein Stern, seine Wirtschaft und seine Raumstation und die Planeten mit ihren Multiwerkzeugen und abgestürzten Schiffen."
+    },
+    "galaxy": {
+      "description": "{name}, eine Galaxie vom Typ {type} in No Man's Sky, und die aufgeführten Sternensysteme darin."
+    }
+  },
+  "about": {
+    "trillion": "{n} Billionen",
+    "billion": "{n} Milliarden",
+    "million": "{n} Millionen",
+    "countWord": "{n, select, 0 {keine} 1 {eine} 2 {zwei} 3 {drei} 4 {vier} 5 {fünf} 6 {sechs} other {{n}}}",
+    "orMore": "{n} oder mehr",
+    "onThisPage": "Auf dieser Seite",
+    "tileSystems": "Sternensysteme in einer Galaxie",
+    "tileSpots": "Fundorte in einem System, die dir ein Multiwerkzeug geben könnten",
+    "tileSources": "davon über dem Meeresspiegel und nicht zu steil zum Bauen",
+    "tileOffers": "Chancen auf ein Multiwerkzeug, je nachdem, wo du anfängst",
+    "tileConnected": "davon mit vier benachbarten Plätzen bei S",
+    "tilePage": "Multiwerkzeuge und Schiffe auf der Seite eines Systems",
+    "tileSquare": "Quadrat zum Vorzeigen",
+    "theCount": "Was gezählt wird",
+    "roughly": "Etwa",
+    "scaleRegions": "Voxel in einer Galaxie",
+    "scaleStars": "Sterne in einem Voxel",
+    "scaleSystems": "Sternensysteme in einer Galaxie",
+    "scalePlanets": "Planeten und Monde in einem System",
+    "scaleRegionPlanets": "Planeten und Monde in einem Voxel",
+    "share": "Anteil",
+    "starColours": "Sternfarben",
+    "star": "Stern",
+    "sources": {
+      "beacon": "Beacons",
+      "droppod": "Absprungkapseln",
+      "debris": "Trümmer",
+      "shop": "Shops",
+      "freighter": "Abgestürzte Frachter",
+      "monolith": "Monolithen",
+      "head": "Roboterköpfe",
+      "pillar": "Wächtersäulen",
+      "camp": "Harmonische Lager",
+      "station": "Raumstationen"
+    },
+    "spotShare": "Anteil aller Fundorte",
+    "source": {
+      "shop": "Shop",
+      "monolith": "Monolith",
+      "camp": "Lager",
+      "station": "Raumstation",
+      "pillar": "Säule",
+      "head": "Roboterkopf",
+      "beacon": "Beacon",
+      "freighter": "Abgestürzter Frachter",
+      "droppod": "Absprungkapsel",
+      "debris": "Trümmer"
+    },
+    "sourceHead": "Quelle",
+    "step": {
+      "ground": "Alle Fundorte",
+      "sources": "Meeresspiegel und Hang",
+      "offers": "Chancen, je nach Startort (×{starts})",
+      "connected": "Vier Plätze benachbart bei S",
+      "square": "Vier Plätze bilden ein Quadrat",
+      "class": "Klasse S am Boden",
+      "own_load": "Keine Reisen nötig",
+      "kept": "Eins pro Typ und Figur",
+      "shown": "Auf der Liste"
+    },
+    "funnel": "Stufen des Trichters, pro System",
+    "stepHead": "Stufe",
+    "planet": "Planet",
+    "system": "System",
+    "voxel": "Voxel",
+    "allSources": "Alle Quellen",
+    "weKeep": "Behalten",
+    "typesChart": "Multiwerkzeugtypen in einem Voxel, alle Quellen und was wir behalten",
+    "type": "Typ",
+    "from": "Aus",
+    "shape": {
+      "I": "Linie",
+      "O": "Quadrat",
+      "T": "T",
+      "S": "Zickzack",
+      "L": "Ecke"
+    },
+    "adjacentTools": "Multiwerkzeuge mit benachbarten Plätzen",
+    "shipsWeKeep": "Schiffe, die wir behalten",
+    "figuresChart": "Figuren der Multiwerkzeuge mit benachbarten Plätzen und der Schiffe, die wir behalten",
+    "shapeHead": "Form",
+    "name": "Name",
+    "turns": "Drehungen",
+    "places": "Stellen",
+    "allTools": "Alle Multiwerkzeuge",
+    "toolsWeKeep": "Multiwerkzeuge, die wir behalten",
+    "allWrecks": "Alle Wracks",
+    "classesChart": "Klassen der Multiwerkzeuge und Wracks in einem Voxel",
+    "class": "Klasse",
+    "hullsChart": "Schiffstypen in einem Voxel, unter Wracks und Schiffen, die wir behalten",
+    "ship": "Schiff",
+    "byTools": "Systeme, nach Multiwerkzeugen",
+    "byShips": "Systeme, nach Schiffen",
+    "histogramChart": "Systeme nach behaltenen Gegenständen",
+    "itemsKept": "Behaltene Gegenstände",
+    "toolsPerSystem": "Multiwerkzeuge pro System",
+    "galaxiesChart": "Multiwerkzeuge pro System nach Galaxie",
+    "galaxy": "Galaxie",
+    "starsPerVoxel": "Sterne pro Voxel",
+    "wrecksPerSystem": "Wracks pro System"
+  },
+  "render": {
+    "dreadnought": {
+      "alt": "Das Piraten-Schlachtschiff aus No Man's Sky: ein langer dunkelgrauer Rumpf mit roten Lichtern, Geschütztürmen auf dem Deck und langen Spitzen, die darunter hängen",
+      "caption": "Das Piraten-Schlachtschiff, gezeichnet nach dem eigenen Modell des Spiels."
+    },
+    "dreadnoughtShields": {
+      "alt": "Das Piraten-Schlachtschiff von oben, Bug nach rechts: zehn Schildgeneratoren rot markiert, fünf in jedem der zwei Gräben, die über das Deck laufen",
+      "caption": "Schildgeneratoren in Rot: fünf in jedem Graben, durch die Bögen hindurch gezeigt, die sie bedecken."
+    },
+    "dreadnoughtEngines": {
+      "alt": "Das Piraten-Schlachtschiff von hinten: seine vier Triebwerke rot markiert, in einer Reihe tief am Heck",
+      "caption": "Die vier Triebwerke in Rot, in einer Reihe am Heck."
+    },
+    "dreadnoughtCannons": {
+      "alt": "Das Piraten-Schlachtschiff von oben, Bug nach rechts: sechs große Kanonen rot markiert entlang der Mitte des Decks, fünf auf dem erhöhten Deck am Heck und eine am Bug",
+      "caption": "Die sechs großen Kanonen in Rot: fünf auf dem gestuften Deck am Heck, eine am Bug."
+    },
+    "sentinel": {
+      "alt": "Das Wächter-Hauptschiff aus No Man's Sky: ein langer weiß-grauer Rumpf mit orangen Akzenten, Triebwerken am Heck, Geschütztürmen an der Seite und runden Frachtkapseln unter dem Rumpf",
+      "caption": "Das Wächter-Hauptschiff, gezeichnet nach dem eigenen Modell des Spiels."
+    },
+    "sentinelShields": {
+      "alt": "Das Wächter-Hauptschiff von oben und hinten, Heck nach links: vier runde Schildgeneratoren rot markiert, zwei auf jeder Seite, ein Paar direkt vor den Triebwerken und ein Paar direkt hinter dem Bug; die Frachtkapseln unter dem Rumpf sind nicht markiert",
+      "caption": "Die vier Schildgeneratoren in Rot, zwei auf jeder Seite; das hintere Paar ist durch den Rumpf gezeigt. Die runden Kapseln unter dem Rumpf sind Frachtkapseln."
+    }
+  },
+  "sentinelMeme": {
+    "claim": "Beanspruchen",
+    "answer": {
+      "0": "Nein.",
+      "1": "Auch nein.",
+      "2": "Netter Versuch.",
+      "3": "Die Wächter sind dagegen.",
+      "4": "Der Atlas ist dagegen.",
+      "5": "Hello Games ist dagegen.",
+      "6": "Deine Frau sagt nein.",
+      "7": "Nada hat das schon mal gesehen. Nada sagt nein.",
+      "8": "Artemis hat nach dir gefragt. Die Antwort war trotzdem nein.",
+      "9": "Apollo hat nachgerechnet. Überall nein.",
+      "10": "Null sagt, das ist das Einzige, was die Simulation richtig gemacht hat.",
+      "11": "Die Priester-Entität hat dafür gebetet. Nein.",
+      "12": "Ein Gek-Händler bot // 16 // Units. Die Wächter lachten.",
+      "13": "Ein Vy‘keen hat das einmal versucht. Wir reden nicht über ihn.",
+      "14": "Die Korvax haben deine Chancen berechnet. Abgerundet auf null.",
+      "15": "Fahndungsstufe: ★★★★★",
+      "16": "Schon mal nett gefragt? Trotzdem nein.",
+      "17": "Dieses Schiff ist nicht zu verkaufen. Und auch sonst für nichts zu haben.",
+      "18": "Dein Abfangjäger hat angerufen. Er sagt nein.",
+      "19": "Anfrage abgelehnt vom Atlas, den Wächtern und allen anderen.",
+      "20": "Anspruch abgelehnt. Viel Spaß mit dem Kanonenfeuer.",
+      "21": "KRITISCHER FEHLER: Ehrgeiz übersteigt die Simulation.",
+      "22": "Fehler 404: Kapitän nicht gefunden.",
+      "23": "Die Wächter haben Beschwerde eingereicht.",
+      "24": "Du brauchst einen Wächterpass. Niemand hat einen Wächterpass.",
+      "25": "Polo hat gelacht. Nada nicht.",
+      "26": "Das Schiff hat deine Bewertungen gelesen. Nein.",
+      "27": "Bitte bleib dran. Dein Anruf ist niemandem wichtig.",
+      "28": "Nicht genug Naniten. Auch nicht genug Erlaubnis. Auch nein.",
+      "29": "So funktioniert das alles nicht.",
+      "30": "Die Anomalie hat abgestimmt. Einstimmig.",
+      "31": "Versuch es in einer anderen Simulation noch mal."
+    }
+  },
+  "part": {
+    "sections": "{n, plural, one {# Abschnitt} other {# Abschnitte}}",
+    "numbered": {
+      "variant": "Variante {n}",
+      "variant_accessory": "Zubehör der Variante {n}",
+      "variant_wings": "Flügel der Variante {n}",
+      "variant_hull": "Rumpf der Variante {n}",
+      "shape": "Form {n}",
+      "teeth": "Zähne {n}",
+      "jets": "Düsen {n}",
+      "left_wing": "Linker Flügel {n}"
+    },
+    "name": {
+      "accessory": "Zubehör",
+      "antennas": "Antennen",
+      "arch": "Bogen",
+      "back_accessory": "Zubehör hinten",
+      "back_ridge": "Rückenkamm",
+      "bell": "Glocke",
+      "belly": "Bauch",
+      "black": "Schwarz",
+      "blades": "Klingen",
+      "block": "Block",
+      "block_bridge": "Blockbrücke",
+      "body": "Körper",
+      "bottom_fins": "Untere Flossen",
+      "bottom_jet": "Untere Düse",
+      "bottom_jets": "Untere Düsen",
+      "bottom_trunk": "Unterer Stamm",
+      "box": "Kasten",
+      "box_bridge": "Kastenbrücke",
+      "box_black": "Kasten, schwarz",
+      "box_light": "Kasten, hell",
+      "boxes": "Kästen",
+      "bridge": "Brücke",
+      "broad_black": "Breit, schwarz",
+      "broad_light": "Breit, hell",
+      "canopy": "Kanzel",
+      "canopy_accessory": "Kanzelzubehör",
+      "capped_ring": "Ring mit Kappe",
+      "claws": "Klauen",
+      "closed": "Geschlossen",
+      "closed_high": "Geschlossen, hoch",
+      "closed_low": "Geschlossen, niedrig",
+      "cluster": "Bündel",
+      "cockpit": "Cockpit",
+      "cockpit_accessory": "Cockpitzubehör",
+      "cockpit_lights": "Cockpitlichter",
+      "cone": "Kegel",
+      "container": "Container",
+      "containers": "Container",
+      "covered": "Bedeckt",
+      "crates": "Kisten",
+      "curved": "Gebogen",
+      "cylinders": "Zylinder",
+      "delta": "Delta",
+      "disc": "Scheibe",
+      "discs": "Scheiben",
+      "dome_bridge": "Kuppelbrücke",
+      "double": "Doppelt",
+      "drum_bridge": "Trommelbrücke",
+      "end_plate": "Endplatte",
+      "engine": "Triebwerk",
+      "engines": "Triebwerke",
+      "extra_wings": "Zusatzflügel",
+      "feelers": "Fühler",
+      "fin": "Flosse",
+      "fin_on_top": "Flosse oben",
+      "fins": "Flossen",
+      "flat": "Flach",
+      "fork": "Gabel",
+      "front_accessory": "Frontzubehör",
+      "front_pod": "Vordere Kapsel",
+      "front_wings": "Vorderflügel",
+      "grill": "Gitter",
+      "head": "Kopf",
+      "hull": "Rumpf",
+      "hull_accessory": "Rumpfzubehör",
+      "hull_plates": "Rumpfplatten",
+      "jaw": "Kiefer",
+      "keel": "Kiel",
+      "lamps": "Lampen",
+      "large": "Groß",
+      "left_sub_wing": "Linker Nebenflügel",
+      "left_wing": "Linker Flügel",
+      "left_wing_joint": "Linkes Flügelgelenk",
+      "left_wing_tip": "Linke Flügelspitze",
+      "legs": "Beine",
+      "length": "Länge",
+      "light": "Hell",
+      "long": "Lang",
+      "long_black": "Lang, schwarz",
+      "long_light": "Lang, hell",
+      "long_plated": "Lang, beplankt",
+      "low": "Niedrig",
+      "lower_containers": "Untere Container",
+      "lower_end_containers": "Untere Endcontainer",
+      "lower_row": "Untere Reihe",
+      "lower_tips": "Untere Spitzen",
+      "lower_wings": "Untere Flügel",
+      "mast": "Mast",
+      "middle": "Mitte",
+      "none": "Keins",
+      "nose": "Nase",
+      "nothing": "Nichts",
+      "on_the_bridge": "Auf der Brücke",
+      "on_the_head": "Auf dem Kopf",
+      "on_the_thrusters": "Auf den Triebwerken",
+      "open": "Offen",
+      "open_high": "Offen, hoch",
+      "open_low": "Offen, niedrig",
+      "outer": "Außen",
+      "panel": "Paneel",
+      "pedals": "Pedale",
+      "plain": "Schlicht",
+      "plate": "Platte",
+      "plate_shade": "Plattenton",
+      "plates": "Platten",
+      "pod": "Kapsel",
+      "pointed": "Spitz",
+      "rear_engine": "Hecktriebwerk",
+      "rear_engine_body": "Gehäuse des Hecktriebwerks",
+      "rear_pedals": "Hintere Pedale",
+      "rear_pod": "Hintere Kapsel",
+      "ridge": "Kamm",
+      "right_wing": "Rechter Flügel",
+      "right_wing_joint": "Rechtes Flügelgelenk",
+      "right_wing_tip": "Rechte Flügelspitze",
+      "ring": "Ring",
+      "rings": "Ringe",
+      "round": "Rund",
+      "rounded": "Abgerundet",
+      "row": "Reihe",
+      "row_containers": "Container in Reihe",
+      "row_length": "Reihenlänge",
+      "royal": "Königlich",
+      "sails": "Segel",
+      "saucer_bridge": "Untertassenbrücke",
+      "sentinel": "Wächter",
+      "short": "Kurz",
+      "short_plated": "Kurz, beplankt",
+      "side_detail": "Seitendetail",
+      "side_engines": "Seitentriebwerke",
+      "side_fins": "Seitenflossen",
+      "side_panel": "Seitenpaneel",
+      "side_panels": "Seitenpaneele",
+      "side_wings": "Seitenflügel",
+      "sides": "Seiten",
+      "skirting": "Schürze",
+      "slim": "Schmal",
+      "small_fins": "Kleine Flossen",
+      "snout": "Schnauze",
+      "sphere": "Kugel",
+      "spheres": "Kugeln",
+      "spine": "Rückgrat",
+      "spread": "Gespreizt",
+      "spread_wings": "Gespreizte Flügel",
+      "squid": "Tintenfisch",
+      "stacked": "Gestapelt",
+      "stepped": "Gestuft",
+      "sub_wings": "Nebenflügel",
+      "sweep": "Gepfeilt",
+      "tail": "Schwanz",
+      "tail_antenna": "Heckantenne",
+      "tall": "Hoch",
+      "tanks": "Tanks",
+      "thin_black": "Dünn, schwarz",
+      "thin_light": "Dünn, hell",
+      "thrusters": "Triebwerke",
+      "tip_lights": "Spitzenlichter",
+      "top": "Oben",
+      "top_fins": "Obere Flossen",
+      "top_flap": "Obere Klappe",
+      "top_jet": "Obere Düse",
+      "top_jets": "Obere Düsen",
+      "top_trunk": "Oberer Stamm",
+      "top_wing": "Oberer Flügel",
+      "top_wing_detail": "Detail des oberen Flügels",
+      "tower": "Turm",
+      "tower_head": "Turmspitze",
+      "under_the_thrusters": "Unter den Triebwerken",
+      "under_wing": "Unter dem Flügel",
+      "underside": "Unterseite",
+      "underwing": "Unterflügel",
+      "upper_containers": "Obere Container",
+      "upper_end_containers": "Obere Endcontainer",
+      "upper_plate": "Obere Platte",
+      "upper_row": "Obere Reihe",
+      "upper_tips": "Obere Spitzen",
+      "upper_wings": "Obere Flügel",
+      "wedge": "Keil",
+      "wedge_bridge": "Keilbrücke",
+      "white": "Weiß",
+      "wing_accessory": "Flügelzubehör",
+      "wing_engines": "Flügeltriebwerke",
+      "wing_length": "Flügellänge",
+      "wing_plates": "Flügelplatten",
+      "wing_set": "Flügelsatz",
+      "wing_tips": "Flügelspitzen",
+      "wings": "Flügel",
+      "with": "Mit",
+      "without": "Ohne"
+    }
+  },
+  "charts": {
+    "classesByWealth": "Multiwerkzeugklassen nach Wohlstand",
+    "roll": "Der Wurf",
+    "ringsTitle": "Im Vergleich zum Kern, 100",
+    "ringsAxis": "Lichtjahre vom Kern, äußerer Rand des Rings"
   }
 }

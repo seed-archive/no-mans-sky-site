@@ -18,7 +18,9 @@ import {
 export async function generateMetadata(): Promise<Metadata> {
   const language = await pageLanguage();
   return localMetadata(databasePath(), {
-    title: `${messageOf(language, "archive.browse")} — Seed Archive`,
+    title: messageOf(language, "meta.page", {
+      title: messageOf(language, "archive.browse"),
+    }),
     description: PAGE_KINDS.map((kind) =>
       messageOf(language, `kindLine.${kind}`),
     ).join(" "),

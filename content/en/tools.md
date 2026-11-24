@@ -6,7 +6,7 @@
 
 - [Sentinel Interceptors](/tools/interceptor-finder): put a Sentinel Interceptor together from every part the game can give it.
 - [Capital freighters](/tools/capital-freighter-finder) and [regular freighters](/tools/freighter-finder): every shape a freighter can take.
-- [Living ships](/tools/living-ship-finder) and [living frigates](/tools/living-frigate-finder): the shapes of a living ship and of a cosmic whale.
+- [Living ships](/tools/living-ship-finder) and [organic frigates](/tools/living-frigate-finder): the shapes of a living ship and of a cosmic whale.
 - [Starships](/tools/starship-finder): every shape of every ship type: exotic (the rare squid included), solar, Fighter, hauler, explorer, and shuttle.
 
 ## Your finds

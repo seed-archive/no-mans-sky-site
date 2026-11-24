@@ -11,6 +11,7 @@ import {
   paintTexture,
   toneAt,
 } from "@/components/archive/builder/stage";
+import { usePartText } from "@/components/archive/builder/partText";
 import { TILE } from "@/components/archive/builder/style";
 import type { PartGroup } from "@/lib/archive/builder/parts";
 import type { ShipModule } from "@/lib/archive/builder/ship";
@@ -128,6 +129,7 @@ export function PartTiles(props: {
 }) {
   const { ship, parts, core, assignment, group, value, title, onChange } =
     props;
+  const partText = usePartText();
   const canvases = useRef<Record<string, HTMLCanvasElement | null>>({});
   useTiles(ship, parts, core, assignment, group, canvases);
   return (
@@ -166,7 +168,7 @@ export function PartTiles(props: {
                 />
               ) : null}
             </Box>
-            {option.label}
+            {partText(option.label)}
           </ToggleButton>
         ))}
       </ToggleButtonGroup>

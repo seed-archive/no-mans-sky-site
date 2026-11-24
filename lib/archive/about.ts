@@ -1,3 +1,5 @@
+import { IntlMessageFormat } from "intl-messageformat";
+
 import stats from "@/lib/archive/about-stats.json";
 import { galaxyHref } from "@/lib/archive/galaxies";
 import { type Language, localPath } from "@/lib/i18n/languages";
@@ -5,6 +7,11 @@ import { BASE_PATH } from "@/lib/site";
 
 export { stats };
 
+// A message of the page's language: `messageOf` on the server, react-intl's
+// `formatMessage` in the browser, so this module reads no messages itself.
+export type Say = (id: string, values?: Record<string, string>) => string;
+
+// The messages `about.<word>` that name the very large.
 const WORDS: [number, string][] = [
   [1e12, "trillion"],
   [1e9, "billion"],
@@ -12,10 +19,12 @@ const WORDS: [number, string][] = [
 ];
 
 // Two significant digits, or words for the very large.
-export function amount(value: number) {
+export function amount(value: number, say: Say) {
   for (const [size, word] of WORDS) {
     if (value >= size) {
-      return `${Number((value / size).toPrecision(2))} ${word}`;
+      return say(`about.${word}`, {
+        n: String(Number((value / size).toPrecision(2))),
+      });
     }
   }
   if (value >= 10) {
@@ -33,8 +42,8 @@ export function share(value: number) {
 }
 
 // A share as "one in N", N with two significant digits at most.
-function oneIn(value: number) {
-  return amount(1 / value);
+function oneIn(value: number, say: Say) {
+  return amount(1 / value, say);
 }
 
 export const euclid = stats.euclid;
@@ -67,13 +76,27 @@ export const OWN_OFFERS =
   (euclid as { own_offers_per_system?: number }).own_offers_per_system ??
   stepOf(euclid.tools, "offers");
 
-const COUNT_WORDS = ["none", "one", "two", "three", "four", "five", "six"];
+// The most multitools a system page lists (the No Man's Sky generator's cap).
+const TOOL_CAP = 6;
 
 function bucket(histogram: Record<string, number>, keys: string[]) {
   return keys.reduce((sum, key) => sum + (histogram[key] ?? 0), 0);
 }
 
-function numbers(language: Language): Record<string, string> {
+// Each number of the page: the value a plural chooses its word by, and the
+// text the page prints for it.
+type Printed = { raw: number | null; shown: string };
+
+function numbers(language: Language, say: Say): Record<string, Printed> {
+  const counts: Record<string, number> = {
+    regions: stats.sample.regions,
+    otherRegions: stats.sample.regions_per_other_galaxy,
+    regionsCounted: stats.sample.regions_counted,
+    starsPerRegion: stats.sample.stars_per_region,
+    galaxyAcross: stats.galaxy.light_years_across,
+    galaxyThick: stats.galaxy.light_years_thick,
+    regionsInGalaxy: stats.galaxy.regions,
+  };
   const offers = stepOf(euclid.tools, "offers");
   const kept = stepOf(euclid.tools, "kept");
   const ships = stepOf(euclid.ships, "kept");
@@ -81,74 +104,118 @@ function numbers(language: Language): Record<string, string> {
   const secondsPerYear = 365.25 * 24 * 3600;
   const star = stats.star_of_the_show;
   const regular = stats.showcase.filter((row) => row.name !== star.galaxy);
+  const big = (value: number): Printed => ({
+    raw: value,
+    shown: amount(value, say),
+  });
+  const plain = (value: number): Printed => ({
+    raw: value,
+    shown: String(value),
+  });
+  const countWord = (n: number): Printed => ({
+    raw: n,
+    shown: say("about.countWord", { n: String(n) }),
+  });
+  const text = (shown: string): Printed => ({ raw: null, shown });
+  const shares = (value: number) => text(share(value));
+  const showcaseRegular = regular.reduce((sum, row) => sum + row.systems, 0);
   return {
-    regions: String(stats.sample.regions),
-    otherRegions: String(stats.sample.regions_per_other_galaxy),
-    regionsCounted: amount(stats.sample.regions_counted),
-    starsPerRegion: String(stats.sample.stars_per_region),
-    galaxyAcross: amount(stats.galaxy.light_years_across),
-    galaxyThick: amount(stats.galaxy.light_years_thick),
-    regionsInGalaxy: amount(stats.galaxy.regions),
-    yearsToLook: amount(stats.galaxy.systems / secondsPerYear),
-    yellowShare: share(euclid.star_colours.yellow),
-    offersPerSystem: amount(offers),
-    groundToolShare: share(
+    regions: plain(counts.regions),
+    otherRegions: plain(counts.otherRegions),
+    regionsCounted: big(counts.regionsCounted),
+    starsPerRegion: plain(counts.starsPerRegion),
+    galaxyAcross: big(counts.galaxyAcross),
+    galaxyThick: big(counts.galaxyThick),
+    regionsInGalaxy: big(counts.regionsInGalaxy),
+    yearsToLook: big(stats.galaxy.systems / secondsPerYear),
+    yellowShare: shares(euclid.star_colours.yellow),
+    offersPerSystem: big(offers),
+    groundToolShare: shares(
       1 - stepOf(euclid.tools, "sources") / stepOf(euclid.tools, "ground"),
     ),
-    groundShipShare: share(
+    groundShipShare: shares(
       1 - stepOf(euclid.ships, "sources") / stepOf(euclid.ships, "ground"),
     ),
-    touchingShare: share(euclid.tool_touching_share),
-    touchingOneIn: String(Math.round((1 - euclid.tool_touching_share) * 100)),
-    toolCap: "six",
-    toolsPerSystem: amount(kept),
-    shipsPerSystem: amount(ships),
-    toolRatio: amount(offers / kept),
-    royalOneIn: String(Math.round(1 / pillars.royal_share)),
-    planetTools: share(euclid.planet_shares.tool),
-    planetShips: share(euclid.planet_shares.ship),
-    toolPlacements: String(stats.grids.tool),
-    shipPlacements: String(stats.grids.ship),
-    squareShare: share(euclid.tool_figures.O),
-    squareOneIn: oneIn(pillars.square_share),
-    pistolPlacements: String(stats.whole_region.pistol_placements),
-    wrecksPerShip: amount(stepOf(euclid.ships, "connected") / ships),
-    interceptorAll: share(euclid.ship_hulls.interceptor),
-    interceptorKept: share(euclid.kept_ship_hulls.interceptor),
-    toolSystems: share(1 - euclid.system_shares.tool),
-    noShipSystems: share(1 - euclid.system_shares.ship),
-    shipsPerFinding: amount(euclid.per_finding_system.ships),
-    toolsPerFinding: amount(euclid.per_finding_system.tools),
-    fullOneIn: `one in ${oneIn(euclid.system_shares.full)}`,
+    touchingShare: shares(euclid.tool_touching_share),
+    touchingOneIn: plain(Math.round((1 - euclid.tool_touching_share) * 100)),
+    toolCap: countWord(TOOL_CAP),
+    toolsPerSystem: big(kept),
+    shipsPerSystem: big(ships),
+    toolRatio: big(offers / kept),
+    royalOneIn: plain(Math.round(1 / pillars.royal_share)),
+    planetTools: shares(euclid.planet_shares.tool),
+    planetShips: shares(euclid.planet_shares.ship),
+    toolPlacements: plain(stats.grids.tool),
+    shipPlacements: plain(stats.grids.ship),
+    squareShare: shares(euclid.tool_figures.O),
+    squareOneIn: {
+      raw: 1 / pillars.square_share,
+      shown: oneIn(pillars.square_share, say),
+    },
+    pistolPlacements: plain(stats.whole_region.pistol_placements),
+    wrecksPerShip: big(stepOf(euclid.ships, "connected") / ships),
+    interceptorAll: shares(euclid.ship_hulls.interceptor),
+    interceptorKept: shares(euclid.kept_ship_hulls.interceptor),
+    toolSystems: shares(1 - euclid.system_shares.tool),
+    noShipSystems: shares(1 - euclid.system_shares.ship),
+    shipsPerFinding: big(euclid.per_finding_system.ships),
+    toolsPerFinding: big(euclid.per_finding_system.tools),
+    fullOneIn: text(
+      say("numbers.oneIn", { n: oneIn(euclid.system_shares.full, say) }),
+    ),
     // The star's galaxy holds the star alone; the others hold the systems
     // without a square.
-    showcaseRegular: String(regular.reduce((sum, row) => sum + row.systems, 0)),
-    showcaseList: regular
-      .map((row) => {
-        const name = row.name.replace(" Galaxy", "");
-        const href = galaxyHref(name);
-        return href
-          ? `<a href="${BASE_PATH}${localPath(language, href)}">${name}</a>`
-          : name;
-      })
-      .join(", "),
-    showcaseGalaxies: COUNT_WORDS[regular.length] ?? String(regular.length),
-    starTool: star.tool,
-    starSystem: star.system,
-    starGalaxy: star.galaxy,
+    showcaseRegular: plain(showcaseRegular),
+    showcaseList: text(
+      new Intl.ListFormat(language, { type: "unit", style: "short" }).format(
+        regular.map((row) => {
+          const name = row.name.replace(" Galaxy", "");
+          const href = galaxyHref(name);
+          return href
+            ? `<a href="${BASE_PATH}${localPath(language, href)}">${name}</a>`
+            : name;
+        }),
+      ),
+    ),
+    showcaseGalaxies: countWord(regular.length),
+    starTool: text(star.tool),
+    starSystem: text(star.system),
+    starGalaxy: text(star.galaxy),
   };
 }
 
+// `{{name}}`, or `{{name, plural, one {# year} other {# years}}}` where a word
+// stands beside the number, as the guides write it (`fillStatistics`).
+const NUMBER = /\{\{(\w+)((?:,(?:[^{}]|\{[^{}]*\})*)?)\}\}/g;
+
 // Writes the numbers into the rendered text; a name it does not know stays
-// visible, so a typo in about.md shows on the page.
-export function fillNumbers(html: string, language: Language) {
-  const values = numbers(language);
-  return html.replace(/\{\{(\w+)\}\}/g, (found, name: string) =>
-    name in values ? values[name] : found,
-  );
+// visible, so a typo in about.md shows on the page. A plural is formatted
+// alone by intl-messageformat in the page's language, choosing by the bare
+// number, and `#` prints the number as the page prints it.
+export function fillNumbers(html: string, language: Language, say: Say) {
+  const values = numbers(language, say);
+  return html.replace(NUMBER, (found, name: string, rule: string) => {
+    const value = values[name];
+    if (!value) {
+      return found;
+    }
+    if (!rule) {
+      return value.shown;
+    }
+    if (value.raw === null) {
+      return found;
+    }
+    const shown = rule.replace(/#/g, "{shown}");
+    return String(
+      new IntlMessageFormat(`{${name}${shown}}`, language).format({
+        [name]: value.raw,
+        shown: value.shown,
+      }),
+    );
+  });
 }
 
-export function histogramRows() {
+export function histogramRows(say: Say) {
   const tools = euclid.tool_histogram as Record<string, number>;
   const ships = euclid.ship_histogram as Record<string, number>;
   const many = ["6", "7", "8", "9", "10", "11", "12"];
@@ -159,7 +226,7 @@ export function histogramRows() {
       ships: ships[key] ?? 0,
     })),
     {
-      label: "6 or more",
+      label: say("about.orMore", { n: many[0] }),
       tools: bucket(tools, many),
       ships: bucket(ships, many),
     },

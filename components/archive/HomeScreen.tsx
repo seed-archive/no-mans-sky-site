@@ -9,7 +9,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useQuery } from "@tanstack/react-query";
 import { Fragment, useEffect, type ReactNode } from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { useSnackbar } from "notistack";
 
 import Link from "@/components/archive/LocalLink";
@@ -93,6 +93,7 @@ function Confession(props: { html: string }) {
 function FeedBlock(props: { section: FeedSection; title: string }) {
   const { section, title } = props;
   const { enqueueSnackbar } = useSnackbar();
+  const intl = useIntl();
   const feed = useQuery({
     queryKey: ["feed", section],
     queryFn: async () => {
@@ -106,9 +107,11 @@ function FeedBlock(props: { section: FeedSection; title: string }) {
 
   useEffect(() => {
     if (feed.error instanceof Error) {
-      enqueueSnackbar(feed.error.message, { variant: "error" });
+      enqueueSnackbar(intl.formatMessage({ id: "archive.unavailable" }), {
+        variant: "error",
+      });
     }
-  }, [enqueueSnackbar, feed.error]);
+  }, [enqueueSnackbar, feed.error, intl]);
 
   return (
     <Stack spacing={1}>
