@@ -24,10 +24,14 @@ import { toolPath } from "@/lib/archive/paths";
 import type { GlobePlanet } from "@/lib/archive/read/globe";
 import { BASE_PATH } from "@/lib/site";
 
-// three.js is large and only this page needs it: it loads with the globe.
+// three.js is large and only this page needs it: it loads with the globe and its tiles.
 const Globe = dynamic(() => import("@seed-archive/globe/globe"), {
   ssr: false,
 });
+const Tiles = dynamic(
+  () => import("@seed-archive/globe-tiles/tiles").then((one) => one.Tiles),
+  { ssr: false },
+);
 
 // Space behind the globe, as the ship renders have it.
 const SPACE = "#161a20";
@@ -90,7 +94,9 @@ function usePlanet(client: GlobeClient | null, seed: string | null) {
     }
     let live = true;
     void Promise.all([
-      client.palette(seed),
+      import("@seed-archive/globe-tiles/client").then(({ palette }) =>
+        palette(client, seed),
+      ),
       client.call<number>("planetRadius", [seed]),
     ]).then(([palette, radius]) => {
       if (live) {
@@ -119,20 +125,6 @@ function Finder(props: { planets: GlobePlanet[]; planet: string | null }) {
   const asked = usePlanet(client, seed);
   // Medium first; the reader may raise it for detail or lower it to draw faster (the owner, 2026-11-24).
   const [samples, setSamples] = useState<Samples>(GRAPHICS.medium);
-  const surface = useMemo(
-    () =>
-      client && asked
-        ? {
-            kind: "tiles" as const,
-            client,
-            seed: asked.seed,
-            palette: asked.palette,
-            maxDepth: asked.maxDepth,
-            samples,
-          }
-        : null,
-    [client, asked, samples],
-  );
   const markers = useMemo<PointMarker[]>(
     () =>
       (planet?.points ?? []).map((point) => ({
@@ -175,9 +167,8 @@ function Finder(props: { planets: GlobePlanet[]; planet: string | null }) {
           overflow: "hidden",
         }}
       >
-        {surface ? (
+        {client && asked ? (
           <Globe
-            surface={surface}
             background={SPACE}
             markers={markers}
             onMarkerClick={(marker) => {
@@ -186,7 +177,16 @@ function Finder(props: { planets: GlobePlanet[]; planet: string | null }) {
                 router.push(href);
               }
             }}
-          />
+          >
+            {/* `asked` is kept in state, so its palette stays the same array until the planet changes. */}
+            <Tiles
+              client={client}
+              seed={asked.seed}
+              palette={asked.palette}
+              maxDepth={asked.maxDepth}
+              samples={samples}
+            />
+          </Globe>
         ) : (
           // The planet's palette and radius are still on their way; the package's own spinner takes over once
           // it draws.
