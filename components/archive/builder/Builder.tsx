@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { useSnackbar } from "notistack";
 import Alert from "@mui/material/Alert";
@@ -51,6 +51,12 @@ export function Builder(props: { ship: ShipModule }) {
   const [active, setActive] = useState(ship.groups[0].id);
   const [asked, setAsked] = useState(false);
   const [signIn, setSignIn] = useState(false);
+  // A load that failed (the parts, a picture) puts a notice with a reload in place
+  // of the builder; each reload mounts the builder again, and a failed load has
+  // left the picture cache (stage.ts), so it is asked again.
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const fail = useCallback(() => setFailed(true), []);
 
   const core = useMemo(
     () => (parts ? treeCore(parts, ship.groups) : null),
@@ -87,9 +93,39 @@ export function Builder(props: { ship: ShipModule }) {
 
   useEffect(() => {
     void fetch(`${ship.folder}/parts.json`)
-      .then((response) => response.json())
-      .then((value: Parts) => setParts(value));
-  }, [ship.folder]);
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`parts.json: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((value: Parts) => setParts(value))
+      .catch(fail);
+  }, [ship.folder, attempt, fail]);
+
+  if (failed) {
+    return (
+      <Card variant="outlined" sx={{ p: 2, bgcolor: SURFACE, color: INK }}>
+        <Alert
+          severity="error"
+          action={
+            <Button
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setFailed(false);
+                setAttempt((count) => count + 1);
+              }}
+            >
+              <FormattedMessage id="archive.builderReload" />
+            </Button>
+          }
+        >
+          <FormattedMessage id="archive.builderFailed" />
+        </Alert>
+      </Card>
+    );
+  }
 
   return (
     <Card variant="outlined" sx={{ p: 2, bgcolor: SURFACE, color: INK }}>
@@ -127,6 +163,7 @@ export function Builder(props: { ship: ShipModule }) {
         <Box sx={{ minHeight: 200 }}>
           {parts && core && assignment && group ? (
             <Ship
+              key={attempt}
               ship={ship}
               parts={parts}
               core={core}
@@ -134,6 +171,7 @@ export function Builder(props: { ship: ShipModule }) {
               active={group.id}
               painted={painted}
               onSelect={setActive}
+              onFail={fail}
             />
           ) : null}
         </Box>
@@ -153,6 +191,7 @@ export function Builder(props: { ship: ShipModule }) {
         </Stack>
         {group ? (
           <PartTiles
+            key={attempt}
             ship={ship}
             parts={parts}
             core={core}
@@ -163,6 +202,7 @@ export function Builder(props: { ship: ShipModule }) {
             group={group}
             value={choice[group.id]}
             title={names.get(group.id) ?? partText(group.title)}
+            onFail={fail}
             onChange={(option) => {
               if (core && assignment) {
                 setPicks(pick(core, assignment, group, option));

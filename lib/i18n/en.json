@@ -161,6 +161,8 @@
     "homeLead": "<b>Where is the best multitool, ship, or creature?</b> In the database below: every <tools>multitool</tools> and every <ships>crashed ship</ships> whose four supercharged slots at class S are adjacent, and every <creatures>creature</creatures> you can adopt whose three grades are S, each with the portal glyphs and coordinates to get there. The <guides>guides</guides> tell where each kind of item comes from, from the galaxy down to the planet; the newest, the <forsaken>Forsaken Trader</forsaken>, shows where to find Haunting Mementos. The <toolsPage>tools</toolsPage> build what the game builds: every <capital>capital freighter</capital> shape, every <interceptor>Sentinel Interceptor</interceptor>, and <lucky>How lucky am I?</lucky> scores an item you found yourself. <about>How it works</about> tells why only a few systems make the list.",
     "finderSearch": "Find a system",
     "searchRequestSoon": "Your request is recorded. Searching for a system is not built yet.",
+    "builderFailed": "The ship could not be loaded.",
+    "builderReload": "Reload",
     "finderColour": "Colour",
     "finderHull": "Hull colour",
     "finderTrim": "Trim colour",
