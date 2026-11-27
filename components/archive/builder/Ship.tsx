@@ -28,8 +28,11 @@ export function Ship(props: {
   active: string;
   painted: Painted | null;
   onSelect: (group: string) => void;
+  // A part or paint picture that failed to load.
+  onFail: () => void;
 }) {
-  const { ship, parts, core, assignment, active, painted, onSelect } = props;
+  const { ship, parts, core, assignment, active, painted, onSelect, onFail } =
+    props;
   const { folder } = ship;
   const intl = useIntl();
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -54,12 +57,8 @@ export function Ship(props: {
     if (!ship.paint) {
       return;
     }
-    void paintTexture(folder, ship.paint.tone)
-      .then(setTone)
-      .catch(() => {
-        // Without it the grey ship shows no plate shades.
-      });
-  }, [folder, ship.paint]);
+    void paintTexture(folder, ship.paint.tone).then(setTone).catch(onFail);
+  }, [folder, ship.paint, onFail]);
 
   useEffect(() => {
     let current = true;
@@ -69,13 +68,11 @@ export function Ship(props: {
           setStage(built);
         }
       })
-      .catch(() => {
-        // The last whole picture stays until the next pick asks again.
-      });
+      .catch(onFail);
     return () => {
       current = false;
     };
-  }, [folder, ship, parts, core, assignment]);
+  }, [folder, ship, parts, core, assignment, onFail]);
 
   useEffect(() => {
     if (painted === null) {
@@ -88,13 +85,11 @@ export function Ship(props: {
           setTexture(image);
         }
       })
-      .catch(() => {
-        // The ship stays grey until the next pick asks again.
-      });
+      .catch(onFail);
     return () => {
       current = false;
     };
-  }, [folder, painted]);
+  }, [folder, painted, onFail]);
 
   useEffect(() => {
     if (canvas.current && stage) {
