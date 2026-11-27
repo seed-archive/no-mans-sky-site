@@ -161,6 +161,8 @@
     "homeLead": "<b>¿Dónde está la mejor multiherramienta, nave o criatura?</b> En la base de datos de abajo: cada <tools>multiherramienta</tools> y cada <ships>nave accidentada</ships> cuyos cuatro espacios supercargados en la clase S son adyacentes, y cada <creatures>criatura</creatures> que puedes adoptar cuyos tres grados son S, cada una con los glifos de portal y las coordenadas para llegar. Las <guides>guías</guides> cuentan de dónde sale cada tipo de objeto, desde la galaxia hasta el planeta; la más reciente, la del <forsaken>comerciante abandonado</forsaken>, muestra dónde encontrar recuerdos inquietantes. Las <toolsPage>herramientas</toolsPage> construyen lo que construye el juego: cada forma de <capital>carguero capital</capital>, cada <interceptor>interceptor centinela</interceptor>, y <lucky>¿Qué suerte he tenido?</lucky> puntúa un objeto que hayas encontrado tú mismo. <about>Cómo funciona</about> explica por qué solo unos pocos sistemas entran en la lista.",
     "finderSearch": "Buscar un sistema",
     "searchRequestSoon": "Tu solicitud ha quedado registrada. La búsqueda de un sistema aún no está hecha.",
+    "builderFailed": "No se ha podido cargar la nave.",
+    "builderReload": "Recargar",
     "finderColour": "Color",
     "finderHull": "Color del casco",
     "finderTrim": "Color de los detalles",

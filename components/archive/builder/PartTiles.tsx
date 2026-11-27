@@ -34,6 +34,7 @@ function useTiles(
   assignment: Assignment | null,
   group: PartGroup,
   canvases: RefObject<Record<string, HTMLCanvasElement | null>>,
+  onFail: () => void,
 ) {
   useEffect(() => {
     if (!parts || !core || !assignment) {
@@ -57,63 +58,65 @@ function useTiles(
       ship.paint
         ? paintTexture(ship.folder, ship.paint.tone).catch(() => null)
         : null,
-    ]).then(([stages, texture]) => {
-      if (!current) {
-        return;
-      }
-      const { width, height } = parts;
-      const boxes = new Map<string, [number, number, number, number]>();
-      drawn.forEach((option, index) => {
-        const camera = option.mount ?? option.id;
-        let [left, top, right, bottom] = boxes.get(camera) ?? [
-          width,
-          height,
-          -1,
-          -1,
-        ];
-        stages[index].group.forEach((owner, at) => {
-          if (owner !== HIDDEN) {
-            const [x, y] = [at % width, Math.floor(at / width)];
-            [left, top] = [Math.min(left, x), Math.min(top, y)];
-            [right, bottom] = [Math.max(right, x), Math.max(bottom, y)];
-          }
-        });
-        boxes.set(camera, [left, top, right, bottom]);
-      });
-      drawn.forEach((option, index) => {
-        const canvas = canvases.current?.[option.id];
-        const context = canvas?.getContext("2d");
-        const [left, top, right, bottom] = boxes.get(
-          option.mount ?? option.id,
-        ) as [number, number, number, number];
-        if (!canvas || !context || right < 0) {
+    ])
+      .then(([stages, texture]) => {
+        if (!current) {
           return;
         }
-        const [across, down] = [right - left + 1, bottom - top + 1];
-        const stage = stages[index];
-        canvas.width = across;
-        canvas.height = down;
-        const image = context.createImageData(across, down);
-        for (let y = 0; y < down; y += 1) {
-          for (let x = 0; x < across; x += 1) {
-            const at = (top + y) * width + left + x;
-            const to = (y * across + x) * 4;
-            if (stage.group[at] !== HIDDEN) {
-              const value = stage.shade[at] * toneAt(stage, texture, at);
-              image.data[to] = value;
-              image.data[to + 1] = value * 0.62;
-              image.data[to + 2] = value * 0.36;
-              image.data[to + 3] = 255;
+        const { width, height } = parts;
+        const boxes = new Map<string, [number, number, number, number]>();
+        drawn.forEach((option, index) => {
+          const camera = option.mount ?? option.id;
+          let [left, top, right, bottom] = boxes.get(camera) ?? [
+            width,
+            height,
+            -1,
+            -1,
+          ];
+          stages[index].group.forEach((owner, at) => {
+            if (owner !== HIDDEN) {
+              const [x, y] = [at % width, Math.floor(at / width)];
+              [left, top] = [Math.min(left, x), Math.min(top, y)];
+              [right, bottom] = [Math.max(right, x), Math.max(bottom, y)];
+            }
+          });
+          boxes.set(camera, [left, top, right, bottom]);
+        });
+        drawn.forEach((option, index) => {
+          const canvas = canvases.current?.[option.id];
+          const context = canvas?.getContext("2d");
+          const [left, top, right, bottom] = boxes.get(
+            option.mount ?? option.id,
+          ) as [number, number, number, number];
+          if (!canvas || !context || right < 0) {
+            return;
+          }
+          const [across, down] = [right - left + 1, bottom - top + 1];
+          const stage = stages[index];
+          canvas.width = across;
+          canvas.height = down;
+          const image = context.createImageData(across, down);
+          for (let y = 0; y < down; y += 1) {
+            for (let x = 0; x < across; x += 1) {
+              const at = (top + y) * width + left + x;
+              const to = (y * across + x) * 4;
+              if (stage.group[at] !== HIDDEN) {
+                const value = stage.shade[at] * toneAt(stage, texture, at);
+                image.data[to] = value;
+                image.data[to + 1] = value * 0.62;
+                image.data[to + 2] = value * 0.36;
+                image.data[to + 3] = 255;
+              }
             }
           }
-        }
-        context.putImageData(image, 0, 0);
-      });
-    });
+          context.putImageData(image, 0, 0);
+        });
+      })
+      .catch(onFail);
     return () => {
       current = false;
     };
-  }, [ship, parts, core, assignment, group, canvases]);
+  }, [ship, parts, core, assignment, group, canvases, onFail]);
 }
 
 // The options of the open group, each a fixed tile of the part it picks.
@@ -126,12 +129,23 @@ export function PartTiles(props: {
   value: string | undefined;
   title: string;
   onChange: (option: string) => void;
+  // A part picture that failed to load.
+  onFail: () => void;
 }) {
-  const { ship, parts, core, assignment, group, value, title, onChange } =
-    props;
+  const {
+    ship,
+    parts,
+    core,
+    assignment,
+    group,
+    value,
+    title,
+    onChange,
+    onFail,
+  } = props;
   const partText = usePartText();
   const canvases = useRef<Record<string, HTMLCanvasElement | null>>({});
-  useTiles(ship, parts, core, assignment, group, canvases);
+  useTiles(ship, parts, core, assignment, group, canvases, onFail);
   return (
     <Stack spacing={1}>
       <Typography variant="subtitle2">{title}</Typography>
