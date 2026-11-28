@@ -13,6 +13,7 @@ import { FormattedMessage } from "react-intl";
 import { ArchiveBar, BAR_HEIGHT } from "@/components/archive/ArchiveBar";
 import { useText } from "@/components/archive/useText";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import game from "@/lib/archive/game.json";
 import { PAGE_KINDS } from "@/lib/archive/kinds";
 import statisticsMenu from "@/lib/archive/statistics-menu.json";
 import { kindPath, toolPath } from "@/lib/archive/paths";
@@ -173,6 +174,15 @@ export function ArchiveShell({ children }: PropsWithChildren) {
               ))}
             </Stack>
           ))}
+        </Container>
+        {/* The game version the section's data comes from (the owner, 2026-11-28), written by the generator. */}
+        <Container sx={{ mt: 3 }}>
+          <Typography variant="body2" color="text.secondary">
+            <FormattedMessage
+              id="archive.gameVersion"
+              values={{ version: game.gameVersion }}
+            />
+          </Typography>
         </Container>
       </Box>
     </Box>

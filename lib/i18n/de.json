@@ -3,6 +3,7 @@
     "support": "Das Archiv unterstützen",
     "title": "Seed Archive",
     "game": "No Man's Sky",
+    "gameVersion": "Spielversion {version}",
     "signOut": "Abmelden",
     "account": "Konto",
     "privacy": "Datenschutzerklärung",
