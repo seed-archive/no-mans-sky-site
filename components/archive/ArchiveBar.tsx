@@ -47,6 +47,17 @@ import { TOOL_GROUPS } from "@/lib/archive/tools";
 // scrolls below it.
 export const BAR_HEIGHT = { xs: 57, sm: 65 };
 
+// The drawer's levels by weight alone, one size for all, so a heading never reads
+// lighter than what it holds (the owner, 2026-11-28): a section (Database, Guides,
+// Quests, Tools), a group of guides or tools, a page.
+const SECTION_WEIGHT = 700;
+const GROUP_WEIGHT = 600;
+const PAGE_WEIGHT = 400;
+
+const levelText = (weight: number) => ({
+  primary: { sx: { fontWeight: weight } },
+});
+
 const DESKTOP = {
   display: { xs: "none", md: "inline-flex" },
   whiteSpace: "nowrap",
@@ -87,8 +98,14 @@ export function ArchiveBar() {
   const [guideGroup, setGuideGroup] = useState<string | null>(null);
   const toggleGroup = (next: string) =>
     setGuideGroup((open) => (open === next ? null : next));
-  // `indent`: the left padding of a link nested in a section.
-  const drawerLink = (href: string, id: string, indent?: number) => (
+  // `indent`: the left padding of a link nested in a section; `weight`: its
+  // level's font weight, a page's by default.
+  const drawerLink = (
+    href: string,
+    id: string,
+    indent?: number,
+    weight = PAGE_WEIGHT,
+  ) => (
     <ListItemButton
       key={href}
       component={Link}
@@ -96,7 +113,10 @@ export function ArchiveBar() {
       onClick={() => setDrawer(false)}
       sx={indent ? { pl: indent } : undefined}
     >
-      <ListItemText primary={<FormattedMessage id={id} />} />
+      <ListItemText
+        primary={<FormattedMessage id={id} />}
+        slotProps={levelText(weight)}
+      />
     </ListItemButton>
   );
 
@@ -176,6 +196,7 @@ export function ArchiveBar() {
                 >
                   <ListItemText
                     primary={<FormattedMessage id="archive.browse" />}
+                    slotProps={levelText(SECTION_WEIGHT)}
                   />
                 </ListItemButton>
               </ListItem>
@@ -208,6 +229,7 @@ export function ArchiveBar() {
                 >
                   <ListItemText
                     primary={<FormattedMessage id="archive.statistics" />}
+                    slotProps={levelText(SECTION_WEIGHT)}
                   />
                 </ListItemButton>
               </ListItem>
@@ -237,7 +259,10 @@ export function ArchiveBar() {
                       onClick={() => setDrawer(false)}
                       sx={{ pl: 4 }}
                     >
-                      <ListItemText primary={text(group.title)} />
+                      <ListItemText
+                        primary={text(group.title)}
+                        slotProps={levelText(GROUP_WEIGHT)}
+                      />
                     </ListItemButton>
                   </ListItem>,
                   <Collapse
@@ -259,16 +284,27 @@ export function ArchiveBar() {
                   </Collapse>,
                 ])}
               </Collapse>
-              {drawerLink(QUESTS_PATH, "archive.quests")}
+              {drawerLink(
+                QUESTS_PATH,
+                "archive.quests",
+                undefined,
+                SECTION_WEIGHT,
+              )}
               <ListItemButton onClick={() => toggleSection("tools")}>
                 <ListItemText
                   primary={<FormattedMessage id="archive.tools" />}
+                  slotProps={levelText(SECTION_WEIGHT)}
                 />
                 {section === "tools" ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
               <Collapse in={section === "tools"} unmountOnExit>
                 {TOOL_GROUPS.flatMap((group) => [
-                  drawerLink(toolGroupPath(group.slug), group.id, 4),
+                  drawerLink(
+                    toolGroupPath(group.slug),
+                    group.id,
+                    4,
+                    GROUP_WEIGHT,
+                  ),
                   ...group.tools.map((tool) =>
                     drawerLink(toolPath(tool.slug), tool.id, 6),
                   ),
